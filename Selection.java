@@ -18,6 +18,27 @@ import java.util.Map;
 public class Selection extends JPanel implements ActionListener{
   static Map <String,Boolean> traits = new HashMap<String,Boolean>();
   static private JButton submit;
+  static JFrame frame;
+
+  static int dragon = 0;
+  static int dark = 0;
+  static int steel = 0;
+  static int ghost = 0;
+  static int electric = 0;
+  static int psychic = 0;
+  static int ice = 0;
+  static int ground = 0;
+  static int rock = 0;
+  static int bug = 0;
+  static int grass = 0;
+  static int poison = 0;
+  static int flying = 0;
+  static int fire = 0;
+  static int fighting = 0;
+  static int water = 0;
+  static int normal = 0;
+  static int fairy=0;
+
 
   public Selection(String trait) {
     super(new BorderLayout());
@@ -46,21 +67,22 @@ public class Selection extends JPanel implements ActionListener{
   public void actionPerformed (ActionEvent e) {
     System.out.println(e.getActionCommand());
     String[] parts = e.getActionCommand().split(": ");
-    System.out.println(parts[0]);
-    System.out.println(parts[1]);
-    if(parts[1] == "Yes") {
-      System.out.println(parts[1]);
+    if(parts[1].equals("Yes")) {
       traits.put(parts[0], true);
-      System.out.println("Caboose");
-      System.out.println(traits.get(parts[0]));
     }
-    else if (parts[1] == "No") {
+    else if (parts[1].equals("No")) {
       traits.put(parts[0], false);
     }
   }
 
+  public void FigureOutType() {
+    for(String key: traits.keySet()) {
+}
+
+  }
+
   private static void createAndShowGUI() {
-    JFrame frame = new JFrame("Type Determination");
+    frame = new JFrame("Type Determination");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     traits.put("Calm", null);
     traits.put("Outgoing", null);
@@ -126,7 +148,7 @@ public class Selection extends JPanel implements ActionListener{
           }
         }
         if (allSet) {
-          System.out.println("We're going to Disney!");
+          FigureOutType();
         }
         else {
           System.out.println("Tartar sauce!");
