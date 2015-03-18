@@ -605,9 +605,25 @@ public class TypeDetermination extends JPanel implements ActionListener{
         fairy = fairy + 1;
       }
     }
-    int max=Math.max(dragon, steel, psychic, bug, ice, grass, water, fairy,
-        ghost, dark, fire, normal, rock, ground, flying, poison, electric,
-        fighting);
+    int max = 0;
+    max = Math.max(max, dragon);
+    max = Math.max(max, steel);
+    max = Math.max(max, psychic);
+    max = Math.max(max, bug);
+    max = Math.max(max, ice);
+    max = Math.max(max, grass);
+    max = Math.max(max, fairy);
+    max = Math.max(max, ghost);
+    max = Math.max(max, dark);
+    max = Math.max(max, fire);
+    max = Math.max(max, normal);
+    max = Math.max(max, rock);
+    max = Math.max(max, ground);
+    max = Math.max(max, flying);
+    max = Math.max(max, poison);
+    max = Math.max(max, electric);
+    max = Math.max(max, fighting);
+
     int numberMax = 0;
     boolean dragonVer = false;
     boolean steelVer = false;
@@ -758,24 +774,25 @@ public class TypeDetermination extends JPanel implements ActionListener{
       else if (fairyVer) {
         System.out.println("You're a Fairy type!");
       }
-      System.out.println("Normal: " + normal);
-      System.out.println("Grass: " + grass);
-      System.out.println("Fire: " + fire);
-      System.out.println("Water: " + water);
-      System.out.println("Fighting: " + fighting);
-      System.out.println("Flying: " + flying);
-      System.out.println("Poison: " + poison);
-      System.out.println("Ground: " + ground);
-      System.out.println("Rock: " + rock);
-      System.out.println("Bug: " + bug);
-      System.out.println("Ghost: " + ghost);
-      System.out.println("Electric: " + electric);
-      System.out.println("Psychic: " + psychic);
-      System.out.println("Ice: " + ice);
-      System.out.println("Dragon: " + dragon);
-      System.out.println("Dark: " + dark);
-      System.out.println("Steel: " + steel);
-      System.out.println("Fairy: " + fairy);
+    }
+    System.out.println("Normal: " + normal);
+    System.out.println("Grass: " + grass);
+    System.out.println("Fire: " + fire);
+    System.out.println("Water: " + water);
+    System.out.println("Fighting: " + fighting);
+    System.out.println("Flying: " + flying);
+    System.out.println("Poison: " + poison);
+    System.out.println("Ground: " + ground);
+    System.out.println("Rock: " + rock);
+    System.out.println("Bug: " + bug);
+    System.out.println("Ghost: " + ghost);
+    System.out.println("Electric: " + electric);
+    System.out.println("Psychic: " + psychic);
+    System.out.println("Ice: " + ice);
+    System.out.println("Dragon: " + dragon);
+    System.out.println("Dark: " + dark);
+    System.out.println("Steel: " + steel);
+    System.out.println("Fairy: " + fairy);
   }
 
   private static void createAndShowGUI() {
@@ -828,7 +845,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
     traits.put("Mischevious/Naughty", null);
     JPanel selections = new JPanel(new GridLayout(0, 1));
     for(String key: traits.keySet()) {
-      selections.add(new Selection(key));
+      selections.add(new TypeDetermination(key));
     }
     submit = new JButton("Submit");
     submit.setBounds(80, 215, 100, 20);
@@ -845,10 +862,25 @@ public class TypeDetermination extends JPanel implements ActionListener{
           }
         }
         if (allSet) {
+          dragon = 0;
+          dark = 0;
+          steel = 0;
+          ghost = 0;
+          electric = 0;
+          psychic = 0;
+          ice = 0;
+          ground = 0;
+          rock = 0;
+          bug = 0;
+          grass = 0;
+          poison = 0;
+          flying = 0;
+          fire = 0;
+          fighting = 0;
+          water = 0;
+          normal = 0;
+          fairy=0;
           FigureOutType();
-        }
-        else {
-          System.out.println("Tartar sauce!");
         }
       }
     });
