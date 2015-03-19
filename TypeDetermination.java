@@ -717,6 +717,9 @@ public class TypeDetermination extends JPanel implements ActionListener{
     }
     JLabel type;
     frame.setVisible(false);
+    numberMax = 2;
+    grassVer = true;
+    normalVer = true;
     JPanel typePanel = new JPanel(new GridLayout(0, 1));
     if(numberMax == 1) {
       if (dragonVer) {
@@ -846,22 +849,54 @@ public class TypeDetermination extends JPanel implements ActionListener{
         typePanel.add(type);
       }
     } else {
-      if (normalVer) {
-        JButton normalSel = new JButton("A rather friendly or intelligent" +
+        normalVer = true;
+        grassVer = true;
+        if (normalVer) {
+          JButton normalSel = new JButton("A rather friendly or intelligent" +
            " individual that likes to make people smile or someone who doesn't"+
-          " really have a set, definable personality (is their own person)");
-        normalSel.setBounds(80, 215, 100, 20);
-        typePanel.add(normalSel);
-        normalSel.addActionListener(new ActionListener() {
-          @Override 
-          public void actionPerformed(ActionEvent e) {
-            frame = newJFrame("NORMAL");
-            ImageIcon typePic = new ImageIcon("images/Normal.png");
-            type = new JLabel("You're a Normal type!", typePic,
-              JLabel.CENTER);
-          }
-      }
-    });
+            " really have a set, definable personality (is their own person)");
+          normalSel.setBounds(80, 215, 100, 20);
+          typePanel.add(normalSel);
+          normalSel.addActionListener(new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e) {
+              frame.setVisible(false);
+              frame = new JFrame("NORMAL");
+              ImageIcon typePic = new ImageIcon("images/Normal.png");
+              JLabel type = new JLabel("You're a Normal type!", typePic,
+                JLabel.CENTER);
+              JPanel typePanel = new JPanel(new GridLayout(0, 1));
+              typePanel.add(type);
+              frame.setContentPane(typePanel);
+              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+              frame.pack();
+              frame.setVisible(true);
+            }
+          });
+        }
+        if (grassVer) {
+          JButton grassSel = new JButton("A nurturing or caring individual who"+
+            " puts friends and family before themselves but may not get" +
+            " thanks in return");
+          grassSel.setBounds(80, 215, 100, 20);
+          typePanel.add(grassSel);
+          grassSel.addActionListener(new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e) {
+              frame.setVisible(false);
+              frame = new JFrame("GRASS");
+              ImageIcon typePic = new ImageIcon("images/Grass.png");
+              JLabel type = new JLabel("You're a Grass type!", typePic,
+                JLabel.CENTER);
+              JPanel typePanel = new JPanel(new GridLayout(0, 1));
+              typePanel.add(type);
+              frame.setContentPane(typePanel);
+              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+              frame.pack();
+              frame.setVisible(true);
+            }
+          });
+        }
     }
     frame.setContentPane(typePanel);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
