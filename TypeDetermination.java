@@ -715,66 +715,158 @@ public class TypeDetermination extends JPanel implements ActionListener{
       fightingVer = true;
       numberMax += 1;
     }
-
+    JLabel type;
+    frame.setVisible(false);
+    JPanel typePanel = new JPanel(new GridLayout(0, 1));
     if(numberMax == 1) {
       if (dragonVer) {
         System.out.println("You're a Dragon type!");
+        frame = new JFrame("DRAGON");
+        ImageIcon typePic = new ImageIcon("images/Dragon.png");
+        type = new JLabel("You're a Dragon type!", typePic, JLabel.CENTER);
+        typePanel.add(type);
       }
       else if (normalVer) {
         System.out.println("You're a Normal type!");
+        frame = new JFrame("NORMAL");
+        ImageIcon typePic = new ImageIcon("images/Normal.png");
+        type = new JLabel("You're a Normal type!", typePic, JLabel.CENTER);
+        typePanel.add(type);
       }
       else if (grassVer) {
         System.out.println("You're a Grass type!");
+        frame = new JFrame("GRASS");
+        ImageIcon typePic = new ImageIcon("images/Grass.png");
+        type = new JLabel("You're a Grass type!", typePic, JLabel.CENTER);
+        typePanel.add(type);
       }
       else if (fireVer) {
         System.out.println("You're a Fire type!");
+        frame = new JFrame("FIRE");
+        ImageIcon typePic = new ImageIcon("images/Fire.png");
+        type = new JLabel("You're a Fire type!", typePic, JLabel.CENTER);
+        typePanel.add(type);
       }
       else if (waterVer) {
         System.out.println("You're a Water type!");
+        frame = new JFrame("WATER");
+        ImageIcon typePic = new ImageIcon("images/Water.png");
+        type = new JLabel("You're a Water type!", typePic, JLabel.CENTER);
+        typePanel.add(type);
       }
       else if (fightingVer) {
         System.out.println("You're a Fighting type!");
+        frame = new JFrame("FIGHTING");
+        ImageIcon typePic = new ImageIcon("images/Fighting.png");
+        type = new JLabel("You're a Fighting type!", typePic, JLabel.CENTER);
+        typePanel.add(type);
       }
       else if (flyingVer) {
         System.out.println("You're a Flying type!");
+        frame = new JFrame("FLYING");
+        ImageIcon typePic = new ImageIcon("images/Flying.png");
+        type = new JLabel("You're a Flying type!", typePic, JLabel.CENTER);
+        typePanel.add(type);
       }
       else if (poisonVer) {
         System.out.println("You're a Poison type!");
+        frame = new JFrame("POISON");
+        ImageIcon typePic = new ImageIcon("images/Poison.png");
+        type = new JLabel("You're a Poison type!", typePic, JLabel.CENTER);
+        typePanel.add(type);
       }
       else if (groundVer) {
         System.out.println("You're a Ground type!");
+        frame = new JFrame("GROUND");
+        ImageIcon typePic = new ImageIcon("images/Ground.png");
+        type = new JLabel("You're a Ground type!", typePic, JLabel.CENTER);
+        typePanel.add(type);
       }
       else if (rockVer) {
         System.out.println("You're a Rock type!");
+        frame = new JFrame("ROCK");
+        ImageIcon typePic = new ImageIcon("images/Rock.png");
+        type = new JLabel("You're a Rock type!", typePic, JLabel.CENTER);
+        typePanel.add(type);
       }
       else if (bugVer) {
         System.out.println("You're a Bug type!");
+        frame = new JFrame("BUG");
+        ImageIcon typePic = new ImageIcon("images/Bug.png");
+        type = new JLabel("You're a Bug type!", typePic, JLabel.CENTER);
+        typePanel.add(type);
       }
       else if (ghostVer) {
         System.out.println("You're a Ghost type!");
+        frame = new JFrame("GHOST");
+        ImageIcon typePic = new ImageIcon("images/Ghost.png");
+        type = new JLabel("You're a Ghost type!", typePic, JLabel.CENTER);
+        typePanel.add(type);
       }
       else if (electricVer) {
         System.out.println("You're an Electric type!");
+        frame = new JFrame("ELECTRIC");
+        ImageIcon typePic = new ImageIcon("images/Electric.png");
+        type = new JLabel("You're an Electric type!", typePic, JLabel.CENTER);
+        typePanel.add(type);
       }
       else if (psychicVer) {
         System.out.println("You're a Psychic type!");
+        frame = new JFrame("PSYCHIC");
+        ImageIcon typePic = new ImageIcon("images/Psychic.png");
+        type = new JLabel("You're a Psychic type!", typePic, JLabel.CENTER);
+        typePanel.add(type);
       }
       else if (iceVer) {
         System.out.println("You're an Ice type!");
-      }
-      else if (dragonVer) {
-        System.out.println("You're a Dragon type!");
+        frame = new JFrame("ICE");
+        ImageIcon typePic = new ImageIcon("images/Ice.png");
+        type = new JLabel("You're an Ice type!", typePic, JLabel.CENTER);
+        typePanel.add(type);
       }
       else if (darkVer) {
         System.out.println("You're a Dark type!");
+        frame = new JFrame("DARK");
+        ImageIcon typePic = new ImageIcon("images/Dark.png");
+        type = new JLabel("You're a Dark type!", typePic, JLabel.CENTER);
+        typePanel.add(type);
       }
       else if (steelVer) {
         System.out.println("You're a Steel type!");
+        frame = new JFrame("STEEL");
+        ImageIcon typePic = new ImageIcon("images/Steel.png");
+        type = new JLabel("You're a Steel type!", typePic, JLabel.CENTER);
+        typePanel.add(type);
       }
       else if (fairyVer) {
         System.out.println("You're a Fairy type!");
+        frame = new JFrame("FAIRY");
+        ImageIcon typePic = new ImageIcon("images/Fairy.png");
+        type = new JLabel("You're a Fairy type!", typePic, JLabel.CENTER);
+        typePanel.add(type);
       }
+    } else {
+      if (normalVer) {
+        JButton normalSel = new JButton("A rather friendly or intelligent" +
+           " individual that likes to make people smile or someone who doesn't"+
+          " really have a set, definable personality (is their own person)");
+        normalSel.setBounds(80, 215, 100, 20);
+        typePanel.add(normalSel);
+        normalSel.addActionListener(new ActionListener() {
+          @Override 
+          public void actionPerformed(ActionEvent e) {
+            frame = newJFrame("NORMAL");
+            ImageIcon typePic = new ImageIcon("images/Normal.png");
+            type = new JLabel("You're a Normal type!", typePic,
+              JLabel.CENTER);
+          }
+      }
+    });
     }
+    frame.setContentPane(typePanel);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.pack();
+    frame.setVisible(true);
     System.out.println("Normal: " + normal);
     System.out.println("Grass: " + grass);
     System.out.println("Fire: " + fire);
