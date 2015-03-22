@@ -717,9 +717,6 @@ public class TypeDetermination extends JPanel implements ActionListener{
     }
     JLabel type;
     frame.setVisible(false);
-    numberMax = 2;
-    grassVer = true;
-    normalVer = true;
     JPanel typePanel = new JPanel(new GridLayout(0, 1));
     if(numberMax == 1) {
       if (dragonVer) {
@@ -849,8 +846,6 @@ public class TypeDetermination extends JPanel implements ActionListener{
         typePanel.add(type);
       }
     } else {
-        normalVer = true;
-        grassVer = true;
         if (normalVer) {
           JButton normalSel = new JButton("A rather friendly or intelligent" +
            " individual that likes to make people smile or someone who doesn't"+
@@ -887,6 +882,372 @@ public class TypeDetermination extends JPanel implements ActionListener{
               frame = new JFrame("GRASS");
               ImageIcon typePic = new ImageIcon("images/Grass.png");
               JLabel type = new JLabel("You're a Grass type!", typePic,
+                JLabel.CENTER);
+              JPanel typePanel = new JPanel(new GridLayout(0, 1));
+              typePanel.add(type);
+              frame.setContentPane(typePanel);
+              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+              frame.pack();
+              frame.setVisible(true);
+            }
+          });
+        }
+        if (fireVer) {
+          JButton fireSel = new JButton("Either a deeply passionate soul who"+
+              " loves to feel the rush of emotions and is in tune with their" +
+             " \"soul\" or a stereotypical \"bad boy/girl\"");
+          fireSel.setBounds(80, 215, 100, 20);
+          typePanel.add(fireSel);
+          fireSel.addActionListener(new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e) {
+              frame.setVisible(false);
+              frame = new JFrame("FIRE");
+              ImageIcon typePic = new ImageIcon("images/Fire.png");
+              JLabel type = new JLabel("You're a Fire type!", typePic,
+                JLabel.CENTER);
+              JPanel typePanel = new JPanel(new GridLayout(0, 1));
+              typePanel.add(type);
+              frame.setContentPane(typePanel);
+              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+              frame.pack();
+              frame.setVisible(true);
+            }
+          });
+        }
+        if (waterVer) {
+          JButton waterSel = new JButton("A normal, every day person who has" +
+             " a distinct personality or ability that makes him/her somewhat" +
+            " interesting and is generally very pleasant and fun to be around");
+          waterSel.setBounds(80, 215, 100, 20);
+          typePanel.add(waterSel);
+          waterSel.addActionListener(new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e) {
+              frame.setVisible(false);
+              frame = new JFrame("WATER");
+              ImageIcon typePic = new ImageIcon("images/Water.png");
+              JLabel type = new JLabel("You're a Water type!", typePic,
+                JLabel.CENTER);
+              JPanel typePanel = new JPanel(new GridLayout(0, 1));
+              typePanel.add(type);
+              frame.setContentPane(typePanel);
+              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+              frame.pack();
+              frame.setVisible(true);
+            }
+          });
+        }
+        if (fightingVer) {
+          JButton fightingSel = new JButton("An athlete who is highly" +
+              " competitive and aggressive and could probably do rather well" +
+             " in a fight or competition");
+          fightingSel.setBounds(80, 215, 100, 20);
+          typePanel.add(fightingSel);
+          fightingSel.addActionListener(new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e) {
+              frame.setVisible(false);
+              frame = new JFrame("FIGHTING");
+              ImageIcon typePic = new ImageIcon("images/Fighting.png");
+              JLabel type = new JLabel("You're a Fighting type!", typePic,
+                JLabel.CENTER);
+              JPanel typePanel = new JPanel(new GridLayout(0, 1));
+              typePanel.add(type);
+              frame.setContentPane(typePanel);
+              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+              frame.pack();
+              frame.setVisible(true);
+            }
+          });
+        }
+        if (flyingVer) {
+          JButton flyingSel = new JButton("A little bit of a daredevil who" +
+             " isn't afraid to try or experience new things but has enough" +
+            " common sense not to do anything self-endangering");
+          flyingSel.setBounds(80, 215, 100, 20);
+          typePanel.add(flyingSel);
+          flyingSel.addActionListener(new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e) {
+              frame.setVisible(false);
+              frame = new JFrame("FLYING");
+              ImageIcon typePic = new ImageIcon("images/Flying.png");
+              JLabel type = new JLabel("You're a Flying type!", typePic,
+                JLabel.CENTER);
+              JPanel typePanel = new JPanel(new GridLayout(0, 1));
+              typePanel.add(type);
+              frame.setContentPane(typePanel);
+              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+              frame.pack();
+              frame.setVisible(true);
+            }
+          });
+        }
+        if (poisonVer) {
+          JButton poisonSel = new JButton("Someone who has very few friends" + 
+             " and generally is disliked because people find him/her annoying" +
+            " or just don't understand him/her");
+          poisonSel.setBounds(80, 215, 100, 20);
+          typePanel.add(poisonSel);
+          poisonSel.addActionListener(new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e) {
+              frame.setVisible(false);
+              frame = new JFrame("POISON");
+              ImageIcon typePic = new ImageIcon("images/Poison.png");
+              JLabel type = new JLabel("You're a Poison type!", typePic,
+                JLabel.CENTER);
+              JPanel typePanel = new JPanel(new GridLayout(0, 1));
+              typePanel.add(type);
+              frame.setContentPane(typePanel);
+              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+              frame.pack();
+              frame.setVisible(true);
+            }
+          });
+        }
+        if (groundVer) {
+          JButton groundSel = new JButton("A down-to-earth individual who" +
+             " likes living a simple life and helps those who need his/her" +
+            " help");
+          groundSel.setBounds(80, 215, 100, 20);
+          typePanel.add(groundSel);
+          groundSel.addActionListener(new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e) {
+              frame.setVisible(false);
+              frame = new JFrame("GROUND");
+              ImageIcon typePic = new ImageIcon("images/Ground.png");
+              JLabel type = new JLabel("You're a Ground type!", typePic,
+                JLabel.CENTER);
+              JPanel typePanel = new JPanel(new GridLayout(0, 1));
+              typePanel.add(type);
+              frame.setContentPane(typePanel);
+              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+              frame.pack();
+              frame.setVisible(true);
+            }
+          });
+        }
+        if (rockVer) {
+          JButton rockSel = new JButton("Not exactly the brightest bulb in" +
+             " the bunch, but is either physically strong or has the" +
+            " willpower to stand up for what they believe in");
+          rockSel.setBounds(80, 215, 100, 20);
+          typePanel.add(rockSel);
+          rockSel.addActionListener(new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e) {
+              frame.setVisible(false);
+              frame = new JFrame("ROCK");
+              ImageIcon typePic = new ImageIcon("images/Rock.png");
+              JLabel type = new JLabel("You're a Rock type!", typePic,
+                JLabel.CENTER);
+              JPanel typePanel = new JPanel(new GridLayout(0, 1));
+              typePanel.add(type);
+              frame.setContentPane(typePanel);
+              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+              frame.pack();
+              frame.setVisible(true);
+            }
+          });
+        }
+        if (bugVer) {
+          JButton bugSel = new JButton("A huge nerd who has a particular" +
+             " obsession or interest and may be picked on by their peers" +
+            " (someone with Asperger's basically)");
+          bugSel.setBounds(80, 215, 100, 20);
+          typePanel.add(bugSel);
+          bugSel.addActionListener(new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e) {
+              frame.setVisible(false);
+              frame = new JFrame("BUG");
+              ImageIcon typePic = new ImageIcon("images/Bug.png");
+              JLabel type = new JLabel("You're a Bug type!", typePic,
+                JLabel.CENTER);
+              JPanel typePanel = new JPanel(new GridLayout(0, 1));
+              typePanel.add(type);
+              frame.setContentPane(typePanel);
+              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+              frame.pack();
+              frame.setVisible(true);
+            }
+          });
+        }
+        if (ghostVer) {
+          JButton ghostSel = new JButton("An introverted individual who likes" +
+             " to let his/her imagination run free and/or put their emotions" +
+            " into a form of art");
+          ghostSel.setBounds(80, 215, 100, 20);
+          typePanel.add(ghostSel);
+          ghostSel.addActionListener(new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e) {
+              frame.setVisible(false);
+              frame = new JFrame("GHOST");
+              ImageIcon typePic = new ImageIcon("images/Ghost.png");
+              JLabel type = new JLabel("You're a Ghost type!", typePic,
+                JLabel.CENTER);
+              JPanel typePanel = new JPanel(new GridLayout(0, 1));
+              typePanel.add(type);
+              frame.setContentPane(typePanel);
+              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+              frame.pack();
+              frame.setVisible(true);
+            }
+          });
+        }
+        if (electricVer) {
+          JButton electricSel = new JButton("An energetic and extraverted" +
+             " person who tends to smile and greet people, and some find a" +
+            " little hyperactive");
+          electricSel.setBounds(80, 215, 100, 20);
+          typePanel.add(electricSel);
+          electricSel.addActionListener(new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e) {
+              frame.setVisible(false);
+              frame = new JFrame("ELECTRIC");
+              ImageIcon typePic = new ImageIcon("images/Electric.png");
+              JLabel type = new JLabel("You're an Electric type!", typePic,
+                JLabel.CENTER);
+              JPanel typePanel = new JPanel(new GridLayout(0, 1));
+              typePanel.add(type);
+              frame.setContentPane(typePanel);
+              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+              frame.pack();
+              frame.setVisible(true);
+            }
+          });
+        }
+        if (psychicVer) {
+          JButton psychicSel = new JButton("A very intelligent human being" +
+             " who has the desire to learn many things but may be a little" +
+            " vain and self-centered");
+          psychicSel.setBounds(80, 215, 100, 20);
+          typePanel.add(psychicSel);
+          psychicSel.addActionListener(new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e) {
+              frame.setVisible(false);
+              frame = new JFrame("PSYCHIC");
+              ImageIcon typePic = new ImageIcon("images/Psychic.png");
+              JLabel type = new JLabel("You're a Psychic type!", typePic,
+                JLabel.CENTER);
+              JPanel typePanel = new JPanel(new GridLayout(0, 1));
+              typePanel.add(type);
+              frame.setContentPane(typePanel);
+              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+              frame.pack();
+              frame.setVisible(true);
+            }
+          });
+        }
+        if (iceVer) {
+          JButton iceSel = new JButton("A dreamy and mysterious person who" +
+             " many fall for or admire but don't understand, can be artistic");
+          iceSel.setBounds(80, 215, 100, 20);
+          typePanel.add(iceSel);
+          iceSel.addActionListener(new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e) {
+              frame.setVisible(false);
+              frame = new JFrame("ICE");
+              ImageIcon typePic = new ImageIcon("images/Ice.png");
+              JLabel type = new JLabel("You're an Ice type!", typePic,
+                JLabel.CENTER);
+              JPanel typePanel = new JPanel(new GridLayout(0, 1));
+              typePanel.add(type);
+              frame.setContentPane(typePanel);
+              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+              frame.pack();
+              frame.setVisible(true);
+            }
+          });
+        }
+        if (dragonVer) {
+          JButton dragonSel = new JButton("A wise or strong person (possibly" +
+             " a leader) who has the potential of becoming famous or great at" +
+            " what they do");
+          dragonSel.setBounds(80, 215, 100, 20);
+          typePanel.add(dragonSel);
+          dragonSel.addActionListener(new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e) {
+              frame.setVisible(false);
+              frame = new JFrame("DRAGON");
+              ImageIcon typePic = new ImageIcon("images/Dragon.png");
+              JLabel type = new JLabel("You're a Dragon type!", typePic,
+                JLabel.CENTER);
+              JPanel typePanel = new JPanel(new GridLayout(0, 1));
+              typePanel.add(type);
+              frame.setContentPane(typePanel);
+              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+              frame.pack();
+              frame.setVisible(true);
+            }
+          });
+        }
+        if (darkVer) {
+          JButton darkSel = new JButton("A rather nasty bully or jerk who is" +
+             " either intelligent and condescending to those less intelligent" +
+            " or makes up for it with brute force");
+          darkSel.setBounds(80, 215, 100, 20);
+          typePanel.add(darkSel);
+          darkSel.addActionListener(new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e) {
+              frame.setVisible(false);
+              frame = new JFrame("DARK");
+              ImageIcon typePic = new ImageIcon("images/Dark.png");
+              JLabel type = new JLabel("You're a Dark type!", typePic,
+                JLabel.CENTER);
+              JPanel typePanel = new JPanel(new GridLayout(0, 1));
+              typePanel.add(type);
+              frame.setContentPane(typePanel);
+              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+              frame.pack();
+              frame.setVisible(true);
+            }
+          });
+        }
+        if (steelVer) {
+          JButton steelSel = new JButton("A somewhat stoic or emotionless" +
+             " individual who tries to keep their problems or worries to" +
+            " themselves");
+          steelSel.setBounds(80, 215, 100, 20);
+          typePanel.add(steelSel);
+          steelSel.addActionListener(new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e) {
+              frame.setVisible(false);
+              frame = new JFrame("STEEL");
+              ImageIcon typePic = new ImageIcon("images/Steel.png");
+              JLabel type = new JLabel("You're a Steel type!", typePic,
+                JLabel.CENTER);
+              JPanel typePanel = new JPanel(new GridLayout(0, 1));
+              typePanel.add(type);
+              frame.setContentPane(typePanel);
+              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+              frame.pack();
+              frame.setVisible(true);
+            }
+          });
+        }
+        if (fairyVer) {
+          JButton fairySel = new JButton("A playful and adventurous" +
+             " child-at-heart who acts in a strange and whimisical manner");
+          fairySel.setBounds(80, 215, 100, 20);
+          typePanel.add(fairySel);
+          fairySel.addActionListener(new ActionListener() {
+            @Override 
+            public void actionPerformed(ActionEvent e) {
+              frame.setVisible(false);
+              frame = new JFrame("FAIRY");
+              ImageIcon typePic = new ImageIcon("images/Fairy.png");
+              JLabel type = new JLabel("You're a Fairy type!", typePic,
                 JLabel.CENTER);
               JPanel typePanel = new JPanel(new GridLayout(0, 1));
               typePanel.add(type);
