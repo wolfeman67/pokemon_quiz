@@ -725,6 +725,8 @@ public class TypeDetermination extends JPanel implements ActionListener{
         ImageIcon typePic = new ImageIcon("images/Dragon.png");
         type = new JLabel("You're a Dragon type!", typePic, JLabel.CENTER);
         typePanel.add(type);
+        String[] args = {};
+        DragonTypeQuizGUI.main(args);
       }
       else if (normalVer) {
         System.out.println("You're a Normal type!");

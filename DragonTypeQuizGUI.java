@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.lang.Math;
 import javax.swing.*;
 import java.awt.*;
@@ -10,55 +12,120 @@ import static java.lang.System.*;
 public class DragonTypeQuizGUI extends JPanel
 { static JFrame dragonFrame;
   static JPanel dragonPanel;
+  static Queue<Question> questions;
   static String question;
   static boolean cont = false;
   static ArrayList<String> thoseInAgreement = new ArrayList<String>();
   static ArrayList<String> thoseInDenial = new ArrayList<String>();
   static ArrayList<String> dragonPokemon = new ArrayList<String>();
    public DragonTypeQuizGUI() {
-     super(new BorderLayout());
+     super(new GridLayout(0,1));
+     System.out.println(questions.size());
+     Question dragon = questions.poll();
+     question = dragon.getQuestion();
+     thoseInAgreement = dragon.getYes();
+     thoseInDenial = dragon.getNo();
+     System.out.println("FLOOP");
      JButton yes = new JButton("Yes");
      JButton no = new JButton("No");
 
-     JPanel conflictingInterests = new JPanel(new BorderLayout());
-     conflictingInterests.add(yes, BorderLayout.WEST);
-     conflictingInterests.add(no, BorderLayout.EAST);
+     JPanel conflictingInterests = new JPanel(new GridLayout(1,0));
+     conflictingInterests.add(yes);
+     conflictingInterests.add(no);
 
-     JLabel _question = new JLabel(question);
+     JLabel questionLabel = new JLabel(question, SwingConstants.CENTER);
+     System.out.println("GOOP");
      yes.addActionListener(new ActionListener() {                     
        @Override                                                            
        public void actionPerformed(ActionEvent e) {
          for(int i = 0; i < thoseInDenial.size(); i++) {
+           System.out.println(thoseInDenial.get(i));
            dragonPokemon.remove(thoseInDenial.get(i));
-         }
-         thoseInAgreement.clear();
-         thoseInDenail.clear();
-         dragonFrame.setVisible(false);
-		     dragonPanel = new DragonTypeQuizGUI();
-         dragonFrame.setContentPane(dragonPanel);
-         dragonFrame.pack();
-         dragonFrame.setVisible(true);
+          }
+          thoseInAgreement.clear();
+          thoseInDenial.clear();
+          boolean readyForNextQuestion = false;
+          while (!readyForNextQuestion) {
+            if (questions.size() == 0) {
+              break;
+            }
+            readyForNextQuestion = checkIfNecessary(questions.peek());
+            if (!readyForNextQuestion) {
+              questions.poll();
+            }
+          }
+          if (questions.size() != 0) {
+            dragonFrame.getContentPane().removeAll();
+		        dragonPanel = new DragonTypeQuizGUI();
+            dragonFrame.add(dragonPanel);
+            dragonFrame.pack();
+          } else {
+            System.out.println("FINISHED");
+            for(int i = 0; i < dragonPokemon.size(); i++) {
+              System.out.println(dragonPokemon.get(i));
+            }
+            System.exit(0);
+          }
        }
      });
      no.addActionListener(new ActionListener() {                     
        @Override                                                            
        public void actionPerformed(ActionEvent e) {
-         for(int i = 0; i < thoseInDenial.size(); i++) {
-           dragonPokemon.remove(thoseInDenial.get(i));
+         for(int i = 0; i < thoseInAgreement.size(); i++) {
+           System.out.println(thoseInAgreement.get(i));
+           dragonPokemon.remove(thoseInAgreement.get(i));
          }
          thoseInAgreement.clear();
          thoseInDenial.clear();
-         dragonFrame.setVisible(false);
-		     dragonPanel = new DragonTypeQuizGUI();
-         dragonFrame.setContentPane(dragonPanel);
-         dragonFrame.pack();
-         dragonFrame.setVisible(true);
+         boolean readyForNextQuestion = false;
+         while(!readyForNextQuestion) {
+           if(questions.size() == 0) {
+             break;
+           }
+           readyForNextQuestion = checkIfNecessary(questions.peek());
+           if(!readyForNextQuestion) {
+             questions.poll();
+           }
+         }
+         if (questions.size() != 0) {
+           dragonFrame.getContentPane().removeAll();
+		       dragonPanel = new DragonTypeQuizGUI();
+           dragonFrame.add(dragonPanel);
+           dragonFrame.pack();
+         } else {
+           System.out.println("FINISHED");
+           for(int i = 0; i < dragonPokemon.size(); i++) {
+             System.out.println(dragonPokemon.get(i));
+           }
+           System.exit(0);
+         }
        }
      });
-     add(_question, BorderLayout.NORTH);
-     add(conflictingInterests, BorderLayout.CENTER);
+     add(questionLabel);
+     add(conflictingInterests);
    }
-   public class Question {
+   public boolean checkIfNecessary(Question question) {
+     boolean necessary = false;
+     ArrayList<String> yesPoke = question.getYes();
+     ArrayList<String> noPoke = question.getNo();
+     for (int i = 0; i < yesPoke.size(); i++) {
+       if (dragonPokemon.contains(yesPoke.get(i))) {
+         necessary = true;
+         break;
+       }
+     }
+     if (!necessary) {
+       for (int i = 0; i < noPoke.size(); i++) {
+         if (dragonPokemon.contains(noPoke.get(i))) {
+           necessary = true;
+           break;
+         }
+       }
+     }
+     System.out.println("Necessary: " + necessary);
+     return necessary;
+   }
+   public static class Question {
      public String _question = "???";
      public ArrayList<String> yes = new ArrayList<String>();
      public ArrayList<String> no = new ArrayList<String>();
@@ -113,7 +180,7 @@ public class DragonTypeQuizGUI extends JPanel
 		dragonPokemon.add("Reshiram");
 		dragonPokemon.add("Zekrom");
 		dragonPokemon.add("Kyurem");
-    dragonPokemon.add("Draglage");
+    dragonPokemon.add("Dragalge");
     dragonPokemon.add("Tyrunt");
     dragonPokemon.add("Tyrantrum");
     dragonPokemon.add("Goomy");
@@ -122,182 +189,162 @@ public class DragonTypeQuizGUI extends JPanel
     dragonPokemon.add("Noibat");
     dragonPokemon.add("Noivern");
     dragonPokemon.add("Zygarde");
-    thoseInAgreement.add("Latios");
-    thoseInAgreement.add("Latias");
-    thoseInAgreement.add("Rayquaza");
-    thoseInAgreement.add("Dialga");
-    thoseInAgreement.add("Palkia");
-    thoseInAgreement.add("Giratina");
-    thoseInAgreement.add("Reshiram");
-    thoseInAgreement.add("Zekrom");
-    thoseInAgreement.add("Kyurem");
-    thoseInAgreement.add("Zygarde");
-    ArrayList<Question> = new ArrayList<Question>();
+
+    questions =  new LinkedList<Question>();
+    Question question = new Question("Are you famous and well-known outside" +
+        " of your home?");
+    question.addPokemonYes("Latios");
+    question.addPokemonYes("Latias");
+    question.addPokemonYes("Rayquaza");
+    question.addPokemonYes("Dialga");
+    question.addPokemonYes("Palkia");
+    question.addPokemonYes("Giratina");
+    question.addPokemonYes("Reshiram");
+    question.addPokemonYes("Zekrom");
+    question.addPokemonYes("Kyurem");
+    question.addPokemonYes("Zygarde");
+    questions.add(question);
+
+    question = new Question("Do you have a hard time agreeing with" +
+        " people and tend to argue?");
+    question.addPokemonYes("Deino");
+    question.addPokemonYes("Zweilous");
+    question.addPokemonYes("Hydreigon");
+    questions.add(question);
+
+    question = new Question("Is your quest in life to find or obtain rare and" +
+        " beautiful things?");
+    question.addPokemonYes("Gible");
+    question.addPokemonYes("Gabite");
+    question.addPokemonYes("Garchomp");
+    questions.add(question);
+
+    question = new Question("Are you the type to never give up on something" +
+        " that you really believe in or on important goals?");
+    question.addPokemonYes("Bagon");
+    question.addPokemonYes("Shelgon");
+    question.addPokemonYes("Salamence");
+    questions.add(question);
+
+    question = new Question("Are you more active in the sunny morning than in" +
+        " the moonlit night?");
+    question.addPokemonYes("Druddigon");
+    question.addPokemonNo("Noibat");
+    question.addPokemonNo("Noivern");
+    questions.add(question);
+
+    question = new Question("Do you have the ability to calm distressed" +
+        " people or settle disagreements in a social setting?");
+    question.addPokemonYes("Dratini");
+    question.addPokemonYes("Dragonair");
+    question.addPokemonYes("Dragonite");
+    questions.add(question);
+
+    question = new Question("Do you believe that practice and training (and" +
+        " making mistakes in the process) is truly what makes perfect?");
+    question.addPokemonYes("Axew");
+    question.addPokemonYes("Fraxure");
+    question.addPokemonYes("Haxorus");
+    questions.add(question);
+
+    question = new Question("Do you act like or do your peers treat you as a" +
+        " king or leader (and do you throw fits if things don't go your way?");
+    question.addPokemonYes("Tyrunt");
+    question.addPokemonYes("Tyrantrum");
+    questions.add(question);
+
+    question = new Question("Does nothing bother you, or do you believe that" +
+        " anything can be overcome with enough determination and patience?");
+    question.addPokemonYes("Goomy");
+    question.addPokemonYes("Sliggoo");
+    question.addPokemonYes("Goodra");
+    questions.add(question);
+
+    question = new Question("Are you still biologically a child (under the" +
+        " age of 18)?");
+    question.addPokemonYes("Dratini");
+    question.addPokemonYes("Bagon");
+    question.addPokemonYes("Gible");
+    question.addPokemonYes("Axew");
+    question.addPokemonYes("Deino");
+    question.addPokemonYes("Tyrunt");
+    question.addPokemonYes("Goomy");
+
+    question.addPokemonNo("Dragonair");
+    question.addPokemonNo("Dragonite");
+    question.addPokemonNo("Kingdra");
+    question.addPokemonNo("Vibrava");
+    question.addPokemonNo("Altaria");
+    question.addPokemonNo("Shelgon");
+    question.addPokemonNo("Gabite");
+    question.addPokemonNo("Garchomp");
+    question.addPokemonNo("Fraxure");
+    question.addPokemonNo("Haxorus");
+    question.addPokemonNo("Zweilous");
+    question.addPokemonNo("Hydreigon");
+    question.addPokemonNo("Dragalge");
+    question.addPokemonNo("Tyrantrum");
+    question.addPokemonNo("Sliggoo");
+    question.addPokemonNo("Goodra");
+    questions.add(question);
+
+
+    question = new Question("Are you ruthless in your treatment of other " +
+        "people regardless of who they are or what their relationship is with" +
+        " you?");
+    question.addPokemonYes("Dragalge");
+    questions.add(question);
+
+    question = new Question("Do you have the talent to be a singer?");
+    question.addPokemonYes("Altaria");
+    questions.add(question);
+
+    question = new Question("Do people think you either contain great amounts" +
+        " of wisdom or do people come to you for advice?");
+    question.addPokemonYes("Dragonite");
+    question.addPokemonNo("Dragonair");
+    questions.add(question);
+
+    question = new Question("Have you ever accomplished an achievemnt of " +
+        "great merit that you feel like a greater person?");
+    question.addPokemonYes("Salamence");
+    question.addPokemonNo("Shelgon");
+    questions.add(question);
+
+    question = new Question("Do you tend to daydream or drift through life " +
+        "without any cares?");
+    question.addPokemonYes("Kingdra");
+    questions.add(question);
+
+    question = new Question("Are you talkative and friendly to the point that" +
+        " you feel as if you annoy some people?");
+    question.addPokemonYes("Vibrava");
+    question.addPokemonYes("Flygon");
+    questions.add(question);
+
+    question = new Question("Do you have a wonderful or interesting talent " +
+        "no one knows about?");
+    question.addPokemonYes("Flygon");
+    question.addPokemonNo("Vibrava");
+    questions.add(question);
 
 
     dragonFrame = new JFrame("DRAGON TYPE QUIZ");
     dragonFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    Thread dragonThread = new Thread(new DragonRunnable());
-    dragonThread.start();
-    while (dragonThread.isAlive()) {
-      dragonThread.join(1000);
-    }
+    dragonPanel = new DragonTypeQuizGUI();
+    dragonFrame.add(dragonPanel);
+    dragonFrame.pack();
+    dragonFrame.setVisible(true);
     System.out.println("DARGONS?!");
+   }
 }
 /*
-		System.out.println("Do you have a hard time agreeing with people and tend to argue?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Deino");
-		dragonPokemon.remove("Zweilous");
-		dragonPokemon.remove("Hydreigon");
-		}
-		System.out.println();
-
-		System.out.println("Is your quest in life to find or obtain rare and beautiful things?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Gible");
-		dragonPokemon.remove("Gabite");
-		dragonPokemon.remove("Garchomp");
-		}
-		System.out.println();
-
-		System.out.println("Are you the type to never give up on something that you really believe in or on important goals?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Bagon");
-		dragonPokemon.remove("Shelgon");
-		dragonPokemon.remove("Salamence");
-		}
-		System.out.println();
-
-		System.out.println("Are you more active in the sunny morning than the moonlit night?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Druddigon");
-		}
-		System.out.println();
-    //No goes to Noivern/Noibat
-
-		System.out.println("Do you have the ability to calm distressed people or settle disagreements in a social setting?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Dratini");
-		dragonPokemon.remove("Dragonair");
-		dragonPokemon.remove("Dragonite");
-		}
-		System.out.println();
-
-		System.out.println("Do you believe that practice and training (and making mistakes in the process) is truly what makes perfect");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Axew");
-		dragonPokemon.remove("Fraxure");
-		dragonPokemon.remove("Haxorus");
-		}
-		System.out.println();
-
-    //System.out.println("Are you ruthless in your treatment of other people regardless of who they are or what their relationship is with you?");
-    //Draglage
-    //
-    //Do you act like or do your peers treat you as a king or leader (and do you throw fits if things don't go your way)?
-    //Tyrunt, Tyrantrum
-    //
-    //Does nothing bother or do you believe that anything can be overcome with enough determination and patience?
-    //Goomy, Sliggoo, Goodra
     //
     //Are you generally a peaceful and kind person, but aren't afraid to use force or intimidation if it is neccessary?
     //Goodra
     //Are you a famed environmentlist or biologist who believes that humans are the culprit for most of the world's problems?
     //Zygarde
 
-
-
-
-
-
-		System.out.println("Are you still legally a child (under the age of 18)? ");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Dratini");
-		dragonPokemon.remove("Bagon");
-		dragonPokemon.remove("Gible");
-		dragonPokemon.remove("Axew");
-		dragonPokemon.remove("Deino");
-		}
-		if(answer.equals("yes"))
-		{dragonPokemon.remove("Dragonair");
-		dragonPokemon.remove("Dragonite");
-		dragonPokemon.remove("Kingdra");
-		dragonPokemon.remove("Vibrava");
-		dragonPokemon.remove("Flygon");
-		dragonPokemon.remove("Altaria");
-		dragonPokemon.remove("Shelgon");
-		dragonPokemon.remove("Salamence");
-		dragonPokemon.remove("Gabite");
-		dragonPokemon.remove("Garchomp");
-		dragonPokemon.remove("Fraxure");
-		dragonPokemon.remove("Haxorus");
-		dragonPokemon.remove("Zweilous");
-		dragonPokemon.remove("Hydreigon");}
-		System.out.println();
-
-		if(dragonPokemon.contains("Altaria"))
-		{System.out.println("Do you have the talent to be a singer?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Altaria");}
-		System.out.println();}
-
-		if(dragonPokemon.contains("Dragonite"))
-		{System.out.println("Do people think you exude great amounts of wisdom or come to you for advice?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Dragonite");
-		}
-		if(answer.equals("yes"))
-		{dragonPokemon.remove("Dragonair");
-		}
-		System.out.println();}
-
-		if(dragonPokemon.contains("Salamence"))
-		{System.out.println("Have you reached an achievement of great merit that made you feel like a greater man/woman?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Salamence");
-		}
-		if(answer.equals("yes"))
-		{dragonPokemon.remove("Shelgon");
-		}
-		System.out.println();}
-
-		if(dragonPokemon.contains("Kingdra"))
-		{System.out.println("Do you tend to daydream or drift through life without any cares?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Kingdra");}
-		System.out.println();}
-
-		if(dragonPokemon.contains("Flygon"))
-		{System.out.println("Are you quite talkative and friendly to the point that you may annoy some people?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Flygon");
-		dragonPokemon.remove("Vibrava");}
-		System.out.println();}
-
-		if(dragonPokemon.contains("Flygon"))
-		{System.out.println("Do you have a wonderful talent that no one knows about?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Flygon");
-		}
-		if(answer.equals("yes"))
-		{dragonPokemon.remove("Vibrava");
-		}
-		System.out.println();}
-		
 		if(dragonPokemon.contains("Haxorus"))
 		{System.out.println("Are you the kind of person that never likes to back down on a challenge or a dare, especially when your dignity is on the line?");
 		answer=pokescan.nextLine();
