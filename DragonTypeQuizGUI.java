@@ -2,13 +2,88 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
 import java.lang.Math;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 import static java.lang.System.*;
 
-public class DragonTypeQuiz
-{
-   public static void innerSearch()
-    {
-    	ArrayList<String> dragonPokemon= new ArrayList<String>();
+public class DragonTypeQuizGUI extends JPanel
+{ static JFrame dragonFrame;
+  static JPanel dragonPanel;
+  static String question;
+  static boolean cont = false;
+  static ArrayList<String> thoseInAgreement = new ArrayList<String>();
+  static ArrayList<String> thoseInDenial = new ArrayList<String>();
+  static ArrayList<String> dragonPokemon = new ArrayList<String>();
+   public DragonTypeQuizGUI() {
+     super(new BorderLayout());
+     JButton yes = new JButton("Yes");
+     JButton no = new JButton("No");
+
+     JPanel conflictingInterests = new JPanel(new BorderLayout());
+     conflictingInterests.add(yes, BorderLayout.WEST);
+     conflictingInterests.add(no, BorderLayout.EAST);
+
+     JLabel _question = new JLabel(question);
+     yes.addActionListener(new ActionListener() {                     
+       @Override                                                            
+       public void actionPerformed(ActionEvent e) {
+         for(int i = 0; i < thoseInDenial.size(); i++) {
+           dragonPokemon.remove(thoseInDenial.get(i));
+         }
+         thoseInAgreement.clear();
+         thoseInDenail.clear();
+         dragonFrame.setVisible(false);
+		     dragonPanel = new DragonTypeQuizGUI();
+         dragonFrame.setContentPane(dragonPanel);
+         dragonFrame.pack();
+         dragonFrame.setVisible(true);
+       }
+     });
+     no.addActionListener(new ActionListener() {                     
+       @Override                                                            
+       public void actionPerformed(ActionEvent e) {
+         for(int i = 0; i < thoseInDenial.size(); i++) {
+           dragonPokemon.remove(thoseInDenial.get(i));
+         }
+         thoseInAgreement.clear();
+         thoseInDenial.clear();
+         dragonFrame.setVisible(false);
+		     dragonPanel = new DragonTypeQuizGUI();
+         dragonFrame.setContentPane(dragonPanel);
+         dragonFrame.pack();
+         dragonFrame.setVisible(true);
+       }
+     });
+     add(_question, BorderLayout.NORTH);
+     add(conflictingInterests, BorderLayout.CENTER);
+   }
+   public class Question {
+     public String _question = "???";
+     public ArrayList<String> yes = new ArrayList<String>();
+     public ArrayList<String> no = new ArrayList<String>();
+     public Question (String porque) {
+       _question = porque;
+     }
+     public void addPokemonYes (String pokemon) {
+       yes.add(pokemon);
+     }
+     public void addPokemonNo (String pokemon) {
+       no.add(pokemon);
+     }
+     public String getQuestion() {
+       return _question;
+     }
+     public ArrayList<String> getYes() {
+       return yes;
+     }
+     public ArrayList<String> getNo() {
+       return no;
+     }
+   }
+       
+   public static void main(String arg[]) {
+
 		dragonPokemon.add("Dratini");
 		dragonPokemon.add("Dragonair");
 		dragonPokemon.add("Dragonite");
@@ -47,29 +122,29 @@ public class DragonTypeQuiz
     dragonPokemon.add("Noibat");
     dragonPokemon.add("Noivern");
     dragonPokemon.add("Zygarde");
+    thoseInAgreement.add("Latios");
+    thoseInAgreement.add("Latias");
+    thoseInAgreement.add("Rayquaza");
+    thoseInAgreement.add("Dialga");
+    thoseInAgreement.add("Palkia");
+    thoseInAgreement.add("Giratina");
+    thoseInAgreement.add("Reshiram");
+    thoseInAgreement.add("Zekrom");
+    thoseInAgreement.add("Kyurem");
+    thoseInAgreement.add("Zygarde");
+    ArrayList<Question> = new ArrayList<Question>();
 
 
-
-    	Scanner pokescan = new Scanner (System.in);
-		System.out.println("Reply \"yes\" to all that apply \n");
-		String answer="";
-
-		System.out.println("Are you famous and well-known out of your home?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Latias");
-		dragonPokemon.remove("Latios");
-		dragonPokemon.remove("Rayquaza");
-		dragonPokemon.remove("Dialga");
-		dragonPokemon.remove("Palkia");
-		dragonPokemon.remove("Giratina");
-		dragonPokemon.remove("Reshiram");
-		dragonPokemon.remove("Zekrom");
-		dragonPokemon.remove("Kyurem");
-    dragonPokemon.remove("Zygarde");
-		}
-		System.out.println();
-
+    dragonFrame = new JFrame("DRAGON TYPE QUIZ");
+    dragonFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    Thread dragonThread = new Thread(new DragonRunnable());
+    dragonThread.start();
+    while (dragonThread.isAlive()) {
+      dragonThread.join(1000);
+    }
+    System.out.println("DARGONS?!");
+}
+/*
 		System.out.println("Do you have a hard time agreeing with people and tend to argue?");
 		answer=pokescan.nextLine();
 		if(!answer.equals("yes"))
@@ -456,4 +531,4 @@ public class DragonTypeQuiz
                 else
                 {System.out.println("There was an error. You are Missingno");}
     }
-}}}
+}}}*/
