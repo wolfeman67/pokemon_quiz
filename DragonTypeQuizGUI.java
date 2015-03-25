@@ -3,6 +3,8 @@ import java.util.Scanner;
 import java.util.Random;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Map;
+import java.util.HashMap;
 import java.lang.Math;
 import javax.swing.*;
 import java.awt.*;
@@ -20,26 +22,41 @@ public class DragonTypeQuizGUI extends JPanel
   static ArrayList<String> dragonPokemon = new ArrayList<String>();
    public DragonTypeQuizGUI() {
      super(new GridLayout(0,1));
-     System.out.println(questions.size());
+     setOpaque(false);
      Question dragon = questions.poll();
      question = dragon.getQuestion();
      thoseInAgreement = dragon.getYes();
      thoseInDenial = dragon.getNo();
-     System.out.println("FLOOP");
-     JButton yes = new JButton("Yes");
-     JButton no = new JButton("No");
+     JButton yes;
+     JButton no;
+     if (question == "What gender are you?") {
+       yes = new JButton("Male");
+       no = new JButton("Female");
+     } else {
+       yes = new JButton("Yes");
+       no = new JButton("No");
+     }
 
      JPanel conflictingInterests = new JPanel(new GridLayout(1,0));
      conflictingInterests.add(yes);
+     yes.setForeground(new Color(0.0f, 0.0f, 1.0f));
+     yes.setBackground(new Color(1.0f, 1.0f, 1.0f));
+     yes.setOpaque(true);
      conflictingInterests.add(no);
+     no.setForeground(new Color(1.0f, 0.0f, 0.0f));
+     no.setBackground(new Color(1.0f, 1.0f, 1.0f));
+     no.setOpaque(true);
 
      JLabel questionLabel = new JLabel(question, SwingConstants.CENTER);
-     System.out.println("GOOP");
+     questionLabel.setFont(new Font("SansSerif.bold", Font.PLAIN, 12));
+     questionLabel.setBackground(new Color(0.0f, 0.0f, 0.5f));
+     questionLabel.setOpaque(true);
+     questionLabel.setForeground(new Color(1.0f, 1.0f, 1.0f));
+     questionLabel.setPreferredSize(new Dimension(1000, 70));
      yes.addActionListener(new ActionListener() {                     
        @Override                                                            
        public void actionPerformed(ActionEvent e) {
          for(int i = 0; i < thoseInDenial.size(); i++) {
-           System.out.println(thoseInDenial.get(i));
            dragonPokemon.remove(thoseInDenial.get(i));
           }
           thoseInAgreement.clear();
@@ -60,9 +77,7 @@ public class DragonTypeQuizGUI extends JPanel
             dragonFrame.add(dragonPanel);
             dragonFrame.pack();
           } else {
-            System.out.println("FINISHED");
             for(int i = 0; i < dragonPokemon.size(); i++) {
-              System.out.println(dragonPokemon.get(i));
             }
             System.exit(0);
           }
@@ -72,7 +87,6 @@ public class DragonTypeQuizGUI extends JPanel
        @Override                                                            
        public void actionPerformed(ActionEvent e) {
          for(int i = 0; i < thoseInAgreement.size(); i++) {
-           System.out.println(thoseInAgreement.get(i));
            dragonPokemon.remove(thoseInAgreement.get(i));
          }
          thoseInAgreement.clear();
@@ -93,11 +107,10 @@ public class DragonTypeQuizGUI extends JPanel
            dragonFrame.add(dragonPanel);
            dragonFrame.pack();
          } else {
-           System.out.println("FINISHED");
-           for(int i = 0; i < dragonPokemon.size(); i++) {
-             System.out.println(dragonPokemon.get(i));
-           }
-           System.exit(0);
+           dragonFrame.getContentPane().removeAll();
+           ColorSelection color = new ColorSelection();
+           dragonFrame.add(color);
+           dragonFrame.pack();
          }
        }
      });
@@ -122,7 +135,6 @@ public class DragonTypeQuizGUI extends JPanel
          }
        }
      }
-     System.out.println("Necessary: " + necessary);
      return necessary;
    }
    public static class Question {
@@ -146,6 +158,45 @@ public class DragonTypeQuizGUI extends JPanel
      }
      public ArrayList<String> getNo() {
        return no;
+     }
+   }
+
+   public static class ColorSelection extends JPanel implements ActionListener {
+     public ColorSelection () {
+       super(new GridLayout(3, 0));
+       if (dragonPokemon.size() > 1) {
+         ArrayList<JButton> colors = new ArrayList<JButton>();
+         for (int i = 0; i < 1; i++) {
+           if (dragonPokemon.get(i).equals("Dratini") || dragonPokemon.get(i)
+               .equals("Dragonair") || dragonPokemon.get(i).equals("Dragonite"))
+           {
+             JButton colorButton = new JButton("Azure");
+             colorButton.setForeground(Color.BLACK);
+             colorButton.setOpaque(true);
+             colorButton.setActionCommand("Azure");
+             colorButton.setBackground(new Color(0.000f, (191f/259f), 1.000f));
+             colorButton.addActionListener(this);
+             colors.add(colorButton);
+               }
+         }
+         for (int i = 0; i < colors.size(); i++) {
+           add(colors.get(i));
+         }
+
+       } else if (dragonPokemon.size() == 1) {
+       }
+
+
+     }
+     public void actionPerformed(ActionEvent e) {
+       String color = e.getActionCommand();
+       if (color.equals("Azure") && dragonPokemon.contains("Dratini")) {
+         System.out.println("You are Dratini!");
+       } else if (color.equals("Azure") && dragonPokemon.contains("Dragonair")){
+         System.out.println("You are Dragonair!");
+       } else if (color.equals("Azure") && dragonPokemon.contains("Dragonite")){
+         System.out.println("You are Dragonite!");
+       }
      }
    }
        
@@ -328,6 +379,84 @@ public class DragonTypeQuizGUI extends JPanel
     question.addPokemonNo("Vibrava");
     questions.add(question);
 
+    question = new Question("Are you the kind of person that never likes to" +
+        "back down on a challenge or a dare, especially when your dignity is" +
+        "on the line?");
+    question.addPokemonYes("Haxorus");
+    question.addPokemonNo("Fraxure");
+    questions.add(question);
+
+    question = new Question("Have you experienced great hardships or abuses " +
+        "that have made you a stronger?");
+    question.addPokemonYes("Hydreigon");
+    question.addPokemonNo("Zweilous");
+    questions.add(question);
+
+    question = new Question("Do you believe that money is the greatest force " +
+        "in the world today, for better or for worse?");
+    question.addPokemonYes("Garchomp");
+    question.addPokemonNo("Gabite");
+    questions.add(question);
+
+    question = new Question("Are you generally a peaceful and kind person, " +
+        "but aren't afraid to use force or intimidation if needed?");
+    question.addPokemonYes("Goodra");
+    question.addPokemonNo("Sliggoo");
+    questions.add(question);
+
+    question = new Question("Have you ever mediated between two opposing " +
+        "factions of people and stopped or prevented a great conflict?");
+    question.addPokemonYes("Rayquaza");
+    questions.add(question);
+
+    question = new Question("Are you naturally in tune to other peoples'" +
+        " feelings or emotions and do you make a good psychiatrist?");
+    question.addPokemonYes("Latias");
+    question.addPokemonYes("Latios");
+    questions.add(question);
+
+    question = new Question("What gender are you?");
+    question.addPokemonYes("Latios");
+    question.addPokemonNo("Latias");
+    questions.add(question);
+
+    question = new Question("Have you participated in research on how to " +
+        "feasibly develop a time machine?");
+    question.addPokemonYes("Dialga");
+    questions.add(question);
+
+    question = new Question("Do you work extensively in the space program and" +
+        " have been/would like to be in space?");
+    question.addPokemonYes("Palkia");
+    questions.add(question);
+
+    question = new Question("Do you believe that you have visited the " +
+        "afterlife, can accurately describe it, and have made it your purpose" +
+        " to tell people about it?");
+    question.addPokemonYes("Giratina");
+    questions.add(question);
+
+    question = new Question("Are you a die-hard seeker of truth and wish to " +
+        "benefit mankind with your discoveries");
+    question.addPokemonYes("Kyurem");
+    questions.add(question);
+
+    question = new Question("Do you have a rather meek or delicate appearance" +
+        " that betrays your inner strength and willpower?");
+    question.addPokemonYes("Reshiram");
+    questions.add(question);
+
+    question = new Question("Do you have a rough and rugged appearance that " +
+        "betrays your inner gentleness and calmness?");
+    question.addPokemonYes("Zekrom");
+    questions.add(question);
+
+    question = new Question("Are you a famed environmentalist or biologist " +
+        "who believes that humans are the culprit for most of the world's " +
+        "problems?");
+    question.addPokemonYes("Zygarde");
+    questions.add(question);
+
 
     dragonFrame = new JFrame("DRAGON TYPE QUIZ");
     dragonFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -335,116 +464,9 @@ public class DragonTypeQuizGUI extends JPanel
     dragonFrame.add(dragonPanel);
     dragonFrame.pack();
     dragonFrame.setVisible(true);
-    System.out.println("DARGONS?!");
    }
 }
 /*
-    //
-    //Are you generally a peaceful and kind person, but aren't afraid to use force or intimidation if it is neccessary?
-    //Goodra
-    //Are you a famed environmentlist or biologist who believes that humans are the culprit for most of the world's problems?
-    //Zygarde
-
-		if(dragonPokemon.contains("Haxorus"))
-		{System.out.println("Are you the kind of person that never likes to back down on a challenge or a dare, especially when your dignity is on the line?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Haxorus");
-		}
-		if(answer.equals("yes"))
-		{dragonPokemon.remove("Fraxure");
-		}
-		System.out.println();}
-		
-		if(dragonPokemon.contains("Hydreigon"))
-		{System.out.println("Has there been a great deal of physical or verbal abuse within your family or group of friends?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Hydreigon");
-		}
-		if(answer.equals("yes"))
-		{dragonPokemon.remove("Zweilous");
-		}
-		System.out.println();}
-		
-		if(dragonPokemon.contains("Garchomp"))
-		{System.out.println("Do you believe that money is the greatest force in the world today, for better or for worse?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Garchomp");
-		}
-		if(answer.equals("yes"))
-		{dragonPokemon.remove("Gabite");
-		}
-		System.out.println();}
-		
-		if(dragonPokemon.contains("Rayquaza"))
-		{System.out.println("Have you ever mediated between two opposing factions of people and stopped or prevented a great conflict?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Rayquaza");}
-		System.out.println();}
-		
-		if(dragonPokemon.contains("Latias"))
-		{System.out.println("Are you naturally in tune to other peoples' feelings or emotions and do you make a good psychiatrist?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Latias");
-		dragonPokemon.remove("Latios");}
-		System.out.println();}
-		
-		if(dragonPokemon.contains("Latios"))
-		{System.out.println("Are you a male?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Latios");}
-		if(answer.equals("yes"))
-		{dragonPokemon.remove("Latias");}
-		System.out.println();}
-		
-		if(dragonPokemon.contains("Dialga"))
-		{System.out.println("Have you ever speculated on how to seriously create a time machine?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Dialga");}
-		System.out.println();}
-		
-		if(dragonPokemon.contains("Palkia"))
-		{System.out.println("Do you work extensively in the space program and would like to be/have been in space?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Palkia");}
-		System.out.println();}
-		
-		if(dragonPokemon.contains("Giratina"))
-		{System.out.println("Do you believe that you have visited the afterlife and can accurately describe it?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Giratina");}
-		System.out.println();}
-		
-		if(dragonPokemon.contains("Kyurem"))
-		{System.out.println("Are you a die-hard seeker of absolute truths that could benefit mankind?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Kyurem");}
-		System.out.println();}
-		
-		if(dragonPokemon.contains("Reshiram"))
-		{System.out.println("Do you have a rather meek or delicate appearance that betrays your inner strength and willpower?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Reshiram");}
-		System.out.println();}
-		
-		if(dragonPokemon.contains("Zekrom"))
-		{System.out.println("Do you have a rough and rugged appearance that betrays your inner gentleness and calmness?");
-		answer=pokescan.nextLine();
-		if(!answer.equals("yes"))
-		{dragonPokemon.remove("Zekrom");}
-		System.out.println();}
-
-
 		if(dragonPokemon.size()==0)
 			out.println("There was an error. You are Missingno.");
 		if(dragonPokemon.size()==1)

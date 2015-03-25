@@ -720,11 +720,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
     JPanel typePanel = new JPanel(new GridLayout(0, 1));
     if(numberMax == 1) {
       if (dragonVer) {
-        System.out.println("You're a Dragon type!");
-        frame = new JFrame("DRAGON");
-        ImageIcon typePic = new ImageIcon("images/Dragon.png");
-        type = new JLabel("You're a Dragon type!", typePic, JLabel.CENTER);
-        typePanel.add(type);
+        frame.setVisible(false);
         String[] args = {};
         DragonTypeQuizGUI.main(args);
       }
