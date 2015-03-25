@@ -76,10 +76,11 @@ public class DragonTypeQuizGUI extends JPanel
 		        dragonPanel = new DragonTypeQuizGUI();
             dragonFrame.add(dragonPanel);
             dragonFrame.pack();
-          } else {
-            for(int i = 0; i < dragonPokemon.size(); i++) {
-            }
-            System.exit(0);
+          } else { 
+           dragonFrame.getContentPane().removeAll();
+           ColorSelection color = new ColorSelection();
+           dragonFrame.add(color);
+           dragonFrame.pack();
           }
        }
      });
@@ -107,10 +108,26 @@ public class DragonTypeQuizGUI extends JPanel
            dragonFrame.add(dragonPanel);
            dragonFrame.pack();
          } else {
-           dragonFrame.getContentPane().removeAll();
-           ColorSelection color = new ColorSelection();
-           dragonFrame.add(color);
-           dragonFrame.pack();
+           if (dragonPokemon.size() > 1) {
+             dragonFrame.getContentPane().removeAll();
+             ColorSelection color = new ColorSelection();
+             dragonFrame.add(color);
+             dragonFrame.pack();
+           } else if (dragonPokemon.size() == 1) {
+             System.out.println("MOOSE");
+             dragonFrame.getContentPane().removeAll();
+             JPanel pokemon = ColorSelection.truePokemon();
+             dragonFrame.add(pokemon);
+             dragonFrame.pack();
+             dragonFrame.setVisible(true);
+           } else {
+             dragonFrame.getContentPane().removeAll();
+             JLabel missingno = ColorSelection.glitch();
+             dragonFrame.add(missingno);
+             dragonFrame.pack();
+           }
+
+
          }
        }
      });
@@ -163,43 +180,119 @@ public class DragonTypeQuizGUI extends JPanel
 
    public static class ColorSelection extends JPanel implements ActionListener {
      public ColorSelection () {
-       super(new GridLayout(3, 0));
-       if (dragonPokemon.size() > 1) {
-         ArrayList<JButton> colors = new ArrayList<JButton>();
-         for (int i = 0; i < 1; i++) {
-           if (dragonPokemon.get(i).equals("Dratini") || dragonPokemon.get(i)
-               .equals("Dragonair") || dragonPokemon.get(i).equals("Dragonite"))
-           {
-             JButton colorButton = new JButton("Azure");
-             colorButton.setForeground(Color.BLACK);
-             colorButton.setOpaque(true);
-             colorButton.setActionCommand("Azure");
-             colorButton.setBackground(new Color(0.000f, (191f/259f), 1.000f));
-             colorButton.addActionListener(this);
-             colors.add(colorButton);
-               }
-         }
-         for (int i = 0; i < colors.size(); i++) {
-           add(colors.get(i));
-         }
-
-       } else if (dragonPokemon.size() == 1) {
+       super(new GridLayout(0, 3));
+       ArrayList<JButton> colors = new ArrayList<JButton>();
+       for (int i = 0; i < dragonPokemon.size(); i++) {
+         if (dragonPokemon.get(i).equals("Dratini") || dragonPokemon.get(i)
+             .equals("Dragonair") || dragonPokemon.get(i).equals("Dragonite"))
+         {
+           JButton colorButton = new JButton("Azure");
+           colorButton.setForeground(Color.BLACK);
+           colorButton.setOpaque(true);
+           colorButton.setActionCommand("Azure");
+           colorButton.setBackground(new Color(0.000f, (191f/256f), 1.000f));
+           colorButton.addActionListener(this);
+           colors.add(colorButton);
+             }
+         if (dragonPokemon.get(i).equals("Druddigon"))
+         {
+           JButton colorButton = new JButton("Rust");
+           colorButton.setForeground(Color.WHITE);
+           colorButton.setOpaque(true);
+           colorButton.setActionCommand("Rust");
+           colorButton.setBackground(new Color((72f/100f), (25f/100f),
+                 (5f/100f)));
+           colorButton.addActionListener(this);
+           colors.add(colorButton);
+             }
+         if (dragonPokemon.get(i).equals("Altaria"))
+         {
+           JButton colorButton = new JButton("Cotton");
+           colorButton.setForeground(Color.BLACK);
+           colorButton.setOpaque(true);
+           colorButton.setActionCommand("Cotton");
+           colorButton.setBackground(new Color((100f/100f), (97f/100f),
+                 (86f/100f)));
+           colorButton.addActionListener(this);
+           colors.add(colorButton);
+             }
+       }
+       for (int i = 0; i < colors.size(); i++) {
+         add(colors.get(i));
        }
 
 
      }
      public void actionPerformed(ActionEvent e) {
        String color = e.getActionCommand();
+       ImageIcon pokePicture;
+       JPanel n = new JPanel();
+       dragonFrame.getContentPane().removeAll();
        if (color.equals("Azure") && dragonPokemon.contains("Dratini")) {
-         System.out.println("You are Dratini!");
+         n.add(createPokemon("Dratini", 0.000f, (191f/256f), 1.000f));
        } else if (color.equals("Azure") && dragonPokemon.contains("Dragonair")){
-         System.out.println("You are Dragonair!");
+         n.add(createPokemon("Dragonair", 0.000f, (191f/256f),
+               1.000f));
        } else if (color.equals("Azure") && dragonPokemon.contains("Dragonite")){
-         System.out.println("You are Dragonite!");
+         n.add(createPokemon("Dragonite", 0.000f, (191f/256f),
+               1.00f));
+       } else if (color.equals("Rust")) {
+         n.add(createPokemon("Druddigon", (72f/100f), (25f/100f),
+               (5f/100f)));
+       } else if (color.equals("Cotton")) {
+         n.add(createPokemon("Altaria", (100f/100f), (97f/100f), (86f/100f)));
        }
+       dragonFrame.add(n);
+       dragonFrame.pack();
+       dragonFrame.setVisible(true);
      }
-   }
-       
+
+     public static JPanel truePokemon() {
+       JPanel n = new JPanel();
+       if (dragonPokemon.get(0) == "Dratini") {
+         n.add(createPokemon("Dratini", 0.000f, (191f/256f), 1.00f));
+       }
+       if (dragonPokemon.get(0) == "Dragonair") {
+         n.add(createPokemon("Dragonair", 0.000f, (191f/256f), 1.00f));
+       }
+       if (dragonPokemon.get(0) == "Dragonite") {
+         n.add(createPokemon("Dragonite", 0.000f, (191f/256f), 1.00f));
+       }
+       if (dragonPokemon.get(0) == "Druddigon") {
+         n.add(createPokemon("Druddigon", (72f/100f), (25f/100f), (5f/100f)));
+       }
+       return n;
+     }
+
+     public static JLabel glitch() {
+       ImageIcon pokePicture = new ImageIcon("images/MissingNo.png");
+       JLabel pokeLabel = new JLabel("There was a glitch...", pokePicture,
+           JLabel.CENTER);
+       pokeLabel.setFont(new Font("SansSerif.bold", Font.PLAIN, 24));
+       pokeLabel.setForeground(Color.WHITE);
+       pokeLabel.setBackground(Color.BLACK);
+       pokeLabel.setOpaque(true);
+       return pokeLabel;
+     }
+
+     public static JLabel createPokemon(String pokemon, float r, float g,
+         float b) {
+       dragonFrame.getContentPane().removeAll();
+       ImageIcon pokePicture = new ImageIcon("images/Dragon/" + pokemon +
+           ".png");
+       JLabel pokeLabel = new JLabel("You are " + pokemon + "!", pokePicture,
+           JLabel.CENTER);
+       pokeLabel.setFont(new Font("SansSerif.bold", Font.PLAIN, 24));
+       if((r + g + b)/3.0 > .5) {
+         pokeLabel.setForeground(Color.BLACK);
+       } else {
+         pokeLabel.setForeground(Color.WHITE);
+       }
+       pokeLabel.setOpaque(true);
+       pokeLabel.setBackground(new Color(r, g, b));
+       return pokeLabel;
+     }
+   } 
    public static void main(String arg[]) {
 
 		dragonPokemon.add("Dratini");
@@ -467,14 +560,6 @@ public class DragonTypeQuizGUI extends JPanel
    }
 }
 /*
-		if(dragonPokemon.size()==0)
-			out.println("There was an error. You are Missingno.");
-		if(dragonPokemon.size()==1)
-			out.println("You are " + dragonPokemon.get(0));
-		if(dragonPokemon.size()>1)
-		{String dragonAura=new String("\n");
-		if(dragonPokemon.contains("Dratini")||dragonPokemon.contains("Dragonair")||dragonPokemon.contains("Dragonite"))
-		{dragonAura=dragonAura + "Azure\n";}
 		if(dragonPokemon.contains("Altaria"))
 		{dragonAura=dragonAura + "Cotton\n";}
 		if(dragonPokemon.contains("Bagon")||dragonPokemon.contains("Shelgon")||dragonPokemon.contains("Salamence"))
