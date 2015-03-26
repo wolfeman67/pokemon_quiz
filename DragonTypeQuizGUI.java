@@ -885,3 +885,4 @@ public class DragonTypeQuizGUI extends JPanel
     dragonFrame.setVisible(true);
    }
 }
+
