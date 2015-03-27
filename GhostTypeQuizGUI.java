@@ -824,12 +824,12 @@ public class GhostTypeQuizGUI extends JPanel
 
     question = new Question("Are you an excellent teacher or a steadfast " +
         "learner that has the desire to learn more and wishes the world was" +
-        "more intelligent?");
+        " more intelligent?");
     question.addPokemonYes("Litwick");
     question.addPokemonYes("Lampent");
     question.addPokemonYes("Chandelure");
     questions.add(question);
-    
+
     question = new Question("Do you like playing pranks on people or teasing " +
         "those you consider inferior to you?");
     question.addPokemonYes("Misdreavus");

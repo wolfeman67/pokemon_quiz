@@ -68,7 +68,7 @@ public class ElectricTypeQuizGUI extends JPanel
           if (questions.size() != 0) {
             electricFrame.getContentPane().removeAll();
 		        electricPanel = new ElectricTypeQuizGUI();
-            electricFrame.add(ghostPanel);
+            electricFrame.add(electricPanel);
             electricFrame.pack();
           } else {
               if (electricPokemon.size() > 1) {
@@ -112,7 +112,7 @@ public class ElectricTypeQuizGUI extends JPanel
          if (questions.size() != 0) {
            electricFrame.getContentPane().removeAll();
 		       electricPanel = new ElectricTypeQuizGUI();
-           electricFrame.add(ghostPanel);
+           electricFrame.add(electricPanel);
            electricFrame.pack();
          } else {
            if (electricPokemon.size() > 1) {
@@ -196,7 +196,7 @@ public class ElectricTypeQuizGUI extends JPanel
        select.setBackground(Color.BLACK);
        ArrayList<JButton> colors = new ArrayList<JButton>();
        for (int i = 0; i < electricPokemon.size(); i++) {
-         if (electricPokemon.get(i).equals("Gastly") || ghostPokemon.get(i)
+         if (electricPokemon.get(i).equals("Gastly") || electricPokemon.get(i)
              .equals("Haunter") || electricPokemon.get(i).equals("Gengar"))
          {
            JButton colorButton = new JButton("Dark Purple");
@@ -208,7 +208,7 @@ public class ElectricTypeQuizGUI extends JPanel
            colorButton.addActionListener(this);
            colors.add(colorButton);
              }
-         if (electricPokemon.get(i).equals("Duskull") || ghostPokemon.get(i)
+         if (electricPokemon.get(i).equals("Duskull") || electricPokemon.get(i)
              .equals("Dusclops") || electricPokemon.get(i).equals("Dusknoir"))
          {
            JButton colorButton = new JButton("Black");
@@ -220,7 +220,7 @@ public class ElectricTypeQuizGUI extends JPanel
            colorButton.addActionListener(this);
            colors.add(colorButton);
              }
-         if (electricPokemon.get(i).equals("Misdreavus") || ghostPokemon.get(i)
+         if (electricPokemon.get(i).equals("Misdreavus") || electricPokemon.get(i)
              .equals("Mismagius"))
          {
            JButton colorButton = new JButton("Magenta");
@@ -232,7 +232,7 @@ public class ElectricTypeQuizGUI extends JPanel
            colorButton.addActionListener(this);
            colors.add(colorButton);
              }
-         if (electricPokemon.get(i).equals("Litwick") || ghostPokemon.get(i)
+         if (electricPokemon.get(i).equals("Litwick") || electricPokemon.get(i)
              .equals("Lampent") || electricPokemon.get(i).equals("Chandelure"))
          {
            JButton colorButton = new JButton("Crimson");
@@ -266,7 +266,7 @@ public class ElectricTypeQuizGUI extends JPanel
            colorButton.addActionListener(this);
            colors.add(colorButton);
          }
-         if (electricPokemon.get(i).equals("Phantump") || ghostPokemon.get(i)
+         if (electricPokemon.get(i).equals("Phantump") || electricPokemon.get(i)
                  .equals("Trevenant"))
          {
            JButton colorButton = new JButton("Forest Green");
@@ -278,7 +278,7 @@ public class ElectricTypeQuizGUI extends JPanel
            colorButton.addActionListener(this);
            colors.add(colorButton);
          }
-         if (electricPokemon.get(i).equals("Pumpkaboo") || ghostPokemon.get(i)
+         if (electricPokemon.get(i).equals("Pumpkaboo") || electricPokemon.get(i)
                  .equals("Gourgeist"))
          {
            JButton colorButton = new JButton("Pumpkin Orange");
@@ -290,7 +290,7 @@ public class ElectricTypeQuizGUI extends JPanel
            colorButton.addActionListener(this);
            colors.add(colorButton);
          }
-         if (electricPokemon.get(i).equals("Honedge") || ghostPokemon.get(i)
+         if (electricPokemon.get(i).equals("Honedge") || electricPokemon.get(i)
                  .equals("Doublade") || electricPokemon.get(i)
                  .equals("Aegislash"))
          {
@@ -303,7 +303,7 @@ public class ElectricTypeQuizGUI extends JPanel
            colorButton.addActionListener(this);
            colors.add(colorButton);
          }
-         if (electricPokemon.get(i).equals("Frillish-Male") || ghostPokemon.get(i)
+         if (electricPokemon.get(i).equals("Frillish-Male") || electricPokemon.get(i)
                  .equals("Jellicent-Male") || electricPokemon.get(i)
                  .equals("Frillish-Female") || electricPokemon.get(i)
                  .equals("Jellicent-Female"))
@@ -339,7 +339,7 @@ public class ElectricTypeQuizGUI extends JPanel
            colorButton.addActionListener(this);
            colors.add(colorButton);
          }
-         if (electricPokemon.get(i).equals("Shuppet") || ghostPokemon.get(i)
+         if (electricPokemon.get(i).equals("Shuppet") || electricPokemon.get(i)
              .equals("Banette"))
          {
            JButton colorButton = new JButton("Dark Blue-Gray");
@@ -351,7 +351,7 @@ public class ElectricTypeQuizGUI extends JPanel
            colorButton.addActionListener(this);
            colors.add(colorButton);
          }
-         if (electricPokemon.get(i).equals("Drifloon") || ghostPokemon.get(i)
+         if (electricPokemon.get(i).equals("Drifloon") || electricPokemon.get(i)
              .equals("Drifblim"))
          {
            JButton colorButton = new JButton("Lavender");
@@ -385,7 +385,7 @@ public class ElectricTypeQuizGUI extends JPanel
            colorButton.addActionListener(this);
            colors.add(colorButton);
          }
-         if (electricPokemon.get(i).equals("Yamask") || ghostPokemon.get(i)
+         if (electricPokemon.get(i).equals("Yamask") || electricPokemon.get(i)
              .equals("Cofagrigus"))
          {
            JButton colorButton = new JButton("Sand");
@@ -397,7 +397,7 @@ public class ElectricTypeQuizGUI extends JPanel
            colorButton.addActionListener(this);
            colors.add(colorButton);
          }
-         if (electricPokemon.get(i).equals("Golett") || ghostPokemon.get(i)
+         if (electricPokemon.get(i).equals("Golett") || electricPokemon.get(i)
              .equals("Golurk"))
          {
            JButton colorButton = new JButton("Teal Blue");
@@ -982,7 +982,7 @@ public class ElectricTypeQuizGUI extends JPanel
     electricFrame = new JFrame("ELECTRIC TYPE QUIZ");
     electricFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     electricPanel = new ElectricTypeQuizGUI();
-    electricFrame.add(ghostPanel);
+    electricFrame.add(electricPanel);
     electricFrame.pack();
     electricFrame.setVisible(true);
    }
