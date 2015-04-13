@@ -242,7 +242,6 @@ public class GhostTypeQuizGUI extends JPanel
        ghostFrame.setVisible(true);
      }
 
-     //This will only be Druddigon or Noivern/Noibat
      public static JPanel truePokemon() {
        JPanel n = new JPanel();
        ColorName trueColor = ghostColors.get(ghostPokemon.get(0));
@@ -251,7 +250,6 @@ public class GhostTypeQuizGUI extends JPanel
        return n;
      }
 
-     //This won't happen with Dragon type unless something HORRIBLE happens
      public static JLabel glitch() {
        ImageIcon pokePicture = new ImageIcon("images/MissingNo.png");
        JLabel pokeLabel = new JLabel("There was a glitch...", pokePicture,
@@ -578,8 +576,8 @@ public class GhostTypeQuizGUI extends JPanel
     question.addPokemonNo("Dusclops");
     questions.add(question);
 
-    question = new Question("Are your manners or speech elegant or refined " +
-        "compared to most of your peers?");
+    question = new Question("Are your manners or way of speaking more elegant" +
+        "or refined compared to most of your peers?");
     question.addPokemonYes("Chandelure");
     question.addPokemonNo("Lampent");
     questions.add(question);

@@ -8,24 +8,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class IceTypeQuizGUI extends JPanel
-{ static JFrame iceFrame;
-  static JPanel icePanel;
+public class DarkTypeQuizGUI extends JPanel
+{ static JFrame darkFrame;
+  static JPanel darkPanel;
   static Queue<Question> questions;
   static String question;
   static boolean cont = false;
   static ArrayList<String> thoseInAgreement = new ArrayList<String>();
   static ArrayList<String> thoseInDenial = new ArrayList<String>();
-  static ArrayList<String> icePokemon = new ArrayList<String>();
-  static Map <String, ColorName> iceColors = 
+  static ArrayList<String> darkPokemon = new ArrayList<String>();
+  static Map <String, ColorName> darkColors = 
           new HashMap<String, ColorName>();
-   public IceTypeQuizGUI() {
+   public DarkTypeQuizGUI() {
      super(new GridLayout(0,1));
      setOpaque(false);
-     Question ice = questions.poll();
-     question = ice.getQuestion();
-     thoseInAgreement = ice.getYes();
-     thoseInDenial = ice.getNo();
+     Question dark = questions.poll();
+     question = dark.getQuestion();
+     thoseInAgreement = dark.getYes();
+     thoseInDenial = dark.getNo();
      JButton yes;
      JButton no;
      if (question.equals("What gender are you?")) {
@@ -48,7 +48,7 @@ public class IceTypeQuizGUI extends JPanel
 
      JLabel questionLabel = new JLabel(question, SwingConstants.CENTER);
      questionLabel.setFont(new Font("SansSerif.bold", Font.PLAIN, 12));
-     questionLabel.setBackground(new Color((44f/100f), (65f/100f),(82f/100f)));
+     questionLabel.setBackground(new Color((0f/100f), (0f/100f),(0f/100f)));
      questionLabel.setOpaque(true);
      questionLabel.setForeground(Color.WHITE);
      questionLabel.setPreferredSize(new Dimension(1000, 70));
@@ -56,7 +56,7 @@ public class IceTypeQuizGUI extends JPanel
        @Override
        public void actionPerformed(ActionEvent e) {
          for(int i = 0; i < thoseInDenial.size(); i++) {
-           icePokemon.remove(thoseInDenial.get(i));
+           darkPokemon.remove(thoseInDenial.get(i));
           }
           thoseInAgreement.clear();
           thoseInDenial.clear();
@@ -71,30 +71,30 @@ public class IceTypeQuizGUI extends JPanel
             }
           }
           if (questions.size() != 0) {
-            iceFrame.getContentPane().removeAll();
-		        icePanel = new IceTypeQuizGUI();
-            iceFrame.add(icePanel);
-            iceFrame.pack();
+            darkFrame.getContentPane().removeAll();
+		        darkPanel = new DarkTypeQuizGUI();
+            darkFrame.add(darkPanel);
+            darkFrame.pack();
           } else {
-              if (icePokemon.size() > 1) {
-                  for(int i = 0; i < icePokemon.size(); i++) {
-                    System.out.println(icePokemon.get(i));
+              if (darkPokemon.size() > 1) {
+                  for(int i = 0; i < darkPokemon.size(); i++) {
+                    System.out.println(darkPokemon.get(i));
                   }
-                  iceFrame.getContentPane().removeAll();
+                  darkFrame.getContentPane().removeAll();
                   ColorSelection color = new ColorSelection();
-                  iceFrame.add(color);
-                  iceFrame.pack();
-              } else if (icePokemon.size() == 1) {
-                  iceFrame.getContentPane().removeAll();
+                  darkFrame.add(color);
+                  darkFrame.pack();
+              } else if (darkPokemon.size() == 1) {
+                  darkFrame.getContentPane().removeAll();
                   JPanel pokemon = ColorSelection.truePokemon();
-                  iceFrame.add(pokemon);
-                  iceFrame.pack();
-                  iceFrame.setVisible(true);
+                  darkFrame.add(pokemon);
+                  darkFrame.pack();
+                  darkFrame.setVisible(true);
               } else {
-                  iceFrame.getContentPane().removeAll();
+                  darkFrame.getContentPane().removeAll();
                   JLabel missingno = ColorSelection.glitch();
-                  iceFrame.add(missingno);
-                  iceFrame.pack();
+                  darkFrame.add(missingno);
+                  darkFrame.pack();
               }
           }
        }
@@ -103,7 +103,7 @@ public class IceTypeQuizGUI extends JPanel
        @Override
        public void actionPerformed(ActionEvent e) {
          for(int i = 0; i < thoseInAgreement.size(); i++) {
-           icePokemon.remove(thoseInAgreement.get(i));
+           darkPokemon.remove(thoseInAgreement.get(i));
          }
          thoseInAgreement.clear();
          thoseInDenial.clear();
@@ -118,30 +118,30 @@ public class IceTypeQuizGUI extends JPanel
            }
          }
          if (questions.size() != 0) {
-           iceFrame.getContentPane().removeAll();
-		       icePanel = new IceTypeQuizGUI();
-           iceFrame.add(icePanel);
-           iceFrame.pack();
+           darkFrame.getContentPane().removeAll();
+		       darkPanel = new DarkTypeQuizGUI();
+           darkFrame.add(darkPanel);
+           darkFrame.pack();
          } else {
-           if (icePokemon.size() > 1) {
-             for(int i = 0; i < icePokemon.size(); i++) {
-               System.out.println(icePokemon.get(i));
+           if (darkPokemon.size() > 1) {
+             for(int i = 0; i < darkPokemon.size(); i++) {
+               System.out.println(darkPokemon.get(i));
              }
-             iceFrame.getContentPane().removeAll();
+             darkFrame.getContentPane().removeAll();
              ColorSelection color = new ColorSelection();
-             iceFrame.add(color);
-             iceFrame.pack();
-           } else if (icePokemon.size() == 1) {
-             iceFrame.getContentPane().removeAll();
+             darkFrame.add(color);
+             darkFrame.pack();
+           } else if (darkPokemon.size() == 1) {
+             darkFrame.getContentPane().removeAll();
              JPanel pokemon = ColorSelection.truePokemon();
-             iceFrame.add(pokemon);
-             iceFrame.pack();
-             iceFrame.setVisible(true);
+             darkFrame.add(pokemon);
+             darkFrame.pack();
+             darkFrame.setVisible(true);
            } else {
-             iceFrame.getContentPane().removeAll();
+             darkFrame.getContentPane().removeAll();
              JLabel missingno = ColorSelection.glitch();
-             iceFrame.add(missingno);
-             iceFrame.pack();
+             darkFrame.add(missingno);
+             darkFrame.pack();
            }
 
 
@@ -156,14 +156,14 @@ public class IceTypeQuizGUI extends JPanel
      ArrayList<String> yesPoke = question.getYes();
      ArrayList<String> noPoke = question.getNo();
      for (int i = 0; i < yesPoke.size(); i++) {
-       if (icePokemon.contains(yesPoke.get(i))) {
+       if (darkPokemon.contains(yesPoke.get(i))) {
          necessary = true;
          break;
        }
      }
      if (!necessary) {
        for (int i = 0; i < noPoke.size(); i++) {
-         if (icePokemon.contains(noPoke.get(i))) {
+         if (darkPokemon.contains(noPoke.get(i))) {
            necessary = true;
            break;
          }
@@ -211,9 +211,9 @@ public class IceTypeQuizGUI extends JPanel
        float green;
        float blue;
        ArrayList<JButton> colors = new ArrayList<JButton>();
-       for (int i = 0; i < icePokemon.size(); i++) {
-           currentPokemon = icePokemon.get(i);
-           currentColor = iceColors.get(currentPokemon);
+       for (int i = 0; i < darkPokemon.size(); i++) {
+           currentPokemon = darkPokemon.get(i);
+           currentColor = darkColors.get(currentPokemon);
            red = currentColor.getRed();
            green = currentColor.getGreen();
            blue = currentColor.getBlue();
@@ -243,16 +243,16 @@ public class IceTypeQuizGUI extends JPanel
        JPanel n = new JPanel();
        n.add(createPokemon(finalPokemon, color));
        
-       iceFrame.getContentPane().removeAll();
-       iceFrame.add(n);
-       iceFrame.pack();
-       iceFrame.setVisible(true);
+       darkFrame.getContentPane().removeAll();
+       darkFrame.add(n);
+       darkFrame.pack();
+       darkFrame.setVisible(true);
      }
 
      public static JPanel truePokemon() {
        JPanel n = new JPanel();
-       ColorName trueColor = iceColors.get(icePokemon.get(0));
-       n.add(createPokemon(icePokemon.get(0), new Color(
+       ColorName trueColor = darkColors.get(darkPokemon.get(0));
+       n.add(createPokemon(darkPokemon.get(0), new Color(
                trueColor.getRed(), trueColor.getGreen(), trueColor.getBlue())));
        return n;
      }
@@ -269,8 +269,8 @@ public class IceTypeQuizGUI extends JPanel
      }
 
      public static JLabel createPokemon(String pokemon, Color color) {
-       iceFrame.getContentPane().removeAll();
-       ImageIcon pokePicture = new ImageIcon("./images/Ice/" + pokemon +
+       darkFrame.getContentPane().removeAll();
+       ImageIcon pokePicture = new ImageIcon("./images/Dark/" + pokemon +
            ".png");
        JLabel pokeLabel = new JLabel("You are " + pokemon + "!", pokePicture,
          JLabel.CENTER);
@@ -286,134 +286,84 @@ public class IceTypeQuizGUI extends JPanel
      }
    }
    public static void main(String arg[]) {
-       icePokemon.add("Dewgong");
-       icePokemon.add("Cloyster");
-       icePokemon.add("Jynx");
-       icePokemon.add("Lapras");
-       icePokemon.add("Articuno");
-       icePokemon.add("Sneasel");
-       icePokemon.add("Swinub");
-       icePokemon.add("Piloswine");
-       icePokemon.add("Delibird");
-       icePokemon.add("Smoochum");
-       icePokemon.add("Snorunt");
-       icePokemon.add("Glalie");
-       icePokemon.add("Spheal");
-       icePokemon.add("Sealeo");
-       icePokemon.add("Walrein");
-       icePokemon.add("Regice");
-       icePokemon.add("Snover");
-       icePokemon.add("Abomasnow");
-       icePokemon.add("Weavile");
-       icePokemon.add("Glaceon");
-       icePokemon.add("Mamoswine");
-       icePokemon.add("Froslass");
-       icePokemon.add("Vanillite");
-       icePokemon.add("Vanillish");
-       icePokemon.add("Vanilluxe");
-       icePokemon.add("Cubchoo");
-       icePokemon.add("Beartic");
-       icePokemon.add("Cryogonal");
-       icePokemon.add("Kyurem");
-       icePokemon.add("Amaura");
-       icePokemon.add("Aurorus");
-       icePokemon.add("Bergmite");
-       icePokemon.add("Avalugg");
+       darkPokemon.add("Umbreon");
+       darkPokemon.add("Murkrow");
+       darkPokemon.add("Sneasel");
+       darkPokemon.add("Houndour");
+       darkPokemon.add("Houndoom");
+       darkPokemon.add("Tyranitar");
+       darkPokemon.add("Poochyena");
+       darkPokemon.add("Mightyena");
+       darkPokemon.add("Nuzleaf");
+       darkPokemon.add("Shiftry");
+       darkPokemon.add("Sableye");
+       darkPokemon.add("Carvanha");
+       darkPokemon.add("Sharpedo");
+       darkPokemon.add("Cacturne");
+       darkPokemon.add("Crawdaunt");
+       darkPokemon.add("Absol");
+       darkPokemon.add("Honchkrow");
+       darkPokemon.add("Stunky");
+       darkPokemon.add("Skuntank");
+       darkPokemon.add("Spiritomb");
+       darkPokemon.add("Drapion");
+       darkPokemon.add("Weavile");
+       darkPokemon.add("Darkrai");
+       darkPokemon.add("Purrloin");
+       darkPokemon.add("Liepard");
+       darkPokemon.add("Sandile");
+       darkPokemon.add("Krokorok");
+       darkPokemon.add("Krookodile");
+       darkPokemon.add("Scraggy");
+       darkPokemon.add("Scrafty");
+       darkPokemon.add("Zorua");
+       darkPokemon.add("Zoroark");
+       darkPokemon.add("Pawniard");
+       darkPokemon.add("Bisharp");
+       darkPokemon.add("Vullaby");
+       darkPokemon.add("Mandibuzz");
+       darkPokemon.add("Deino");
+       darkPokemon.add("Zweilous");
+       darkPokemon.add("Hydreigon");
+       darkPokemon.add("Greninja");
+       darkPokemon.add("Pangoro");
+       darkPokemon.add("Inkay");
+       darkPokemon.add("Malamar");
+       darkPokemon.add("Yveltal");
        
-       iceColors.put("Dewgong", new ColorName("Turquoise",
+       darkColors.put("Dewgong", new ColorName("Turquoise",
                (25f/100f), (88f/100f), (82f/100f)));
-       iceColors.put("Cloyster", new ColorName("Dark Blue",
-               (0f/100f), (0f/100f), (55f/100f)));
-       iceColors.put("Jynx", new ColorName("Magenta",
-               (100f/100f), (11f/100f), (81f/100f)));
-       iceColors.put("Lapras", new ColorName("Lapis Lazuli",
-               (15f/100f), (38f/100f), (61f/100f)));
-       iceColors.put("Articuno", new ColorName("Sapphire",
-               (6f/100f), (32f/100f), (73f/100f)));
-       iceColors.put("Sneasel", new ColorName("Jet",
-               (20f/100f), (20f/100f), (20f/100f)));
-       iceColors.put("Swinub", new ColorName("Coffee",
-               (44f/100f), (26f/100f), (25f/100f)));
-       iceColors.put("Piloswine", new ColorName("Coffee",
-               (44f/100f), (26f/100f), (25f/100f)));
-       iceColors.put("Delibird", new ColorName("Cherry",
-               (87f/100f), (19f/100f), (39f/100f)));
-       iceColors.put("Smoochum", new ColorName("Magenta",
-               (100f/100f), (11f/100f), (81f/100f)));
-       iceColors.put("Snorunt", new ColorName("Black",
-               (0f/100f), (0f/100f), (0f/100f)));
-       iceColors.put("Glalie", new ColorName("Black",
-               (0f/100f), (0f/100f), (0f/100f)));
-       iceColors.put("Spheal", new ColorName("Cerulean Frost",
-               (43f/100f), (61f/100f), (76f/100f)));
-       iceColors.put("Sealeo", new ColorName("Cerulean Frost",
-               (43f/100f), (61f/100f), (76f/100f)));
-       iceColors.put("Walrein", new ColorName("Cerulean Frost",
-               (43f/100f), (61f/100f), (76f/100f)));
-       iceColors.put("Regice", new ColorName("Diamond",
-               (73f/100f), (95f/100f), (100f/100f)));
-       iceColors.put("Snover", new ColorName("Pine Green",
-               (0f/100f), (47f/100f), (44f/100f)));
-       iceColors.put("Abomasnow", new ColorName("Pine Green",
-               (0f/100f), (47f/100f), (44f/100f)));
-       iceColors.put("Weavile", new ColorName("Jet",
-               (20f/100f), (20f/100f), (20f/100f)));
-       iceColors.put("Glaceon", new ColorName("Celeste",
-               (70f/100f), (100f/100f), (100f/100f)));
-       iceColors.put("Mamoswine", new ColorName("Coffee",
-               (44f/100f), (26f/100f), (25f/100f)));
-       iceColors.put("Froslass", new ColorName("Black",
-               (0f/100f), (0f/100f), (0f/100f)));
-       iceColors.put("Vanillite", new ColorName("Vanilla",
-               (95f/100f), (90f/100f), (67f/100f)));
-       iceColors.put("Vanillish", new ColorName("Vanilla",
-               (95f/100f), (90f/100f), (67f/100f)));
-       iceColors.put("Vanilluxe", new ColorName("Vanilla",
-               (95f/100f), (90f/100f), (67f/100f)));
-       iceColors.put("Cubchoo", new ColorName("Blizzard Blue",
-               (67f/100f), (90f/100f), (93f/100f)));
-       iceColors.put("Beartic", new ColorName("Blizzard Blue",
-               (67f/100f), (90f/100f), (93f/100f)));
-       iceColors.put("Cryogonal", new ColorName("Snow",
-               (100f/100f), (98f/100f), (98f/100f)));
-       iceColors.put("Kyurem", new ColorName("White",
-               (100f/100f), (100f/100f), (100f/100f)));
-       iceColors.put("Amaura", new ColorName("Light Sky Blue",
-               (53f/100f), (81f/100f), (98f/100f)));
-       iceColors.put("Aurorus", new ColorName("Light Sky Blue",
-               (53f/100f), (81f/100f), (98f/100f)));
-       iceColors.put("Bergmite", new ColorName("Iceberg",
-               (44f/100f), (65f/100f), (82f/100f)));
-       iceColors.put("Avalugg", new ColorName("Iceberg",
-               (44f/100f), (65f/100f), (82f/100f)));
 
     questions =  new LinkedList<Question>();
     Question question = new Question("Are you famous and well-known outside" +
         " of your home?");
-    question.addPokemonYes("Articuno");
-    question.addPokemonYes("Regice");
-    question.addPokemonYes("Kyurem");
+    question.addPokemonYes("Darkrai");
+    question.addPokemonYes("Yveltal");
     questions.add(question);
     
     question = new Question("What gender are you?");
-    question.addPokemonNo("Jynx");
-    question.addPokemonNo("Smoochum");
-    question.addPokemonNo("Froslass");
+    question.addPokemonNo("Vullaby");
+    question.addPokemonNo("Mandibuzz");
     questions.add(question);
 
-    question = new Question("Do you tend to have dessert after every major " +
-            "meal?");
-    question.addPokemonYes("Vanillite");
-    question.addPokemonYes("Vanillish");
-    question.addPokemonYes("Vanilluxe");
+    question = new Question("When you work with a team, do you tend to let " +
+        "your temmates do most of the work, but take part of the credit?");
+    question.addPokemonYes("Poochyena");
+    question.addPokemonYes("Mightyena");
     questions.add(question);
 
-    question = new Question("Do you have an intense relationship with food, " +
-            "tend to overeat, or have the expertise to be a chef or foot " +
-            "critic?");
-    question.addPokemonYes("Swinub");
-    question.addPokemonYes("Piloswine");
-    question.addPokemonYes("Mamoswine");
+    question = new Question("Do you pretend that you are something that you " +
+        "are not in order to get out of sticky situations, or to get things " +
+        "out of people?");
+    question.addPokemonYes("Zorua");
+    question.addPokemonYes("Zoroark");
+    questions.add(question);
+
+    question = new Question("Do people tend to forget your misdeeds or " +
+        "lessen the amount of punishment you receive because of " +
+        "how attractive or charismatic you are?");
+    question.addPokemonYes("Purrloin");
+    question.addPokemonYes("Liepard");
     questions.add(question);
 
     question = new Question("Do you have somewhat harder time understanding " +
@@ -435,10 +385,24 @@ public class IceTypeQuizGUI extends JPanel
     question.addPokemonYes("Beartic");
     questions.add(question);
 
+    question = new Question("Are you likely to get defensive or lash out if " +
+        "someone mocks you or belittles you?");
+    question.addPokemonYes("Cyndaquil");
+    question.addPokemonYes("Quilava");
+    question.addPokemonYes("Typhlosion");
+    questions.add(question);
+
     question = new Question("Do you prefer the wintertime over the summertime" +
             ", and do you tend to disappear when you are not " +
             "feeling well emotionally?");
     question.addPokemonYes("Cryogonal");
+    questions.add(question);
+
+    question = new Question("Do you have perfect, 20/20 vision or have never" +
+        " had the need of glasses or contacts?");
+    question.addPokemonYes("Sandile");
+    question.addPokemonYes("Krokorok");
+    question.addPokemonYes("Krookodile");
     questions.add(question);
 
     question = new Question("Are you a cold and distant person, who likes to" +
@@ -454,6 +418,19 @@ public class IceTypeQuizGUI extends JPanel
             "in your family?");
     question.addPokemonYes("Amaura");
     question.addPokemonYes("Aurorus");
+    questions.add(question);
+
+    question = new Question("Are you normally friendly and outgoing, but tend" +
+        " to clam up and push people away when things aren't going well?");
+    question.addPokemonYes("Darumaka");
+    question.addPokemonYes("Darmanitan");
+    questions.add(question);
+
+    question = new Question("Are you normally quiet and unassuming, " +
+        "unless something triggers you, which causes you to go off onto a " +
+        "violent tirade or break things?");
+    question.addPokemonYes("Numel");
+    question.addPokemonYes("Camerupt");
     questions.add(question);
 
     question = new Question("Do you either believe in Santa Claus, or have " +
@@ -490,39 +467,50 @@ public class IceTypeQuizGUI extends JPanel
 
     question = new Question("Are you still biologically a child (under the" +
         " age of 18)?");
-    question.addPokemonYes("Swinub");
-    question.addPokemonYes("Smoochum");
-    question.addPokemonYes("Snorunt");
-    question.addPokemonYes("Spheal");
-    question.addPokemonYes("Snover");
-    question.addPokemonYes("Vanillite");
-    question.addPokemonYes("Cubchoo");
-    question.addPokemonYes("Amaura");
-    question.addPokemonYes("Bergmite");
+    question.addPokemonYes("Houndour");
+    question.addPokemonYes("Poochyena");
+    question.addPokemonYes("Carvanha");
+    question.addPokemonYes("Stunky");
+    question.addPokemonYes("Purrloin");
+    question.addPokemonYes("Sandile");
+    question.addPokemonYes("Scraggy");
+    question.addPokemonYes("Zorua");
+    question.addPokemonYes("Pawniard");
+    question.addPokemonYes("Vullaby");
+    question.addPokemonYes("Deino");
+    question.addPokemonYes("Inkay");
 
-    question.addPokemonNo("Dewgong");
-    question.addPokemonNo("Cloyster");
-    question.addPokemonNo("Jynx");
-    question.addPokemonNo("Piloswine");
-    question.addPokemonNo("Glalie");
-    question.addPokemonNo("Sealeo");
-    question.addPokemonNo("Walrein");
-    question.addPokemonNo("Abomasnow");
+    question.addPokemonNo("Umbreon");
+    question.addPokemonNo("Houndoom");
+    question.addPokemonNo("Tyranitar");
+    question.addPokemonNo("Mightyena");
+    question.addPokemonNo("Nuzleaf");
+    question.addPokemonNo("Shiftry");
+    question.addPokemonNo("Sharpedo");
+    question.addPokemonNo("Cacturne");
+    question.addPokemonNo("Crawdaunt");
+    question.addPokemonNo("Honchkrow");
+    question.addPokemonNo("Skuntank");
+    question.addPokemonNo("Drapion");
     question.addPokemonNo("Weavile");
-    question.addPokemonNo("Glaceon");
-    question.addPokemonNo("Mamoswine");
-    question.addPokemonNo("Froslass");
-    question.addPokemonNo("Vanillish");
-    question.addPokemonNo("Vanilluxe");
-    question.addPokemonNo("Beartic");
-    question.addPokemonNo("Aurorus");
-    question.addPokemonNo("Avalugg");
+    question.addPokemonNo("Liepard");
+    question.addPokemonNo("Krokorok");
+    question.addPokemonNo("Krookodile");
+    question.addPokemonNo("Scrafty");
+    question.addPokemonNo("Zoroark");
+    question.addPokemonNo("Bisharp");
+    question.addPokemonNo("Mandibuzz");
+    question.addPokemonNo("Zweilous");
+    question.addPokemonNo("Hydreigon");
+    question.addPokemonNo("Greninja");
+    question.addPokemonNo("Pangoro");
+    question.addPokemonNo("Malamar");
     questions.add(question);
 
-    question = new Question("Are you rather elderly, or do you have maturity " +
-            "or a personality that is unbecoming of your age (an old soul)?");
-    question.addPokemonYes("Mamoswine");
-    question.addPokemonNo("Piloswine");
+    question = new Question("Are you the kind of person that never gives up" +
+        " on their dreams or goals, or refuses to accept no when rejected?");
+    question.addPokemonYes("Krookodile");
+    question.addPokemonNo("Krokorok");
     questions.add(question);
 
     question = new Question("Are you famous for either a heroic rescue in the" +
@@ -531,7 +519,7 @@ public class IceTypeQuizGUI extends JPanel
     question.addPokemonYes("Articuno");
     questions.add(question);
 
-    question = new Question("Do you have rather noticeable facial hair, or " +
+    question = new Question("Do you have rather notdarkable facial hair, or " +
             "have you experienced a debilitating injury (broken bones, etc.)?");
     question.addPokemonYes("Walrein");
     question.addPokemonNo("Sealeo");
@@ -542,7 +530,7 @@ public class IceTypeQuizGUI extends JPanel
     question.addPokemonYes("Dewgong");
     questions.add(question);
 
-    question = new Question("Is ice cream your favorite kind of dessert, and " +
+    question = new Question("Is dark cream your favorite kind of dessert, and " +
             "do you hate sharing your food with people?");
     question.addPokemonYes("Vanilluxe");
     question.addPokemonNo("Vanillish");
@@ -550,7 +538,7 @@ public class IceTypeQuizGUI extends JPanel
 
     question = new Question("Are you steadfast and unchanging in your " +
             "thoughts or beliefs, even if everyone else thinks you're wrong?");
-    question.addPokemonYes("Regice");
+    question.addPokemonYes("Regdark");
     questions.add(question);
 
     question = new Question("Are you the kind of person who never tells " +
@@ -566,9 +554,10 @@ public class IceTypeQuizGUI extends JPanel
     question.addPokemonNo("Sneasel");
     questions.add(question);
 
-    question = new Question("Do you take great pride in the condition of your" +
-            " hair, and do you enjoy stroking your hair?");
-    question.addPokemonYes("Glaceon");
+    question = new Question("Do you not care about the world's resources " +
+        "depleting, or do you believe that the world would be a better place" +
+        " if some people died?");
+    question.addPokemonYes("Yveltal");
     questions.add(question);
 
     question = new Question("Have you made it your goal in life to discover " +
@@ -582,12 +571,12 @@ public class IceTypeQuizGUI extends JPanel
     question.addPokemonYes("Froslass");
     questions.add(question);
 
-    iceFrame = new JFrame("ICE TYPE QUIZ");
-    iceFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    icePanel = new IceTypeQuizGUI();
-    iceFrame.add(icePanel);
-    iceFrame.pack();
-    iceFrame.setVisible(true);
+    darkFrame = new JFrame("DARK TYPE QUIZ");
+    darkFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    darkPanel = new DarkTypeQuizGUI();
+    darkFrame.add(darkPanel);
+    darkFrame.pack();
+    darkFrame.setVisible(true);
    }
 }
 

@@ -248,7 +248,6 @@ public class SteelTypeQuizGUI extends JPanel
        steelFrame.setVisible(true);
      }
 
-     //This will only be Druddigon or Noivern/Noibat
      public static JPanel truePokemon() {
        JPanel n = new JPanel();
        ColorName trueColor = steelColors.get(steelPokemon.get(0));
@@ -257,7 +256,6 @@ public class SteelTypeQuizGUI extends JPanel
        return n;
      }
 
-     //This won't happen with Dragon type unless something HORRIBLE happens
      public static JLabel glitch() {
        ImageIcon pokePicture = new ImageIcon("images/MissingNo.png");
        JLabel pokeLabel = new JLabel("There was a glitch...", pokePicture,

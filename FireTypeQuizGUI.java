@@ -249,7 +249,6 @@ public class FireTypeQuizGUI extends JPanel
        fireFrame.setVisible(true);
      }
 
-     //This will only be Druddigon or Noivern/Noibat
      public static JPanel truePokemon() {
        JPanel n = new JPanel();
        ColorName trueColor = fireColors.get(firePokemon.get(0));
@@ -258,7 +257,6 @@ public class FireTypeQuizGUI extends JPanel
        return n;
      }
 
-     //This won't happen with Dragon type unless something HORRIBLE happens
      public static JLabel glitch() {
        ImageIcon pokePicture = new ImageIcon("images/MissingNo.png");
        JLabel pokeLabel = new JLabel("There was a glitch...", pokePicture,
@@ -541,15 +539,15 @@ public class FireTypeQuizGUI extends JPanel
     question.addPokemonYes("Torkoal");
     questions.add(question);
 
-    question = new Question("Do you tend to eat more the average person, " +
-        "and has this contributed to a weight problem or the start of one?");
+    question = new Question("Do you tend to eat more than the average person," +
+        " and has this contributed to a weight problem or the start of one?");
     question.addPokemonYes("Tepig");
     question.addPokemonYes("Pignite");
     question.addPokemonYes("Emboar");
     questions.add(question);
 
-    question = new Question("Do you believe that life is what you make, and" +
-        " that having a positive outlook on life is important?");
+    question = new Question("Do you believe that life is what you make it, " +
+        " and that having a positive outlook on life is important?");
     question.addPokemonYes("Magby");
     question.addPokemonYes("Magmar");
     question.addPokemonYes("Magmortar");

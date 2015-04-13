@@ -246,7 +246,6 @@ public class FairyTypeQuizGUI extends JPanel
        fairyFrame.setVisible(true);
      }
 
-     //This will only be Druddigon or Noivern/Noibat
      public static JPanel truePokemon() {
        JPanel n = new JPanel();
        ColorName trueColor = fairyColors.get(fairyPokemon.get(0));
@@ -255,7 +254,6 @@ public class FairyTypeQuizGUI extends JPanel
        return n;
      }
 
-     //This won't happen with Dragon type unless something HORRIBLE happens
      public static JLabel glitch() {
        ImageIcon pokePicture = new ImageIcon("images/MissingNo.png");
        JLabel pokeLabel = new JLabel("There was a glitch...", pokePicture,
