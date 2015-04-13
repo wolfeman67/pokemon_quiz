@@ -4,6 +4,8 @@ import java.util.Queue;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FairyTypeQuizGUI extends JPanel
 { static JFrame fairyFrame;
@@ -14,6 +16,8 @@ public class FairyTypeQuizGUI extends JPanel
   static ArrayList<String> thoseInAgreement = new ArrayList<String>();
   static ArrayList<String> thoseInDenial = new ArrayList<String>();
   static ArrayList<String> fairyPokemon = new ArrayList<String>();
+  static Map <String, ColorName> fairyColors = 
+          new HashMap<String, ColorName>();
    public FairyTypeQuizGUI() {
      super(new GridLayout(0,1));
      setOpaque(false);
@@ -188,7 +192,7 @@ public class FairyTypeQuizGUI extends JPanel
      }
    }
 
-   public static class ColorSelection extends JPanel implements ActionListener {
+    public static class ColorSelection extends JPanel implements ActionListener {
      public ColorSelection () {
        super(new BorderLayout());
        JPanel colorsPanel = new JPanel(new GridLayout(0,3));
@@ -198,217 +202,29 @@ public class FairyTypeQuizGUI extends JPanel
        select.setOpaque(true);
        select.setForeground(Color.WHITE);
        select.setBackground(Color.BLACK);
+       ColorName currentColor;
+       String currentPokemon;
+       float red;
+       float green;
+       float blue;
        ArrayList<JButton> colors = new ArrayList<JButton>();
        for (int i = 0; i < fairyPokemon.size(); i++) {
-         if (fairyPokemon.get(i).equals("Flabebe") || fairyPokemon.get(i)
-             .equals("Floette") || fairyPokemon.get(i).equals("Florges"))
-         {
-           JButton colorButton = new JButton("Rose");
-           colorButton.setForeground(Color.WHITE);
+           currentPokemon = fairyPokemon.get(i);
+           currentColor = fairyColors.get(currentPokemon);
+           red = currentColor.getRed();
+           green = currentColor.getGreen();
+           blue = currentColor.getBlue();
+           JButton colorButton = new JButton(currentColor.getName());
            colorButton.setOpaque(true);
-           colorButton.setActionCommand("Rose");
-           colorButton.setBackground(new Color((100f/100f),(0f/100f),
-                 (50f/100f)));
+           colorButton.setActionCommand(currentPokemon);
            colorButton.addActionListener(this);
+           if ((red + green + blue) / 3 < .5f) {
+               colorButton.setForeground(Color.WHITE);
+           } else {
+               colorButton.setForeground(Color.BLACK);
+           }
+           colorButton.setBackground(new Color(red, green, blue));
            colors.add(colorButton);
-             }
-         if (fairyPokemon.get(i).equals("Togepi") || fairyPokemon.get(i)
-             .equals("Togetic") || fairyPokemon.get(i).equals("Togekiss"))
-         {
-           JButton colorButton = new JButton("White");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("White");
-           colorButton.setBackground(new Color((100f/100f), (100f/100f),
-                 (100f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-             }
-         if (fairyPokemon.get(i).equals("Azurill") || fairyPokemon.get(i)
-             .equals("Marill") || fairyPokemon.get(i).equals("Azumarill"))
-         {
-           JButton colorButton = new JButton("Baby Blue");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Baby Blue");
-           colorButton.setBackground(new Color((54f/100f), (81f/100f),
-                 (94f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-             }
-         if (fairyPokemon.get(i).equals("Cleffa") || fairyPokemon.get(i)
-             .equals("Clefairy") || fairyPokemon.get(i).equals("Clefable"))
-         {
-           JButton colorButton = new JButton("Blush");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Blush");
-           colorButton.setBackground(new Color((87f/100f), (36f/100f),
-                 (51f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (fairyPokemon.get(i).equals("Igglybuff") || fairyPokemon.get(i)
-             .equals("Jigglypuff") || fairyPokemon.get(i).equals("Wigglytuff"))
-         {
-           JButton colorButton = new JButton("Baby Pink");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Baby Pink");
-           colorButton.setBackground(new Color((96f/100f), (76f/100f),
-                 (76f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (fairyPokemon.get(i).equals("Xerneas"))
-         {
-           JButton colorButton = new JButton("Royal Blue");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Royal Blue");
-           colorButton.setBackground(new Color((0f/100f), (14f/100f),
-                 (40f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (fairyPokemon.get(i).equals("Snubbull") || fairyPokemon.get(i)
-                 .equals("Granbull"))
-         {
-           JButton colorButton = new JButton("Lavender Magenta");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Lavender Magenta");
-           colorButton.setBackground(new Color((100f/100f), (0f/100f),
-                 (100f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (fairyPokemon.get(i).equals("Dedenne"))
-         {
-           JButton colorButton = new JButton("Tangelo");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Tangelo");
-           colorButton.setBackground(new Color((98f/100f), (30f/100f),
-                 (0f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (fairyPokemon.get(i).equals("Ralts") || fairyPokemon.get(i)
-             .equals("Kirlia") || fairyPokemon.get(i).equals("Gardevoir"))
-         {
-           JButton colorButton = new JButton("Azure");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Azure");
-           colorButton.setBackground(new Color((0f/100f), (50f/100f),
-                 (100f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (fairyPokemon.get(i).equals("Cottonee") || fairyPokemon.get(i)
-                 .equals("Whimsicott"))
-         {
-           JButton colorButton = new JButton("Forest Green");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Forest Green");
-           colorButton.setBackground(new Color((13f/100f), (55f/100f),
-                 (13f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (fairyPokemon.get(i).equals("Mawile"))
-         {
-           JButton colorButton = new JButton("Licorice");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Licorice");
-           colorButton.setBackground(new Color((10f/100f), (7f/100f),
-                 (6f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (fairyPokemon.get(i).equals("Swirlix") || fairyPokemon.get(i)
-             .equals("Slurpuff"))
-         {
-           JButton colorButton = new JButton("Cotton Candy");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Cotton Candy");
-           colorButton.setBackground(new Color((100f/100f), (74f/100f),
-                 (85f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (fairyPokemon.get(i).equals("Spritzee") || fairyPokemon.get(i)
-             .equals("Aromatisse"))
-         {
-           JButton colorButton = new JButton("Fandango");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Fandango");
-           colorButton.setBackground(new Color((71f/100f), (20f/100f),
-                 (54f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (fairyPokemon.get(i).equals("Mime Jr.") || fairyPokemon.get(i)
-             .equals("Mr. Mime"))
-         {
-           JButton colorButton = new JButton("Razzmatazz");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Razzmatazz");
-           colorButton.setBackground(new Color((89/100f), (15f/100f),
-                 (42f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (fairyPokemon.get(i).equals("Sylveon"))
-         {
-           JButton colorButton = new JButton("Champagne");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Champagne");
-           colorButton.setBackground(new Color((97f/100f), (91f/100f),
-                 (81f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (fairyPokemon.get(i).equals("Diancie"))
-         {
-           JButton colorButton = new JButton("Diamond");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Diamond");
-           colorButton.setBackground(new Color((73f/100f), (95f/100f),
-                 (100f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (fairyPokemon.get(i).equals("Klefki"))
-         {
-           JButton colorButton = new JButton("Light Gray");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Light Gray");
-           colorButton.setBackground(new Color((83f/100f), (83f/100f),
-                 (83f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (fairyPokemon.get(i).equals("Carbink"))
-         {
-           JButton colorButton = new JButton("Glitter");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Glitter");
-           colorButton.setBackground(new Color((90f/100f), (91f/100f),
-                 (98f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
        }
        for (int i = 0; i < colors.size(); i++) {
          colorsPanel.add(colors.get(i));
@@ -418,233 +234,28 @@ public class FairyTypeQuizGUI extends JPanel
 
      }
      public void actionPerformed(ActionEvent e) {
-       String colorStr = e.getActionCommand();
+       String finalPokemon = e.getActionCommand();
        Color color = ((JButton)e.getSource()).getBackground();
-       ImageIcon pokePicture;
+       
        JPanel n = new JPanel();
+       n.add(createPokemon(finalPokemon, color));
+       
        fairyFrame.getContentPane().removeAll();
-       if (colorStr.equals("Blush") && fairyPokemon.contains("Cleffa")) {
-           n.add(createPokemon("Cleffa", color));
-       } else if (colorStr.equals("Blush") &&
-               fairyPokemon.contains("Clefairy")){
-           n.add(createPokemon("Clefairy", color));
-       } else if (colorStr.equals("Blush") &&
-               fairyPokemon.contains("Clefable")){
-           n.add(createPokemon("Clefable", color));
-       } else if (colorStr.equals("Baby Pink") && fairyPokemon.contains(
-             "Igglybuff")) {
-           n.add(createPokemon("Igglybuff", color));
-       } else if (colorStr.equals("Baby Pink") && fairyPokemon.contains(
-             "Jigglypuff")) {
-           n.add(createPokemon("Jigglypuff", color));
-       } else if (colorStr.equals("Baby Pink") && fairyPokemon.contains(
-             "Wigglytuff")) {
-           n.add(createPokemon("Wigglytuff", color));
-       } else if (colorStr.equals("Razzmatazz") && fairyPokemon
-               .contains("Mime Jr.")) {
-           n.add(createPokemon("Mime Jr.", color));
-       } else if (colorStr.equals("Razzmatazz") && fairyPokemon
-               .contains("Mr. Mime")) {
-           n.add(createPokemon("Mr. Mime", color));
-       } else if (colorStr.equals("White") && fairyPokemon
-               .contains("Togepi")) {
-           n.add(createPokemon("Togepi", color));
-       } else if (colorStr.equals("White") && fairyPokemon
-               .contains("Togetic")) {
-           n.add(createPokemon("Togetic", color));
-       } else if (colorStr.equals("White") && fairyPokemon
-           .contains("Togekiss")) {
-           n.add(createPokemon("Togekiss", color));
-       } else if (colorStr.equals("Baby Blue") && fairyPokemon
-               .contains("Azurill")) {
-           n.add(createPokemon("Azurill", color));
-       } else if (colorStr.equals("Baby Blue") && fairyPokemon
-               .contains("Marill")) {
-           n.add(createPokemon("Marill", color));
-       } else if (colorStr.equals("Baby Blue") && fairyPokemon
-               .contains("Azumarill")) {
-           n.add(createPokemon("Azumarill", color));
-       } else if (colorStr.equals("Lavender Magenta") && fairyPokemon
-           .contains("Snubbull")) {
-           n.add(createPokemon("Snubbull", color));
-       } else if (colorStr.equals("Lavender Magenta") && fairyPokemon
-           .contains("Granbull")) {
-           n.add(createPokemon("Granbull", color));
-       } else if (colorStr.equals("Azure") && fairyPokemon.contains("Ralts")) {
-           n.add(createPokemon("Ralts", color));
-       } else if (colorStr.equals("Azure") && fairyPokemon.contains("Kirlia")) {
-           n.add(createPokemon("Kirlia", color));
-       } else if (colorStr.equals("Azure") && fairyPokemon
-           .contains("Gardevoir")) {
-           n.add(createPokemon("Gardevoir", color));
-       } else if (colorStr.equals("Licorice")) {
-           n.add(createPokemon("Mawile", color));
-       } else if (colorStr.equals("Forest Green") && fairyPokemon
-               .contains("Cottonee")) {
-           n.add(createPokemon("Cottonee", color));
-       } else if (colorStr.equals("Forest Green") && fairyPokemon
-               .contains("Whimsicott")) {
-           n.add(createPokemon("Whimsicott", color));
-       } else if (colorStr.equals("Rose") && fairyPokemon
-           .contains("Flabebe")) {
-           n.add(createPokemon("Flabebe", color));
-       } else if (colorStr.equals("Rose") && fairyPokemon
-           .contains("Floette")) {
-           n.add(createPokemon("Floette", color));
-       } else if (colorStr.equals("Rose") && fairyPokemon
-           .contains("Florges")) {
-           n.add(createPokemon("Florges", color));
-       } else if (colorStr.equals("Fandango") && fairyPokemon
-           .contains("Spritzee")) {
-           n.add(createPokemon("Spritzee", color));
-       } else if (colorStr.equals("Fandango") && fairyPokemon
-           .contains("Aromatisse")) {
-           n.add(createPokemon("Aromatisse", color));
-       } else if (colorStr.equals("Cotton Candy") && fairyPokemon
-               .contains("Swirlix")) {
-           n.add(createPokemon("Swirlix", color));
-       } else if (colorStr.equals("Cotton Candy") && fairyPokemon
-               .contains("Slurpuff")) {
-           n.add(createPokemon("Slurpuff", color));
-       } else if (colorStr.equals("Champagne")) {
-           n.add(createPokemon("Sylveon", color));
-       } else if (colorStr.equals("Tangelo")) {
-           n.add(createPokemon("Dedenne", color));
-       } else if (colorStr.equals("Glitter")) {
-           n.add(createPokemon("Carbink", color));
-       } else if (colorStr.equals("Light Gray")) {
-           n.add(createPokemon("Klefki", color));
-       } else if (colorStr.equals("Royal Blue")) {
-           n.add(createPokemon("Xerneas", color));
-       } else if (colorStr.equals("Diamond")) {
-           n.add(createPokemon("Diancie", color));
-       }
        fairyFrame.add(n);
        fairyFrame.pack();
        fairyFrame.setVisible(true);
      }
 
+     //This will only be Druddigon or Noivern/Noibat
      public static JPanel truePokemon() {
        JPanel n = new JPanel();
-       if (fairyPokemon.get(0).equals("Cleffa")) {
-         n.add(createPokemon("Cleffa", new Color((87f/100f),
-                 (36f/100f),(51f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Clefairy")) {
-         n.add(createPokemon("Clefairy", new Color((87f/100f),
-                 (36f/100f),(51f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Clefable")) {
-         n.add(createPokemon("Clefable", new Color((87f/100f),
-                 (36f/100f),(51f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Flabebe")) {
-         n.add(createPokemon("Flabebe", new Color((100f/100f),
-                 (0f/100f),(50f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Floette")) {
-         n.add(createPokemon("Floette", new Color((100f/100f),
-                 (0f/100f),(50f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Florges")) {
-         n.add(createPokemon("Florges", new Color((100f/100f),
-                 (0f/100f),(50f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Igglybuff")) {
-         n.add(createPokemon("Igglybuff", new Color((96f/100f),
-                 (76f/100f),(76f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Jigglypuff")) {
-         n.add(createPokemon("Jigglypuff", new Color((96f/100f),
-                 (76f/100f),(76f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Wigglytuff")) {
-         n.add(createPokemon("Wigglytuff", new Color((96f/100f),
-                 (76f/100f),(76f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Mime Jr.")) {
-         n.add(createPokemon("Mime Jr.", new Color((89f/100f),
-                 (15f/100f),(42f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Mr. Mime")) {
-         n.add(createPokemon("Mr. Mime", new Color((89f/100f),
-                 (15f/100f),(42f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Snubbull")) {
-         n.add(createPokemon("Snubbull", new Color((100f/100f),
-                 (0f/100f),(100f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Granbull")) {
-         n.add(createPokemon("Granbull", new Color((100f/100f),
-                 (0f/100f),(100f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Ralts")) {
-         n.add(createPokemon("Ralts", new Color((0f/100f),
-                 (50f/100f),(100f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Kirlia")) {
-         n.add(createPokemon("Kirlia", new Color((0f/100f),
-                 (50f/100f),(100f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Gardevoir")) {
-         n.add(createPokemon("Gardevoir", new Color((0f/100f),
-                 (50f/100f),(100f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Mawile")) {
-         n.add(createPokemon("Mawile", new Color((10f/100f),
-                 (7f/100f),(6f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Cottonee")) {
-         n.add(createPokemon("Cottonee", new Color((13f/100f),
-                 (55f/100f),(13f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Whimsicott")) {
-         n.add(createPokemon("Whimsicott", new Color((13f/100f),
-                 (55f/100f),(13f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Spritzee")) {
-         n.add(createPokemon("Spritzee", new Color((71f/100f),
-                 (20f/100f),(54f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Aromatisse")) {
-         n.add(createPokemon("Aromatisse", new Color((71f/100f),
-                 (20f/100f),(54f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Swirlix")) {
-         n.add(createPokemon("Swirlix", new Color((100f/100f),
-                 (74f/100f),(85f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Slurpuff")) {
-         n.add(createPokemon("Slurpuff", new Color((100f/100f),
-                 (74f/100f),(85f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Sylveon")) {
-         n.add(createPokemon("Sylveon", new Color((97f/100f),
-                 (91f/100f),(81f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Dedenne")) {
-         n.add(createPokemon("Dedenne", new Color((98f/100f),
-                 (30f/100f),(0f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Carbink")) {
-         n.add(createPokemon("Carbink", new Color((90f/100f),
-                 (91f/100f),(98f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Klefki")) {
-         n.add(createPokemon("Klefki", new Color((83f/100f),
-                 (83f/100f),(83f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Xerneas")) {
-         n.add(createPokemon("Xerneas", new Color((0f/100f),
-                 (14f/100f),(40f/100f))));
-       }
-       if (fairyPokemon.get(0).equals("Diancie")) {
-         n.add(createPokemon("Diancie", new Color((73f/100f),
-                 (95f/100f),(100f/100f))));
-       }
+       ColorName trueColor = fairyColors.get(fairyPokemon.get(0));
+       n.add(createPokemon(fairyPokemon.get(0), new Color(
+               trueColor.getRed(), trueColor.getGreen(), trueColor.getBlue())));
        return n;
      }
 
+     //This won't happen with Dragon type unless something HORRIBLE happens
      public static JLabel glitch() {
        ImageIcon pokePicture = new ImageIcon("images/MissingNo.png");
        JLabel pokeLabel = new JLabel("There was a glitch...", pokePicture,
@@ -660,19 +271,8 @@ public class FairyTypeQuizGUI extends JPanel
        fairyFrame.getContentPane().removeAll();
        ImageIcon pokePicture = new ImageIcon("./images/Fairy/" + pokemon +
            ".png");
-       JLabel pokeLabel;
-       if (pokemon.equals("Jellicent-Male") ||
-           pokemon.equals("Jellicent-Female")) {
-         pokeLabel = new JLabel("You are Jellicent!", pokePicture,
-             JLabel.CENTER);
-       } else if (pokemon.equals("Frillish-Male") ||
-           pokemon.equals("Frillish-Female")) {
-         pokeLabel = new JLabel("You are Frillish!", pokePicture,
-             JLabel.CENTER);
-           } else {
-         pokeLabel = new JLabel("You are " + pokemon + "!", pokePicture,
-             JLabel.CENTER);
-         }
+       JLabel pokeLabel = new JLabel("You are " + pokemon + "!", pokePicture,
+           JLabel.CENTER);
        pokeLabel.setFont(new Font("SansSerif.bold", Font.PLAIN, 24));
        if((color.getRed() + color.getGreen() + color.getBlue())/3.0 > 128.0) {
          pokeLabel.setForeground(Color.BLACK);
@@ -720,6 +320,78 @@ public class FairyTypeQuizGUI extends JPanel
        fairyPokemon.add("Klefki");
        fairyPokemon.add("Xerneas");
        fairyPokemon.add("Diancie");
+       
+       fairyColors.put("Clefairy", new ColorName("Blush",
+               (87f/100f), (36f/100f), (51f/100f)));
+       fairyColors.put("Clefable", new ColorName("Blush",
+               (87f/100f), (36f/100f), (51f/100f)));
+       fairyColors.put("Jigglypuff", new ColorName("Baby Pink",
+               (96f/100f), (76f/100f), (76f/100f)));
+       fairyColors.put("Wigglytuff", new ColorName("Baby Pink",
+               (96f/100f), (76f/100f), (76f/100f)));
+       fairyColors.put("Mr. Mime", new ColorName("Razzmatazz",
+               (89f/100f), (15f/100f), (42f/100f)));
+       fairyColors.put("Cleffa", new ColorName("Blush",
+               (87f/100f), (36f/100f), (51f/100f)));
+       fairyColors.put("Igglybuff", new ColorName("Baby Pink",
+               (96f/100f), (76f/100f), (76f/100f)));
+       fairyColors.put("Togepi", new ColorName("White",
+               (100f/100f), (100f/100f), (100f/100f)));
+       fairyColors.put("Togetic", new ColorName("White",
+               (100f/100f), (100f/100f), (100f/100f)));
+       fairyColors.put("Marill", new ColorName("Baby Blue",
+               (54f/100f), (81f/100f), (94f/100f)));
+       fairyColors.put("Azumarill", new ColorName("Baby Blue",
+               (54f/100f), (81f/100f), (94f/100f)));
+       fairyColors.put("Snubbull", new ColorName("Lavender Magenta",
+               (100f/100f), (0f/100f), (100f/100f)));
+       fairyColors.put("Granbull", new ColorName("Lavender Magenta",
+               (100f/100f), (0f/100f), (100f/100f)));
+       fairyColors.put("Ralts", new ColorName("Azure",
+               (0f/100f), (50f/100f), (100f/100f)));
+       fairyColors.put("Kirlia", new ColorName("Azure",
+               (0f/100f), (50f/100f), (100f/100f)));
+       fairyColors.put("Gardevoir", new ColorName("Azure",
+               (0f/100f), (50f/100f), (100f/100f)));
+       fairyColors.put("Azurill", new ColorName("Baby Blue",
+               (54f/100f), (81f/100f), (94f/100f)));
+       fairyColors.put("Mawile", new ColorName("Licorice",
+               (10f/100f), (7f/100f), (6f/100f)));
+       fairyColors.put("Mime Jr.", new ColorName("Razzmatazz",
+               (89f/100f), (15f/100f), (42f/100f)));
+       fairyColors.put("Togekiss", new ColorName("White",
+               (100f/100f), (100f/100f), (100f/100f)));
+       fairyColors.put("Cottonee", new ColorName("Forest Green",
+               (13f/100f), (55f/100f), (13f/100f)));
+       fairyColors.put("Whimsicott", new ColorName("Forest Green",
+               (13f/100f), (55f/100f), (13f/100f)));
+       fairyColors.put("Flabebe", new ColorName("Rose",
+               (100f/100f), (0f/100f), (50f/100f)));
+       fairyColors.put("Floette", new ColorName("Rose",
+               (100f/100f), (0f/100f), (50f/100f)));
+       fairyColors.put("Florges", new ColorName("Rose",
+               (100f/100f), (0f/100f), (50f/100f)));
+       fairyColors.put("Spritzee", new ColorName("Fandango",
+               (71f/100f), (20f/100f), (54f/100f)));
+       fairyColors.put("Aromatisse", new ColorName("Fandango",
+               (71f/100f), (20f/100f), (54f/100f)));
+       fairyColors.put("Swirlix", new ColorName("Cotton Candy",
+               (100f/100f), (74f/100f), (85f/100f)));
+       fairyColors.put("Slurpuff", new ColorName("Cotton Candy",
+               (100f/100f), (74f/100f), (85f/100f)));
+       fairyColors.put("Sylveon", new ColorName("Champagne",
+               (97f/100f), (91f/100f), (81f/100f)));
+       fairyColors.put("Dedenne", new ColorName("Tangelo",
+               (98f/100f), (30f/100f), (0f/100f)));
+       fairyColors.put("Carbink", new ColorName("Glitter",
+               (90f/100f), (91f/100f), (98f/100f)));
+       fairyColors.put("Klefki", new ColorName("Light Gray",
+               (83f/100f), (83f/100f), (83f/100f)));
+       fairyColors.put("Xerneas", new ColorName("Royal Blue",
+               (0f/100f), (14f/100f), (40f/100f)));
+       fairyColors.put("Diamond", new ColorName("Diancie",
+               (73f/100f), (95f/100f), (100f/100f)));
+       
 
     questions =  new LinkedList<Question>();
     Question question = new Question("Are you famous and well-known outside" +

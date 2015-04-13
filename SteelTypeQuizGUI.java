@@ -4,6 +4,8 @@ import java.util.Queue;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SteelTypeQuizGUI extends JPanel
 { static JFrame steelFrame;
@@ -14,6 +16,8 @@ public class SteelTypeQuizGUI extends JPanel
   static ArrayList<String> thoseInAgreement = new ArrayList<String>();
   static ArrayList<String> thoseInDenial = new ArrayList<String>();
   static ArrayList<String> steelPokemon = new ArrayList<String>();
+  static Map <String, ColorName> steelColors = 
+          new HashMap<String, ColorName>();
    public SteelTypeQuizGUI() {
      super(new GridLayout(0,1));
      setOpaque(false);
@@ -200,317 +204,29 @@ public class SteelTypeQuizGUI extends JPanel
        select.setOpaque(true);
        select.setForeground(Color.WHITE);
        select.setBackground(Color.BLACK);
+       ColorName currentColor;
+       String currentPokemon;
+       float red;
+       float green;
+       float blue;
        ArrayList<JButton> colors = new ArrayList<JButton>();
        for (int i = 0; i < steelPokemon.size(); i++) {
-         if (steelPokemon.get(i).equals("Bronzor") || steelPokemon.get(i)
-             .equals("Bronzong"))
-         {
-           JButton colorButton = new JButton("Bronze");
-           colorButton.setForeground(Color.BLACK);
+           currentPokemon = steelPokemon.get(i);
+           currentColor = steelColors.get(currentPokemon);
+           red = currentColor.getRed();
+           green = currentColor.getGreen();
+           blue = currentColor.getBlue();
+           JButton colorButton = new JButton(currentColor.getName());
            colorButton.setOpaque(true);
-           colorButton.setActionCommand("Bronze");
-           colorButton.setBackground(new Color((80f/100f),(50f/100f),
-                 (20f/100f)));
+           colorButton.setActionCommand(currentPokemon);
            colorButton.addActionListener(this);
+           if ((red + green + blue) / 3 < .5f) {
+               colorButton.setForeground(Color.WHITE);
+           } else {
+               colorButton.setForeground(Color.BLACK);
+           }
+           colorButton.setBackground(new Color(red, green, blue));
            colors.add(colorButton);
-             }
-         if (steelPokemon.get(i).equals("Probopass"))
-         {
-           JButton colorButton = new JButton("Cyan");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Cyan");
-           colorButton.setBackground(new Color((0f/100f), (100f/100f),
-                 (100f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-             }
-         if (steelPokemon.get(i).equals("Magnemite") || steelPokemon.get(i)
-             .equals("Magneton") || steelPokemon.get(i).equals("Magnezone"))
-         {
-           JButton colorButton = new JButton("Electric Yellow");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Electric Yellow");
-           colorButton.setBackground(new Color((100f/100f), (100f/100f),
-                 (20f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-             }
-         if (steelPokemon.get(i).equals("Ferroseed") || steelPokemon.get(i)
-             .equals("Ferrothorn"))
-         {
-           JButton colorButton = new JButton("Green");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Green");
-           colorButton.setBackground(new Color((0f/100f), (50f/100f),
-                 (0f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Shieldon") || steelPokemon.get(i)
-             .equals("Bastiodon"))
-         {
-           JButton colorButton = new JButton("Mustard");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Mustard");
-           colorButton.setBackground(new Color((100f/100f), (86f/100f),
-                 (35f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Excadrill"))
-         {
-           JButton colorButton = new JButton("Chestnut");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Chestnut");
-           colorButton.setBackground(new Color((58f/100f), (27f/100f),
-                 (21f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Jirachi"))
-         {
-           JButton colorButton = new JButton("Gold");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Gold");
-           colorButton.setBackground(new Color((83f/100f), (69f/100f),
-                 (22f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Empoleon"))
-         {
-           JButton colorButton = new JButton("Royal Blue");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Royal Blue");
-           colorButton.setBackground(new Color((0f/100f), (14f/100f),
-                 (40f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Aron") || steelPokemon.get(i)
-             .equals("Lairon") || steelPokemon.get(i).equals("Aggron"))
-         {
-           JButton colorButton = new JButton("Charcoal");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Charcoal");
-           colorButton.setBackground(new Color((21f/100f), (27f/100f),
-                 (31f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Lucario"))
-         {
-           JButton colorButton = new JButton("Steel Blue");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Steel Blue");
-           colorButton.setBackground(new Color((27f/100f), (51f/100f),
-                 (71f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Mawile"))
-         {
-           JButton colorButton = new JButton("Licorice");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Licorice");
-           colorButton.setBackground(new Color((10f/100f), (7f/100f),
-                 (6f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Durant"))
-         {
-           JButton colorButton = new JButton("Malachite");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Malachite");
-           colorButton.setBackground(new Color((4f/100f), (85f/100f),
-                 (32f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Skarmory"))
-         {
-           JButton colorButton = new JButton("Crimson");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Crimson");
-           colorButton.setBackground(new Color((86f/100f), (8f/100f),
-                 (24f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Steelix"))
-         {
-           JButton colorButton = new JButton("Onyx");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Onyx");
-           colorButton.setBackground(new Color((21f/100f), (22f/100f),
-                 (22f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Heatran"))
-         {
-           JButton colorButton = new JButton("Burnt Orange");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Burnt Orange");
-           colorButton.setBackground(new Color((80f/100f), (33f/100f),
-                 (0f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Forretress"))
-         {
-           JButton colorButton = new JButton("Forest Green");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Forest Green");
-           colorButton.setBackground(new Color((13f/100f), (55f/100f),
-                 (13f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Klefki"))
-         {
-           JButton colorButton = new JButton("Light Gray");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Light Gray");
-           colorButton.setBackground(new Color((83f/100f), (83f/100f),
-                 (83f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Genesect"))
-         {
-           JButton colorButton = new JButton("Electric Purple");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Electric Purple");
-           colorButton.setBackground(new Color((75f/100f), (0f/100f),
-                 (100f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Scizor"))
-         {
-           JButton colorButton = new JButton("Red");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Red");
-           colorButton.setBackground(new Color((100f/100f), (0f/100f),
-                 (0f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Escavalier"))
-         {
-           JButton colorButton = new JButton("Cadet Grey");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Cadet Grey");
-           colorButton.setBackground(new Color((57f/100f), (64f/100f),
-                 (69f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Pawniard") ||
-             steelPokemon.get(i).equals("Bisharp"))
-         {
-           JButton colorButton = new JButton("Burgundy");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Burgundy");
-           colorButton.setBackground(new Color((50f/100f), (0f/100f),
-                 (13f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Beldum") ||
-             steelPokemon.get(i).equals("Metang") ||
-             steelPokemon.get(i).equals("Metagross"))
-         {
-           JButton colorButton = new JButton("Cobalt Blue");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Cobalt Blue");
-           colorButton.setBackground(new Color((0f/100f), (28f/100f),
-                 (67f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Cobalion"))
-         {
-           JButton colorButton = new JButton("Silver");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Silver");
-           colorButton.setBackground(new Color((75f/100f), (75f/100f),
-                 (75f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Dialga"))
-         {
-           JButton colorButton = new JButton("Celestial Blue");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Celestial Blue");
-           colorButton.setBackground(new Color((29f/100f), (59f/100f),
-                 (82f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Klink") ||
-             steelPokemon.get(i).equals("Klang") ||
-             steelPokemon.get(i).equals("Klinklang"))
-         {
-           JButton colorButton = new JButton("Gray");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Gray");
-           colorButton.setBackground(new Color((50f/100f), (50f/100f),
-                 (50f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Registeel"))
-         {
-           JButton colorButton = new JButton("Outer Space");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Outer Space");
-           colorButton.setBackground(new Color((25f/100f), (29f/100f),
-                 (30f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (steelPokemon.get(i).equals("Honedge") ||
-             steelPokemon.get(i).equals("Doublade") ||
-             steelPokemon.get(i).equals("Aegislash"))
-         {
-           JButton colorButton = new JButton("Midnight Blue");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Midnight Blue");
-           colorButton.setBackground(new Color((10f/100f), (10f/100f),
-                 (44f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
        }
        for (int i = 0; i < colors.size(); i++) {
          colorsPanel.add(colors.get(i));
@@ -520,289 +236,28 @@ public class SteelTypeQuizGUI extends JPanel
 
      }
      public void actionPerformed(ActionEvent e) {
-       String colorStr = e.getActionCommand();
+       String finalPokemon = e.getActionCommand();
        Color color = ((JButton)e.getSource()).getBackground();
-       ImageIcon pokePicture;
+       
        JPanel n = new JPanel();
+       n.add(createPokemon(finalPokemon, color));
+       
        steelFrame.getContentPane().removeAll();
-       if (colorStr.equals("Electric Yellow") &&
-           steelPokemon.contains("Magnemite")) {
-           n.add(createPokemon("Magnemite", color));
-       } else if (colorStr.equals("Electric Yellow") &&
-               steelPokemon.contains("Magneton")){
-           n.add(createPokemon("Magneton", color));
-       } else if (colorStr.equals("Electric Yellow") &&
-               steelPokemon.contains("Magnezone")){
-           n.add(createPokemon("Magnezone", color));
-       } else if (colorStr.equals("Forest Green")) {
-           n.add(createPokemon("Forretress", color));
-       } else if (colorStr.equals("Onyx")) {
-           n.add(createPokemon("Steelix", color));
-       } else if (colorStr.equals("Red")) {
-           n.add(createPokemon("Scizor", color));
-       } else if (colorStr.equals("Crimson")) {
-           n.add(createPokemon("Skarmory", color));
-       } else if (colorStr.equals("Licorice")) {
-           n.add(createPokemon("Mawile", color));
-       } else if (colorStr.equals("Charcoal") && steelPokemon
-               .contains("Aron")) {
-           n.add(createPokemon("Aron", color));
-       } else if (colorStr.equals("Charcoal") && steelPokemon
-               .contains("Lairon")) {
-           n.add(createPokemon("Lairon", color));
-       } else if (colorStr.equals("Charcoal") && steelPokemon
-           .contains("Aggron")) {
-           n.add(createPokemon("Aggron", color));
-       } else if (colorStr.equals("Cobalt Blue") && steelPokemon
-               .contains("Beldum")) {
-           n.add(createPokemon("Beldum", color));
-       } else if (colorStr.equals("Cobalt Blue") && steelPokemon
-               .contains("Metang")) {
-           n.add(createPokemon("Metang", color));
-       } else if (colorStr.equals("Cobalt Blue") && steelPokemon
-               .contains("Metagross")) {
-           n.add(createPokemon("Metagross", color));
-       } else if (colorStr.equals("Outer Space")) {
-           n.add(createPokemon("Registeel", color));
-       } else if (colorStr.equals("Gold")) {
-           n.add(createPokemon("Jirachi", color));
-       } else if (colorStr.equals("Royal Blue")) {
-           n.add(createPokemon("Empoleon", color));
-       } else if (colorStr.equals("Mustard") &&
-           steelPokemon.contains("Shieldon")) {
-           n.add(createPokemon("Shieldon", color));
-       } else if (colorStr.equals("Mustard") && steelPokemon
-           .contains("Bastiodon")) {
-           n.add(createPokemon("Bastiodon", color));
-       } else if (colorStr.equals("Bronze") &&
-           steelPokemon.contains("Bronzor")) {
-           n.add(createPokemon("Bronzor", color));
-       } else if (colorStr.equals("Bronze") && steelPokemon
-               .contains("Bronzong")) {
-           n.add(createPokemon("Bronzong", color));
-       } else if (colorStr.equals("Steel Blue")) {
-           n.add(createPokemon("Lucario", color));
-       } else if (colorStr.equals("Cyan")) {
-           n.add(createPokemon("Probopass", color));
-       } else if (colorStr.equals("Celestial Blue")) {
-           n.add(createPokemon("Dialga", color));
-       } else if (colorStr.equals("Burnt Orange")) {
-           n.add(createPokemon("Heatran", color));
-       } else if (colorStr.equals("Chestnut")) {
-           n.add(createPokemon("Excadrill", color));
-       } else if (colorStr.equals("Cadet Grey")) {
-           n.add(createPokemon("Escavalier", color));
-       } else if (colorStr.equals("Green") && steelPokemon
-               .contains("Ferroseed")) {
-           n.add(createPokemon("Ferroseed", color));
-       } else if (colorStr.equals("Green") && steelPokemon
-               .contains("Ferrothorn")) {
-           n.add(createPokemon("Ferrothorn", color));
-       } else if (colorStr.equals("Gray") && steelPokemon.contains("Klink")) {
-           n.add(createPokemon("Klink", color));
-       } else if (colorStr.equals("Gray") && steelPokemon.contains("Klang")) {
-           n.add(createPokemon("Klang", color));
-       } else if (colorStr.equals("Gray") &&
-           steelPokemon.contains("Klinklang")) {
-           n.add(createPokemon("Klinklang", color));
-       } else if (colorStr.equals("Burgundy") &&
-           steelPokemon.contains("Pawniard")) {
-           n.add(createPokemon("Pawniard", color));
-       } else if (colorStr.equals("Burgundy") &&
-           steelPokemon.contains("Bisharp")) {
-           n.add(createPokemon("Bisharp", color));
-       } else if (colorStr.equals("Malachite")) {
-           n.add(createPokemon("Durant", color));
-       } else if (colorStr.equals("Silver")) {
-           n.add(createPokemon("Cobalion", color));
-       } else if (colorStr.equals("Electric Purple")) {
-           n.add(createPokemon("Genesect", color));
-       } else if (colorStr.equals("Midnight Blue") &&
-           steelPokemon.contains("Honedge")) {
-           n.add(createPokemon("Honedge", color));
-       } else if (colorStr.equals("Midnight Blue") &&
-           steelPokemon.contains("Doublade")) {
-           n.add(createPokemon("Doublade", color));
-       } else if (colorStr.equals("Midnight Blue") &&
-           steelPokemon.contains("Aegislash")) {
-           n.add(createPokemon("Aegislash", color));
-       } else if(colorStr.equals("Light Gray")) {
-           n.add(createPokemon("Klefki", color));
-       }
        steelFrame.add(n);
        steelFrame.pack();
        steelFrame.setVisible(true);
      }
 
+     //This will only be Druddigon or Noivern/Noibat
      public static JPanel truePokemon() {
        JPanel n = new JPanel();
-       if (steelPokemon.get(0).equals("Magnemite")) {
-         n.add(createPokemon("Magnemite", new Color((100f/100f),
-                 (100f/100f),(20f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Magneton")) {
-         n.add(createPokemon("Magneton", new Color((100f/100f),
-                 (100f/100f),(20f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Magnezone")) {
-         n.add(createPokemon("Magnezone", new Color((100f/100f),
-                 (100f/100f),(20f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Forretress")) {
-         n.add(createPokemon("Forretress", new Color((13f/100f),
-                 (55f/100f),(13f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Steelix")) {
-         n.add(createPokemon("Steelix", new Color((21f/100f),
-                 (22f/100f),(22f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Scizor")) {
-         n.add(createPokemon("Scizor", new Color((100f/100f),
-                 (0f/100f),(0f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Skarmory")) {
-         n.add(createPokemon("Skarmory", new Color((86f/100f),
-                 (8f/100f),(24f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Mawile")) {
-         n.add(createPokemon("Mawile", new Color((10f/100f),
-                 (7f/100f),(6f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Aron")) {
-         n.add(createPokemon("Aron", new Color((21f/100f),
-                 (27f/100f),(31f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Lairon")) {
-         n.add(createPokemon("Lairon", new Color((21f/100f),
-                 (27f/100f),(31f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Aggron")) {
-         n.add(createPokemon("Aggron", new Color((21f/100f),
-                 (27f/100f),(31f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Beldum")) {
-         n.add(createPokemon("Beldum", new Color((0f/100f),
-                 (28f/100f),(67f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Metang")) {
-         n.add(createPokemon("Metang", new Color((0f/100f),
-                 (28f/100f),(67f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Metagross")) {
-         n.add(createPokemon("Metagross", new Color((0f/100f),
-                 (28f/100f),(67f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Registeel")) {
-         n.add(createPokemon("Registeel", new Color((25f/100f),
-                 (29f/100f),(30f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Jirachi")) {
-         n.add(createPokemon("Jirachi", new Color((83f/100f),
-                 (69f/100f),(22f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Empoleon")) {
-         n.add(createPokemon("Empoleon", new Color((0f/100f),
-                 (14f/100f),(40f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Shieldon")) {
-         n.add(createPokemon("Shieldon", new Color((100f/100f),
-                 (86f/100f),(35f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Bastiodon")) {
-         n.add(createPokemon("Bastiodon", new Color((100f/100f),
-                 (86f/100f),(35f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Bronzor")) {
-         n.add(createPokemon("Bronzor", new Color((80f/100f),
-                 (50f/100f),(20f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Bronzong")) {
-         n.add(createPokemon("Bronzong", new Color((80f/100f),
-                 (50f/100f),(20f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Lucario")) {
-         n.add(createPokemon("Lucario", new Color((27f/100f),
-                 (51f/100f),(71f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Probopass")) {
-         n.add(createPokemon("Probopass", new Color((0f/100f),
-                 (100f/100f),(100f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Dialga")) {
-         n.add(createPokemon("Dialga", new Color((29f/100f),
-                 (59f/100f),(82f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Heatran")) {
-         n.add(createPokemon("Heatran", new Color((80f/100f),
-                 (33f/100f),(0f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Excadrill")) {
-         n.add(createPokemon("Excadrill", new Color((58f/100f),
-                 (27f/100f),(21f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Escavalier")) {
-         n.add(createPokemon("Escavalier", new Color((57f/100f),
-                 (64f/100f),(69f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Ferroseed")) {
-         n.add(createPokemon("Ferroseed", new Color((0f/100f),
-                 (50f/100f),(0f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Ferrothorn")) {
-         n.add(createPokemon("Ferrothorn", new Color((0f/100f),
-                 (50f/100f),(0f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Klink")) {
-         n.add(createPokemon("Klink", new Color((50f/100f),
-                 (50f/100f),(50f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Klang")) {
-         n.add(createPokemon("Klang", new Color((50f/100f),
-                 (50f/100f),(50f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Klinklang")) {
-         n.add(createPokemon("Klinklang", new Color((50f/100f),
-                 (50f/100f),(50f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Pawniard")) {
-         n.add(createPokemon("Pawniard", new Color((50f/100f),
-                 (0f/100f),(13f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Bisharp")) {
-         n.add(createPokemon("Bisharp", new Color((50f/100f),
-                 (0f/100f),(13f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Durant")) {
-         n.add(createPokemon("Durant", new Color((4f/100f),
-                 (85f/100f),(32f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Cobalion")) {
-         n.add(createPokemon("Cobalion", new Color((75f/100f),
-                 (75f/100f),(75f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Genesect")) {
-         n.add(createPokemon("Genesect", new Color((75f/100f),
-                 (0f/100f),(100f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Honedge")) {
-         n.add(createPokemon("Honedge", new Color((10f/100f),
-                 (10f/100f),(44f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Doublade")) {
-         n.add(createPokemon("Doublade", new Color((10f/100f),
-                 (10f/100f),(44f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Aegislash")) {
-         n.add(createPokemon("Aegislash", new Color((10f/100f),
-                 (10f/100f),(44f/100f))));
-       }
-       if (steelPokemon.get(0).equals("Klefki")) {
-         n.add(createPokemon("Klefki", new Color((83f/100f),
-                 (83f/100f),(83f/100f))));
-       }
+       ColorName trueColor = steelColors.get(steelPokemon.get(0));
+       n.add(createPokemon(steelPokemon.get(0), new Color(
+               trueColor.getRed(), trueColor.getGreen(), trueColor.getBlue())));
        return n;
      }
 
+     //This won't happen with Dragon type unless something HORRIBLE happens
      public static JLabel glitch() {
        ImageIcon pokePicture = new ImageIcon("images/MissingNo.png");
        JLabel pokeLabel = new JLabel("There was a glitch...", pokePicture,
@@ -818,8 +273,7 @@ public class SteelTypeQuizGUI extends JPanel
        steelFrame.getContentPane().removeAll();
        ImageIcon pokePicture = new ImageIcon("./images/Steel/" + pokemon +
            ".png");
-       JLabel pokeLabel;
-       pokeLabel = new JLabel("You are " + pokemon + "!", pokePicture,
+       JLabel pokeLabel = new JLabel("You are " + pokemon + "!", pokePicture,
            JLabel.CENTER);
        pokeLabel.setFont(new Font("SansSerif.bold", Font.PLAIN, 24));
        if((color.getRed() + color.getGreen() + color.getBlue())/3.0 > 128.0) {
@@ -874,6 +328,90 @@ public class SteelTypeQuizGUI extends JPanel
        steelPokemon.add("Doublade");
        steelPokemon.add("Aegislash");
        steelPokemon.add("Klefki");
+       
+       steelColors.put("Magnemite", new ColorName("Electric Yellow",
+               (100f/100f), (100f/100f), (20f/100f)));
+       steelColors.put("Magneton", new ColorName("Electric Yellow",
+               (100f/100f), (100f/100f), (20f/100f)));
+       steelColors.put("Forretress", new ColorName("Forest Green",
+               (13f/100f), (55f/100f), (13f/100f)));
+       steelColors.put("Steelix", new ColorName("Onyx",
+               (21f/100f), (22f/100f), (22f/100f)));
+       steelColors.put("Scizor", new ColorName("Red",
+               (100f/100f), (0f/100f), (0f/100f)));
+       steelColors.put("Skarmory", new ColorName("Crimson",
+               (86f/100f), (8f/100f), (24f/100f)));
+       steelColors.put("Mawile", new ColorName("Licorice",
+               (10f/100f), (7f/100f), (6f/100f)));
+       steelColors.put("Aron", new ColorName("Charcoal",
+               (21f/100f), (27f/100f), (31f/100f)));
+       steelColors.put("Lairon", new ColorName("Charcoal",
+               (21f/100f), (27f/100f), (31f/100f)));
+       steelColors.put("Aggron", new ColorName("Charcoal",
+               (21f/100f), (27f/100f), (31f/100f)));
+       steelColors.put("Beldum", new ColorName("Cobalt Blue",
+               (0f/100f), (28f/100f), (67f/100f)));
+       steelColors.put("Metang", new ColorName("Cobalt Blue",
+               (0f/100f), (28f/100f), (67f/100f)));
+       steelColors.put("Metagross", new ColorName("Cobalt Blue",
+               (0f/100f), (28f/100f), (67f/100f)));
+       steelColors.put("Registeel", new ColorName("Outer Space",
+               (25f/100f), (29f/100f), (30f/100f)));
+       steelColors.put("Jirachi", new ColorName("Gold",
+               (83f/100f), (69f/100f), (22f/100f)));
+       steelColors.put("Empoleon", new ColorName("Royal Blue",
+               (0f/100f), (14f/100f), (40f/100f)));
+       steelColors.put("Shieldon", new ColorName("Mustard",
+               (100f/100f), (86f/100f), (25f/100f)));
+       steelColors.put("Bastiodon", new ColorName("Mustard",
+               (100f/100f), (86f/100f), (25f/100f)));
+       steelColors.put("Bronzor", new ColorName("Bronze",
+               (80f/100f), (50f/100f), (20f/100f)));
+       steelColors.put("Bronzong", new ColorName("Bronze",
+               (80f/100f), (50f/100f), (20f/100f)));
+       steelColors.put("Lucario", new ColorName("Steel Blue",
+               (27f/100f), (51f/100f), (71f/100f)));
+       steelColors.put("Magnezone", new ColorName("Electric Yellow",
+               (100f/100f), (100f/100f), (20f/100f)));
+       steelColors.put("Probopass", new ColorName("Cyan",
+               (0f/100f), (100f/100f), (100f/100f)));
+       steelColors.put("Dialga", new ColorName("Celestial Blue",
+               (29f/100f), (59f/100f), (82f/100f)));
+       steelColors.put("Heatran", new ColorName("Burnt Orange",
+               (80f/100f), (33f/100f), (0f/100f)));
+       steelColors.put("Excadrill", new ColorName("Chestnut",
+               (58f/100f), (27f/100f), (21f/100f)));
+       steelColors.put("Escavalier", new ColorName("Cadet Grey",
+               (57f/100f), (64f/100f), (69f/100f)));
+       steelColors.put("Ferroseed", new ColorName("Green",
+               (0f/100f), (50f/100f), (0f/100f)));
+       steelColors.put("Ferrothorn", new ColorName("Green",
+               (0f/100f), (50f/100f), (0f/100f)));
+       steelColors.put("Klink", new ColorName("Gray",
+               (50f/100f), (50f/100f), (50f/100f)));
+       steelColors.put("Klang", new ColorName("Gray",
+               (50f/100f), (50f/100f), (50f/100f)));
+       steelColors.put("Klinklang", new ColorName("Gray",
+               (50f/100f), (50f/100f), (50f/100f)));
+       steelColors.put("Pawniard", new ColorName("Burgundy",
+               (50f/100f), (0f/100f), (13f/100f)));
+       steelColors.put("Bisharp", new ColorName("Burgundy",
+               (50f/100f), (0f/100f), (13f/100f)));
+       steelColors.put("Durant", new ColorName("Malachite",
+               (4f/100f), (85f/100f), (32f/100f)));
+       steelColors.put("Cobalion", new ColorName("Silver",
+               (75f/100f), (75f/100f), (75f/100f)));
+       steelColors.put("Genesect", new ColorName("Electric Purple",
+               (75f/100f), (0f/100f), (100f/100f)));
+       steelColors.put("Honedge", new ColorName("Midnight Blue",
+               (10f/100f), (10f/100f), (44f/100f)));
+       steelColors.put("Doublade", new ColorName("Midnight Blue",
+               (10f/100f), (10f/100f), (44f/100f)));
+       steelColors.put("Aegislash", new ColorName("Midnight Blue",
+               (10f/100f), (10f/100f), (44f/100f)));
+       steelColors.put("Klefki", new ColorName("Light Gray",
+               (83f/100f), (83f/100f), (83f/100f)));
+       
 
     questions =  new LinkedList<Question>();
     Question question = new Question("Are you famous and well-known outside" +
@@ -1052,8 +590,8 @@ public class SteelTypeQuizGUI extends JPanel
     question.addPokemonYes("Excadrill");
     questions.add(question);
 
-    question = new Question("Are you excellent judger of someone's qualities" +
-        " and do you like passing that judgement onto others?");
+    question = new Question("Are you an excellent judger of someone's " +
+        "qualities and do you like passing that judgement onto others?");
     question.addPokemonYes("Aegislash");
     question.addPokemonNo("Doublade");
     questions.add(question);

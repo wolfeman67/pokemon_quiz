@@ -4,6 +4,8 @@ import java.util.Queue;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DragonTypeQuizGUI extends JPanel
 { static JFrame dragonFrame;
@@ -11,6 +13,8 @@ public class DragonTypeQuizGUI extends JPanel
   static Queue<Question> questions;
   static String question;
   static boolean cont = false;
+  static Map <String, ColorName> dragonColors = 
+          new HashMap<String, ColorName>();
   static ArrayList<String> thoseInAgreement = new ArrayList<String>();
   static ArrayList<String> thoseInDenial = new ArrayList<String>();
   static ArrayList<String> dragonPokemon = new ArrayList<String>();
@@ -194,260 +198,29 @@ public class DragonTypeQuizGUI extends JPanel
        select.setOpaque(true);
        select.setForeground(Color.WHITE);
        select.setBackground(Color.BLACK);
+       ColorName currentColor;
+       String currentPokemon;
+       float red;
+       float green;
+       float blue;
        ArrayList<JButton> colors = new ArrayList<JButton>();
        for (int i = 0; i < dragonPokemon.size(); i++) {
-         if (dragonPokemon.get(i).equals("Dratini") || dragonPokemon.get(i)
-             .equals("Dragonair") || dragonPokemon.get(i).equals("Dragonite"))
-         {
-           JButton colorButton = new JButton("Azure");
-           colorButton.setForeground(Color.BLACK);
+           currentPokemon = dragonPokemon.get(i);
+           currentColor = dragonColors.get(currentPokemon);
+           red = currentColor.getRed();
+           green = currentColor.getGreen();
+           blue = currentColor.getBlue();
+           JButton colorButton = new JButton(currentColor.getName());
            colorButton.setOpaque(true);
-           colorButton.setActionCommand("Azure");
-           colorButton.setBackground(new Color(0.000f, (191f/256f), 1.000f));
+           colorButton.setActionCommand(currentPokemon);
            colorButton.addActionListener(this);
+           if ((red + green + blue) / 3 < .5f) {
+               colorButton.setForeground(Color.WHITE);
+           } else {
+               colorButton.setForeground(Color.BLACK);
+           }
+           colorButton.setBackground(new Color(red, green, blue));
            colors.add(colorButton);
-             }
-         if (dragonPokemon.get(i).equals("Druddigon"))
-         {
-           JButton colorButton = new JButton("Rust");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Rust");
-           colorButton.setBackground(new Color((72f/100f), (25f/100f),
-                 (5f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-             }
-         if (dragonPokemon.get(i).equals("Altaria"))
-         {
-           JButton colorButton = new JButton("Cotton");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Cotton");
-           colorButton.setBackground(new Color((100f/100f), (97f/100f),
-                 (86f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (dragonPokemon.get(i).equals("Bagon") || dragonPokemon.get(i)
-                 .equals("Shelgon") || dragonPokemon.get(i).equals("Salamence"))
-         {
-           JButton colorButton = new JButton("Steel Blue");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Steel Blue");
-           colorButton.setBackground(new Color((27f/100f), (51f/100f),
-                 (71f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (dragonPokemon.get(i).equals("Axew") || dragonPokemon.get(i)
-                 .equals("Fraxure") || dragonPokemon.get(i).equals("Haxorus"))
-         {
-           JButton colorButton = new JButton("Army Green");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Army Green");
-           colorButton.setBackground(new Color((29f/100f), (33f/100f),
-                 (13f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (dragonPokemon.get(i).equals("Vibrava") || dragonPokemon.get(i)
-                 .equals("Flygon"))
-         {
-           JButton colorButton = new JButton("Electric Green");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Electric Green");
-           colorButton.setBackground(new Color((0f/100f), (100f/100f),
-                 (0f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (dragonPokemon.get(i).equals("Deino") || dragonPokemon.get(i)
-                 .equals("Zweilous") || dragonPokemon.get(i)
-                 .equals("Hydreigon"))
-         {
-           JButton colorButton = new JButton("Dark Purple");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Dark Purple");
-           colorButton.setBackground(new Color((20f/100f), (9f/100f),
-                 (30f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (dragonPokemon.get(i).equals("Gible") || dragonPokemon.get(i)
-                 .equals("Gabite") || dragonPokemon.get(i).equals("Garchomp"))
-         {
-           JButton colorButton = new JButton("Imperial Blue");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Imperial Blue");
-           colorButton.setBackground(new Color((0f/100f), (14f/100f),
-                 (58f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (dragonPokemon.get(i).equals("Kingdra"))
-         {
-           JButton colorButton = new JButton("Turquoise");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Turquoise");
-           colorButton.setBackground(new Color((25f/100f), (88f/100f),
-                 (82f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (dragonPokemon.get(i).equals("Palkia"))
-         {
-           JButton colorButton = new JButton("Pearl");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Pearl");
-           colorButton.setBackground(new Color((92f/100f), (88f/100f),
-                 (78f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (dragonPokemon.get(i).equals("Reshiram"))
-         {
-           JButton colorButton = new JButton("White");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("White");
-           colorButton.setBackground(new Color((100f/100f), (100f/100f),
-                 (100f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (dragonPokemon.get(i).equals("Zekrom"))
-         {
-           JButton colorButton = new JButton("Black");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Black");
-           colorButton.setBackground(new Color((0f/100f), (0f/100f),
-                 (0f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (dragonPokemon.get(i).equals("Dialga"))
-         {
-           JButton colorButton = new JButton("Cobalt");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Cobalt");
-           colorButton.setBackground(new Color((0f/100f), (28f/100f),
-                 (67f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (dragonPokemon.get(i).equals("Latias") || dragonPokemon.get(i)
-                 .equals("Latios"))
-         {
-           JButton colorButton = new JButton("Ivory");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Ivory");
-           colorButton.setBackground(new Color((100f/100f), (100f/100f),
-                 (94f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (dragonPokemon.get(i).equals("Giratina"))
-         {
-           JButton colorButton = new JButton("Onyx");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Onyx");
-           colorButton.setBackground(new Color((21f/100f), (22f/100f),
-                 (22f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (dragonPokemon.get(i).equals("Kyurem"))
-         {
-           JButton colorButton = new JButton("Iceberg");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Iceberg");
-           colorButton.setBackground(new Color((44f/100f), (65f/100f),
-                 (82f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (dragonPokemon.get(i).equals("Rayquaza"))
-         {
-           JButton colorButton = new JButton("Emerald");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Emerald");
-           colorButton.setBackground(new Color((31f/100f), (78f/100f),
-                 (47f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (dragonPokemon.get(i).equals("Tyrunt") || dragonPokemon.get(i)
-                 .equals("Tyrantrum"))
-         {
-           JButton colorButton = new JButton("Crimson");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Crimson");
-           colorButton.setBackground(new Color((60f/100f), (0f/100f),
-                 (0f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (dragonPokemon.get(i).equals("Goomy") || dragonPokemon.get(i)
-                 .equals("Sliggoo") || dragonPokemon.get(i).equals("Goodra"))
-         {
-           JButton colorButton = new JButton("Lavender");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Lavender");
-           colorButton.setBackground(new Color((80f/100f), (80f/100f),
-                 (100f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (dragonPokemon.get(i).equals("Dragalge"))
-         {
-           JButton colorButton = new JButton("Cordovan");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Cordovan");
-           colorButton.setBackground(new Color((54f/100f), (25f/100f),
-                 (27f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (dragonPokemon.get(i).equals("Noibat") || dragonPokemon.get(i)
-                 .equals("Noivern"))
-         {
-           JButton colorButton = new JButton("Violet");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Violet");
-           colorButton.setBackground(new Color((53f/100f), (0f/100f),
-                 (69f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (dragonPokemon.get(i).equals("Zygarde"))
-         {
-           JButton colorButton = new JButton("Fluorescent Yellow");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Fluorescent Yellow");
-           colorButton.setBackground(new Color((80f/100f), (100f/100f),
-                 (0f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
        }
        for (int i = 0; i < colors.size(); i++) {
          colorsPanel.add(colors.get(i));
@@ -457,114 +230,13 @@ public class DragonTypeQuizGUI extends JPanel
 
      }
      public void actionPerformed(ActionEvent e) {
-       String colorStr = e.getActionCommand();
+       String finalPokemon = e.getActionCommand();
        Color color = ((JButton)e.getSource()).getBackground();
-       ImageIcon pokePicture;
-       JPanel n = new JPanel();
-       dragonFrame.getContentPane().removeAll();
-       if (colorStr.equals("Azure") && dragonPokemon.contains("Dratini")) {
-           n.add(createPokemon("Dratini", color));
-       } else if (colorStr.equals("Azure") &&
-               dragonPokemon.contains("Dragonair")){
-           n.add(createPokemon("Dragonair", color));
-       } else if (colorStr.equals("Azure") &&
-               dragonPokemon.contains("Dragonite")){
-           n.add(createPokemon("Dragonite", color));
-       } else if (colorStr.equals("Rust")) {
-           n.add(createPokemon("Druddigon", color));
-       } else if (colorStr.equals("Cotton")) {
-           n.add(createPokemon("Altaria", color));
-       } else if (colorStr.equals("Steel Blue") &&
-               dragonPokemon.contains("Bagon")) {
-           n.add(createPokemon("Bagon", color));
-       } else if (colorStr.equals("Steel Blue") && dragonPokemon
-               .contains("Shelgon")) {
-           n.add(createPokemon("Shelgon", color));
-       } else if (colorStr.equals("Steel Blue") && dragonPokemon
-               .contains("Salamence")) {
-           n.add(createPokemon("Salamence", color));
-       } else if (colorStr.equals("Lavender") && dragonPokemon
-               .contains("Goomy")) {
-           n.add(createPokemon("Goomy", color));
-       } else if (colorStr.equals("Lavender") && dragonPokemon
-               .contains("Sliggoo")) {
-           n.add(createPokemon("Sliggoo", color));
-       } else if (colorStr.equals("Lavender") && dragonPokemon
-               .contains("Goodra")) {
-           n.add(createPokemon("Goodra", color));
-       } else if (colorStr.equals("Turquoise")) {
-           n.add(createPokemon("Kingdra", color));
-       } else if (colorStr.equals("Electric Green") && dragonPokemon
-               .contains("Vibrava")) {
-           n.add(createPokemon("Vibrava", color));
-       } else if (colorStr.equals("Electric Green") && dragonPokemon
-               .contains("Flygon")) {
-           n.add(createPokemon("Flygon", color));
-       } else if (colorStr.equals("Ivory") && dragonPokemon
-               .contains("Latias")) {
-           n.add(createPokemon("Latias", color));
-       } else if (colorStr.equals("Ivory") && dragonPokemon
-               .contains("Latios")) {
-           n.add(createPokemon("Latios", color));
-       } else if (colorStr.equals("Emerald")) {
-           n.add(createPokemon("Rayquaza", color));
-       } else if (colorStr.equals("Imperial Blue") && dragonPokemon
-               .contains("Gible")) {
-           n.add(createPokemon("Gible", color));
-       } else if (colorStr.equals("Imperial Blue") && dragonPokemon
-               .contains("Gabite")) {
-           n.add(createPokemon("Gabite", color));
-       } else if (colorStr.equals("Imperial Blue") && dragonPokemon
-               .contains("Garchomp")) {
-           n.add(createPokemon("Garchomp", color));
-       } else if (colorStr.equals("Cobalt")) {
-           n.add(createPokemon("Dialga", color));
-       } else if (colorStr.equals("Pearl")) {
-           n.add(createPokemon("Palkia", color));
-       } else if (colorStr.equals("Onyx")) {
-           n.add(createPokemon("Giratina", color));
-       } else if (colorStr.equals("Army Green") && dragonPokemon
-               .contains("Axew")) {
-           n.add(createPokemon("Axew", color));
-       } else if (colorStr.equals("Army Green") && dragonPokemon
-               .contains("Fraxure")) {
-           n.add(createPokemon("Fraxure", color));
-       } else if (colorStr.equals("Army Green") && dragonPokemon
-               .contains("Haxorus")) {
-           n.add(createPokemon("Haxorus", color));
-       } else if (colorStr.equals("Dark Purple") && dragonPokemon
-               .contains("Deino")) {
-           n.add(createPokemon("Deino", color));
-       } else if (colorStr.equals("Dark Purple") && dragonPokemon
-               .contains("Zweilous")) {
-           n.add(createPokemon("Zweilous", color));
-       } else if (colorStr.equals("Dark Purple") && dragonPokemon
-               .contains("Hydreigon")) {
-           n.add(createPokemon("Hydreigon", color));
-       } else if (colorStr.equals("White")) {
-           n.add(createPokemon("Reshiram", color));
-       } else if (colorStr.equals("Black")) {
-           n.add(createPokemon("Zekrom", color));
-       } else if (colorStr.equals("Iceberg")) {
-           n.add(createPokemon("Kyurem", color));
-       } else if (colorStr.equals("Cordovan")) {
-           n.add(createPokemon("Dragalge", color));
-       } else if (colorStr.equals("Crimson") && dragonPokemon
-               .contains("Tyrunt")) {
-           n.add(createPokemon("Tyrunt", color));
-       } else if (colorStr.equals("Crimson") && dragonPokemon
-               .contains("Tyrantrum")) {
-           n.add(createPokemon("Tyrantrum", color));
-       } else if (colorStr.equals("Violet") && dragonPokemon
-               .contains("Noibat")) {
-           n.add(createPokemon("Noibat", color));
-       } else if (colorStr.equals("Violet") && dragonPokemon
-               .contains("Noivern")) {
-           n.add(createPokemon("Noivern", color));
-       } else if (colorStr.equals("Fluorescent Yellow")) {
-           n.add(createPokemon("Zygarde", color));
-       }
        
+       JPanel n = new JPanel();
+       n.add(createPokemon(finalPokemon, color));
+       
+       dragonFrame.getContentPane().removeAll();
        dragonFrame.add(n);
        dragonFrame.pack();
        dragonFrame.setVisible(true);
@@ -573,18 +245,9 @@ public class DragonTypeQuizGUI extends JPanel
      //This will only be Druddigon or Noivern/Noibat
      public static JPanel truePokemon() {
        JPanel n = new JPanel();
-       if (dragonPokemon.get(0).equals("Druddigon")) {
-         n.add(createPokemon("Druddigon", new Color((72f/100f),
-                 (25f/100f),(5f/100f))));
-       }
-       if (dragonPokemon.get(0).equals("Noivern")) {
-         n.add(createPokemon("Noivern", new Color((53f/100f),
-                 (0f/100f),(69f/100f))));
-       }
-       if (dragonPokemon.get(0).equals("Noibat")) {
-         n.add(createPokemon("Noibat", new Color((53f/100f),
-                 (0f/100f),(69f/100f))));
-       }
+       ColorName trueColor = dragonColors.get(dragonPokemon.get(0));
+       n.add(createPokemon(dragonPokemon.get(0), new Color(
+               trueColor.getRed(), trueColor.getGreen(), trueColor.getBlue())));
        return n;
      }
 
@@ -618,45 +281,121 @@ public class DragonTypeQuizGUI extends JPanel
      }
    }
    public static void main(String arg[]) {
-
-		dragonPokemon.add("Dratini");
-		dragonPokemon.add("Dragonair");
-		dragonPokemon.add("Dragonite");
-		dragonPokemon.add("Kingdra");
-		dragonPokemon.add("Vibrava");
-		dragonPokemon.add("Flygon");
-		dragonPokemon.add("Altaria");
-		dragonPokemon.add("Bagon");
-		dragonPokemon.add("Shelgon");
-		dragonPokemon.add("Salamence");
-		dragonPokemon.add("Latias");
-		dragonPokemon.add("Latios");
-		dragonPokemon.add("Rayquaza");
-		dragonPokemon.add("Gible");
-		dragonPokemon.add("Gabite");
-		dragonPokemon.add("Garchomp");
-		dragonPokemon.add("Dialga");
-		dragonPokemon.add("Palkia");
-		dragonPokemon.add("Giratina");
-		dragonPokemon.add("Axew");
-		dragonPokemon.add("Fraxure");
-		dragonPokemon.add("Haxorus");
-		dragonPokemon.add("Druddigon");
-		dragonPokemon.add("Deino");
-		dragonPokemon.add("Zweilous");
-		dragonPokemon.add("Hydreigon");
-		dragonPokemon.add("Reshiram");
-		dragonPokemon.add("Zekrom");
-		dragonPokemon.add("Kyurem");
-    dragonPokemon.add("Dragalge");
-    dragonPokemon.add("Tyrunt");
-    dragonPokemon.add("Tyrantrum");
-    dragonPokemon.add("Goomy");
-    dragonPokemon.add("Sliggoo");
-    dragonPokemon.add("Goodra");
-    dragonPokemon.add("Noibat");
-    dragonPokemon.add("Noivern");
-    dragonPokemon.add("Zygarde");
+       dragonPokemon.add("Dratini");
+       dragonPokemon.add("Dragonair");
+       dragonPokemon.add("Dragonite");
+       dragonPokemon.add("Kingdra");
+       dragonPokemon.add("Vibrava");
+       dragonPokemon.add("Flygon");
+       dragonPokemon.add("Altaria");
+       dragonPokemon.add("Bagon");
+       dragonPokemon.add("Shelgon");
+       dragonPokemon.add("Salamence");
+       dragonPokemon.add("Latias");
+       dragonPokemon.add("Latios");
+       dragonPokemon.add("Rayquaza");
+       dragonPokemon.add("Gible");
+       dragonPokemon.add("Gabite");
+       dragonPokemon.add("Garchomp");
+       dragonPokemon.add("Dialga");
+       dragonPokemon.add("Palkia");
+       dragonPokemon.add("Giratina");
+       dragonPokemon.add("Axew");
+       dragonPokemon.add("Fraxure");
+       dragonPokemon.add("Haxorus");
+       dragonPokemon.add("Druddigon");
+       dragonPokemon.add("Deino");
+       dragonPokemon.add("Zweilous");
+       dragonPokemon.add("Hydreigon");
+       dragonPokemon.add("Reshiram");
+       dragonPokemon.add("Zekrom");
+       dragonPokemon.add("Kyurem");
+       dragonPokemon.add("Dragalge");
+       dragonPokemon.add("Tyrunt");
+       dragonPokemon.add("Tyrantrum");
+       dragonPokemon.add("Goomy");
+       dragonPokemon.add("Sliggoo");
+       dragonPokemon.add("Goodra");
+       dragonPokemon.add("Noibat");
+       dragonPokemon.add("Noivern");
+       dragonPokemon.add("Zygarde");
+       
+       dragonColors.put("Dratini", new ColorName("Azure",
+               (0f/100f), (50f/100f), (100f/100f)));
+       dragonColors.put("Dragonair", new ColorName("Azure",
+               (0f/100f), (50f/100f), (100f/100f)));
+       dragonColors.put("Dragonite", new ColorName("Azure",
+               (0f/100f), (50f/100f), (100f/100f)));
+       dragonColors.put("Kingdra", new ColorName("Turquoise",
+               (25f/100f), (88f/100f), (82f/100f)));
+       dragonColors.put("Vibrava", new ColorName("Electric Green",
+               (0f/100f), (100f/100f), (0f/100f)));
+       dragonColors.put("Flygon", new ColorName("Electric Green",
+               (0f/100f), (100f/100f), (0f/100f)));
+       dragonColors.put("Altaria", new ColorName("Cotton",
+               (100f/100f), (97f/100f), (86f/100f)));
+       dragonColors.put("Bagon", new ColorName("Steel Blue",
+               (27f/100f), (51f/100f), (71f/100f)));
+       dragonColors.put("Shelgon", new ColorName("Steel Blue",
+               (27f/100f), (51f/100f), (71f/100f)));
+       dragonColors.put("Salamence", new ColorName("Steel Blue",
+               (27f/100f), (51f/100f), (71f/100f)));
+       dragonColors.put("Latias", new ColorName("Ivory",
+               (100f/100f), (100f/100f), (94f/100f)));
+       dragonColors.put("Latios", new ColorName("Ivory",
+               (100f/100f), (100f/100f), (94f/100f)));
+       dragonColors.put("Rayquaza", new ColorName("Emerald",
+               (31f/100f), (78f/100f), (47f/100f)));
+       dragonColors.put("Gible", new ColorName("Imperial Blue",
+               (0f/100f), (14f/100f), (58f/100f)));
+       dragonColors.put("Gabite", new ColorName("Imperial Blue",
+               (0f/100f), (14f/100f), (58f/100f)));
+       dragonColors.put("Garchomp", new ColorName("Imperial Blue",
+               (0f/100f), (14f/100f), (58f/100f)));
+       dragonColors.put("Dialga", new ColorName("Cobalt",
+               (0f/100f), (28f/100f), (67f/100f)));
+       dragonColors.put("Palkia", new ColorName("Pearl",
+               (92f/100f), (88f/100f), (78f/100f)));
+       dragonColors.put("Giratina", new ColorName("Onyx",
+               (21f/100f), (22f/100f), (22f/100f)));
+       dragonColors.put("Axew", new ColorName("Army Green",
+               (29f/100f), (33f/100f), (13f/100f)));
+       dragonColors.put("Fraxure", new ColorName("Army Green",
+               (29f/100f), (33f/100f), (13f/100f)));
+       dragonColors.put("Haxorus", new ColorName("Army Green",
+               (29f/100f), (33f/100f), (13f/100f)));
+       dragonColors.put("Druddigon", new ColorName("Rust",
+               (72f/100f), (25f/100f), (5f/100f)));
+       dragonColors.put("Deino", new ColorName("Dark Purple", 
+               (20f/100f), (9f/100f), (30f/100f)));
+       dragonColors.put("Zweilous", new ColorName("Dark Purple",
+               (20f/100f), (9f/100f), (30f/100f)));
+       dragonColors.put("Hydreigon", new ColorName("Dark Purple",
+               (20f/100f), (9f/100f), (30f/100f)));
+       dragonColors.put("Reshiram", new ColorName("White",
+               (100f/100f), (100f / 100f), (100f / 100f)));
+       dragonColors.put("Zekrom", new ColorName("Black",
+               (0f/100f), (0f/100f), (0f/100f)));
+       dragonColors.put("Kyurem", new ColorName("Iceberg",
+               (44f/100f), (65f/100f), (82f/100f)));
+       dragonColors.put("Dragalge", new ColorName("Cordovan",
+               (54f/100f), (25f/100f), (27f/100f)));
+       dragonColors.put("Tyrunt", new ColorName("Crimson",
+               (60f/100f), (0f/100f), (0f/100f)));
+       dragonColors.put("Tyrantrum", new ColorName("Crimson",
+               (60f/100f), (0f/100f), (0f/100f)));
+       dragonColors.put("Goomy", new ColorName("Lavender",
+               (80f/100f), (80f/100f), (100f/100f)));
+       dragonColors.put("Sliggoo", new ColorName("Lavender",
+               (80f/100f), (80f/100f), (100f/100f)));
+       dragonColors.put("Goodra", new ColorName("Lavender",
+               (80f/100f), (80f/100f), (100f/100f)));
+       dragonColors.put("Noibat", new ColorName("Violet",
+               (53f/100f), (0f/100f), (69f/100f)));
+       dragonColors.put("Noivern", new ColorName("Violet",
+               (53f/100f), (0f/100f), (69f/100f)));
+       dragonColors.put("Zygarde", new ColorName("Fluorescent Yellow",
+               (80f/100f), (100f/100f), (0f/100f)));
 
     questions =  new LinkedList<Question>();
     Question question = new Question("Are you famous and well-known outside" +

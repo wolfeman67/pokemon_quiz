@@ -4,6 +4,9 @@ import java.util.Queue;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class FireTypeQuizGUI extends JPanel
 { static JFrame fireFrame;
@@ -14,6 +17,8 @@ public class FireTypeQuizGUI extends JPanel
   static ArrayList<String> thoseInAgreement = new ArrayList<String>();
   static ArrayList<String> thoseInDenial = new ArrayList<String>();
   static ArrayList<String> firePokemon = new ArrayList<String>();
+  static Map <String, ColorName> fireColors = 
+          new HashMap<String, ColorName>();
    public FireTypeQuizGUI() {
      super(new GridLayout(0,1));
      setOpaque(false);
@@ -200,343 +205,29 @@ public class FireTypeQuizGUI extends JPanel
        select.setOpaque(true);
        select.setForeground(Color.WHITE);
        select.setBackground(Color.BLACK);
+       ColorName currentColor;
+       String currentPokemon;
+       float red;
+       float green;
+       float blue;
        ArrayList<JButton> colors = new ArrayList<JButton>();
        for (int i = 0; i < firePokemon.size(); i++) {
-         if (firePokemon.get(i).equals("Growlithe") || firePokemon.get(i)
-             .equals("Arcanine"))
-         {
-           JButton colorButton = new JButton("Cinnabar");
-           colorButton.setForeground(Color.WHITE);
+           currentPokemon = firePokemon.get(i);
+           currentColor = fireColors.get(currentPokemon);
+           red = currentColor.getRed();
+           green = currentColor.getGreen();
+           blue = currentColor.getBlue();
+           JButton colorButton = new JButton(currentColor.getName());
            colorButton.setOpaque(true);
-           colorButton.setActionCommand("Cinnabar");
-           colorButton.setBackground(new Color((89f/100f),(26f/100f),
-                 (20f/100f)));
+           colorButton.setActionCommand(currentPokemon);
            colorButton.addActionListener(this);
+           if ((red + green + blue) / 3 < .5f) {
+               colorButton.setForeground(Color.WHITE);
+           } else {
+               colorButton.setForeground(Color.BLACK);
+           }
+           colorButton.setBackground(new Color(red, green, blue));
            colors.add(colorButton);
-             }
-         if (firePokemon.get(i).equals("Torkoal"))
-         {
-           JButton colorButton = new JButton("Smoke");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Smoke");
-           colorButton.setBackground(new Color((45f/100f), (51f/100f),
-                 (46f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-             }
-         if (firePokemon.get(i).equals("Charmander") || firePokemon.get(i)
-             .equals("Charmeleon") || firePokemon.get(i).equals("Charizard"))
-         {
-           JButton colorButton = new JButton("Flame");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Flame");
-           colorButton.setBackground(new Color((89f/100f), (35f/100f),
-                 (13f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-             }
-         if (firePokemon.get(i).equals("Vulpix") || firePokemon.get(i)
-             .equals("Ninetales"))
-         {
-           JButton colorButton = new JButton("Blond");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Blond");
-           colorButton.setBackground(new Color((98f/100f), (94f/100f),
-                 (75f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Ponyta") || firePokemon.get(i)
-             .equals("Rapidash"))
-         {
-           JButton colorButton = new JButton("Champagne");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Champagne");
-           colorButton.setBackground(new Color((97f/100f), (91f/100f),
-                 (81f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Reshiram"))
-         {
-           JButton colorButton = new JButton("White");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("White");
-           colorButton.setBackground(new Color((100f/100f), (100f/100f),
-                 (100f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Pansear") ||
-             firePokemon.get(i).equals("Simisear"))
-         {
-           JButton colorButton = new JButton("Lust");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Lust");
-           colorButton.setBackground(new Color((90f/100f), (13f/100f),
-                 (13f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Flareon"))
-         {
-           JButton colorButton = new JButton("Yellow");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Yellow");
-           colorButton.setBackground(new Color((100f/100f), (100f/100f),
-                 (0f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Magby") || firePokemon.get(i)
-             .equals("Magmar") || firePokemon.get(i).equals("Magmortar"))
-         {
-           JButton colorButton = new JButton("Lava");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Lava");
-           colorButton.setBackground(new Color((81f/100f), (6f/100f),
-                 (13f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Slugma") ||
-             firePokemon.get(i).equals("Magcargo"))
-         {
-           JButton colorButton = new JButton("Charcoal");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Charcoal");
-           colorButton.setBackground(new Color((21f/100f), (27f/100f),
-                 (31f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Cyndaquil") ||
-             firePokemon.get(i).equals("Quilava") ||
-             firePokemon.get(i).equals("Typhlosion"))
-         {
-           JButton colorButton = new JButton("Amazon");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Amazon");
-           colorButton.setBackground(new Color((23f/100f), (48f/100f),
-                 (34f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Entei"))
-         {
-           JButton colorButton = new JButton("Silver");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Silver");
-           colorButton.setBackground(new Color((75f/100f), (75f/100f),
-                 (75f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Chimchar") ||
-             firePokemon.get(i).equals("Monferno") ||
-             firePokemon.get(i).equals("Infernape"))
-         {
-           JButton colorButton = new JButton("Mango");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Mango");
-           colorButton.setBackground(new Color((100f/100f), (51f/100f),
-                 (26f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Moltres"))
-         {
-           JButton colorButton = new JButton("Ruby");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Ruby");
-           colorButton.setBackground(new Color((88f/100f), (7f/100f),
-                 (37f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Heatran"))
-         {
-           JButton colorButton = new JButton("Burnt Orange");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Burnt Orange");
-           colorButton.setBackground(new Color((80f/100f), (33f/100f),
-                 (0f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Numel") ||
-             firePokemon.get(i).equals("Camerupt"))
-         {
-           JButton colorButton = new JButton("Sand Dune");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Sand Dune");
-           colorButton.setBackground(new Color((59f/100f), (44f/100f),
-                 (9f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Litwick") ||
-             firePokemon.get(i).equals("Lampent") ||
-             firePokemon.get(i).equals("Chandelure"))
-         {
-           JButton colorButton = new JButton("Dark Purple");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Dark Purple");
-           colorButton.setBackground(new Color((20f/100f), (9f/100f),
-                 (30f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Darumaka") ||
-             firePokemon.get(i).equals("Darmanitan"))
-         {
-           JButton colorButton = new JButton("Lemon");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Lemon");
-           colorButton.setBackground(new Color((100f/100f), (97f/100f),
-                 (0f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Tepig") ||
-             firePokemon.get(i).equals("Pignite") ||
-             firePokemon.get(i).equals("Emboar"))
-         {
-           JButton colorButton = new JButton("Candy Apple Red");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Candy Apple Red");
-           colorButton.setBackground(new Color((100f/100f), (3f/100f),
-                 (0f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Larvesta") ||
-             firePokemon.get(i).equals("Volcarona"))
-         {
-           JButton colorButton = new JButton("Sunglow");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Sunglow");
-           colorButton.setBackground(new Color((100f/100f), (80f/100f),
-                 (20f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Houndour") ||
-             firePokemon.get(i).equals("Houndoom"))
-         {
-           JButton colorButton = new JButton("Black");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Black");
-           colorButton.setBackground(new Color((0f/100f), (0f/100f),
-                 (0f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Litleo") ||
-             firePokemon.get(i).equals("Pyroar"))
-         {
-           JButton colorButton = new JButton("Auburn");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Auburn");
-           colorButton.setBackground(new Color((65f/100f), (16f/100f),
-                 (16f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Heatmor"))
-         {
-           JButton colorButton = new JButton("Russet");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Russet");
-           colorButton.setBackground(new Color((50f/100f), (27f/100f),
-                 (11f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Victini"))
-         {
-           JButton colorButton = new JButton("Sunset Orange");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Sunset Orange");
-           colorButton.setBackground(new Color((99f/100f), (37f/100f),
-                 (33f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Klink") ||
-             firePokemon.get(i).equals("Klang") ||
-             firePokemon.get(i).equals("Klinklang"))
-         {
-           JButton colorButton = new JButton("Gray");
-           colorButton.setForeground(Color.BLACK);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Gray");
-           colorButton.setBackground(new Color((50f/100f), (50f/100f),
-                 (50f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Fletchinder") ||
-             firePokemon.get(i).equals("Talonflame"))
-         {
-           JButton colorButton = new JButton("Jet");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Jet");
-           colorButton.setBackground(new Color((20f/100f), (20f/100f),
-                 (20f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Torchic") ||
-             firePokemon.get(i).equals("Combusken") ||
-             firePokemon.get(i).equals("Blaziken"))
-         {
-           JButton colorButton = new JButton("Crimson");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Crimson");
-           colorButton.setBackground(new Color((86f/100f), (8f/100f),
-                 (24f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
-         if (firePokemon.get(i).equals("Fennekin") ||
-             firePokemon.get(i).equals("Braixen") ||
-             firePokemon.get(i).equals("Delphox"))
-         {
-           JButton colorButton = new JButton("Scarlet");
-           colorButton.setForeground(Color.WHITE);
-           colorButton.setOpaque(true);
-           colorButton.setActionCommand("Scarlet");
-           colorButton.setBackground(new Color((99f/100f), (5f/100f),
-                 (21f/100f)));
-           colorButton.addActionListener(this);
-           colors.add(colorButton);
-         }
        }
        for (int i = 0; i < colors.size(); i++) {
          colorsPanel.add(colors.get(i));
@@ -546,360 +237,28 @@ public class FireTypeQuizGUI extends JPanel
 
      }
      public void actionPerformed(ActionEvent e) {
-       String colorStr = e.getActionCommand();
+       String finalPokemon = e.getActionCommand();
        Color color = ((JButton)e.getSource()).getBackground();
-       ImageIcon pokePicture;
+       
        JPanel n = new JPanel();
+       n.add(createPokemon(finalPokemon, color));
+       
        fireFrame.getContentPane().removeAll();
-       if (colorStr.equals("Flame") &&
-           firePokemon.contains("Charmander")) {
-           n.add(createPokemon("Charmander", color));
-       } else if (colorStr.equals("Flame") &&
-               firePokemon.contains("Charmeleon")){
-           n.add(createPokemon("Charmeleon", color));
-       } else if (colorStr.equals("Flame") &&
-               firePokemon.contains("Charizard")){
-           n.add(createPokemon("Charizard", color));
-       } else if (colorStr.equals("Blond") && firePokemon.contains("Vulpix")) {
-           n.add(createPokemon("Vulpix", color));
-       } else if (colorStr.equals("Blond") &&
-           firePokemon.contains("Ninetales")) {
-           n.add(createPokemon("Ninetales", color));
-       } else if (colorStr.equals("Cinnabar") &&
-           firePokemon.contains("Growlithe")) {
-           n.add(createPokemon("Growlithe", color));
-       } else if (colorStr.equals("Cinnabar") &&
-           firePokemon.contains("Arcanine")) {
-           n.add(createPokemon("Arcanine", color));
-       } else if (colorStr.equals("Champagne") &&
-           firePokemon.contains("Ponyta")) {
-           n.add(createPokemon("Ponyta", color));
-       } else if (colorStr.equals("Champagne") && firePokemon
-               .contains("Rapidash")) {
-           n.add(createPokemon("Rapidash", color));
-       } else if (colorStr.equals("Lava") && firePokemon
-               .contains("Magby")) {
-           n.add(createPokemon("Magby", color));
-       } else if (colorStr.equals("Lava") && firePokemon
-           .contains("Magmar")) {
-           n.add(createPokemon("Magmar", color));
-       } else if (colorStr.equals("Lava") && firePokemon
-               .contains("Magmortar")) {
-           n.add(createPokemon("Magmortar", color));
-       } else if (colorStr.equals("Yellow")) {
-           n.add(createPokemon("Flareon", color));
-       } else if (colorStr.equals("Ruby")) {
-           n.add(createPokemon("Moltres", color));
-       } else if (colorStr.equals("Amazon") &&
-           firePokemon.contains("Cyndaquil")) {
-           n.add(createPokemon("Cyndaquil", color));
-       } else if (colorStr.equals("Amazon") &&
-           firePokemon.contains("Quilava")) {
-           n.add(createPokemon("Quilava", color));
-       } else if (colorStr.equals("Amazon") &&
-           firePokemon.contains("Typhlosion")) {
-           n.add(createPokemon("Typhlosion", color));
-       } else if (colorStr.equals("Charcoal") &&
-           firePokemon.contains("Slugma")) {
-           n.add(createPokemon("Slugma", color));
-       } else if (colorStr.equals("Charcoal") && firePokemon
-           .contains("Magcargo")) {
-           n.add(createPokemon("Magcargo", color));
-       } else if (colorStr.equals("Black") &&
-           firePokemon.contains("Houndour")) {
-           n.add(createPokemon("Houndour", color));
-       } else if (colorStr.equals("Black") && firePokemon
-               .contains("Houndoom")) {
-           n.add(createPokemon("Houndoom", color));
-       } else if (colorStr.equals("Silver")) {
-           n.add(createPokemon("Entei", color));
-       } else if (colorStr.equals("Gold")) {
-           n.add(createPokemon("Ho-oh", color));
-       } else if (colorStr.equals("Crimson") &&
-           firePokemon.contains("Torchic")) {
-           n.add(createPokemon("Torchic", color));
-       } else if (colorStr.equals("Crimson") &&
-           firePokemon.contains("Combusken")) {
-           n.add(createPokemon("Combusken", color));
-       } else if (colorStr.equals("Crimson") &&
-           firePokemon.contains("Blaziken")) {
-           n.add(createPokemon("Blaziken", color));
-       } else if (colorStr.equals("Sand Dune") &&
-           firePokemon.contains("Numel")) {
-           n.add(createPokemon("Numel", color));
-       } else if (colorStr.equals("Sand Dune") && firePokemon
-               .contains("Camerupt")) {
-           n.add(createPokemon("Camerupt", color));
-       } else if (colorStr.equals("Smoke")) {
-           n.add(createPokemon("Torkoal", color));
-       } else if (colorStr.equals("Mango") &&
-           firePokemon.contains("Chimchar")) {
-           n.add(createPokemon("Chimchar", color));
-       } else if (colorStr.equals("Mango") &&
-           firePokemon.contains("Monferno")) {
-           n.add(createPokemon("Monferno", color));
-       } else if (colorStr.equals("Mango") &&
-           firePokemon.contains("Infernape")) {
-           n.add(createPokemon("Infernape", color));
-       } else if (colorStr.equals("Burnt Orange")) {
-           n.add(createPokemon("Heatran", color));
-       } else if (colorStr.equals("Sunset Orange")) {
-           n.add(createPokemon("Victini", color));
-       } else if (colorStr.equals("Candy Apple Red") &&
-           firePokemon.contains("Tepig")) {
-           n.add(createPokemon("Tepig", color));
-       } else if (colorStr.equals("Candy Apple Red") &&
-           firePokemon.contains("Pignite")) {
-           n.add(createPokemon("Pignite", color));
-       } else if (colorStr.equals("Candy Apple Red") &&
-           firePokemon.contains("Emboar")) {
-           n.add(createPokemon("Emboar", color));
-       } else if (colorStr.equals("Lust") &&
-           firePokemon.contains("Pansear")) {
-           n.add(createPokemon("Pansear", color));
-       } else if (colorStr.equals("Lust") &&
-           firePokemon.contains("Simisear")) {
-           n.add(createPokemon("Simisear", color));
-       } else if (colorStr.equals("Lemon") &&
-           firePokemon.contains("Darumaka")) {
-           n.add(createPokemon("Darumaka", color));
-       }
-       else if(colorStr.equals("Lemon") &&
-           firePokemon.contains("Darmanitan")) {
-           n.add(createPokemon("Darmanitan", color));
-       }
-       else if(colorStr.equals("Dark Purple") &&
-           firePokemon.contains("Litwick")) {
-           n.add(createPokemon("Litwick", color));
-       }
-       else if(colorStr.equals("Dark Purple") &&
-           firePokemon.contains("Lampent")) {
-           n.add(createPokemon("Lampent", color));
-       }
-       else if(colorStr.equals("Dark Purple") &&
-           firePokemon.contains("Chandelure")) {
-           n.add(createPokemon("Chandelure", color));
-       }
-       else if(colorStr.equals("Russet")) {
-           n.add(createPokemon("Heatmor", color));
-       }
-       else if(colorStr.equals("Sunglow") &&
-           firePokemon.contains("Larvesta")) {
-           n.add(createPokemon("Larvesta", color));
-       }
-       else if(colorStr.equals("Sunglow") &&
-           firePokemon.contains("Volcarona")) {
-           n.add(createPokemon("Volcarona", color));
-       }
-       else if(colorStr.equals("White")) {
-           n.add(createPokemon("Reshiram", color));
-       }
-       else if(colorStr.equals("Scarlet") &&
-           firePokemon.contains("Fennekin")) {
-           n.add(createPokemon("Fennekin", color));
-       }
-       else if(colorStr.equals("Scarlet") &&
-           firePokemon.contains("Braixen")) {
-           n.add(createPokemon("Braixen", color));
-       }
-       else if(colorStr.equals("Scarlet") &&
-           firePokemon.contains("Delphox")) {
-           n.add(createPokemon("Delphox", color));
-       }
-       else if(colorStr.equals("Jet") &&
-           firePokemon.contains("Fletchinder")) {
-           n.add(createPokemon("Fletchinder", color));
-       }
-       else if(colorStr.equals("Jet") &&
-           firePokemon.contains("Talonflame")) {
-           n.add(createPokemon("Talonflame", color));
-       }
-       else if(colorStr.equals("Auburn") &&
-           firePokemon.contains("Litleo")) {
-           n.add(createPokemon("Litleo", color));
-       }
-       else if(colorStr.equals("Auburn") &&
-           firePokemon.contains("Pyroar-Male")) {
-           n.add(createPokemon("Pyroar-Male", color));
-       }
-       else if(colorStr.equals("Auburn") &&
-           firePokemon.contains("Pyroar-Female")) {
-           n.add(createPokemon("Pyroar-Female", color));
-       }
        fireFrame.add(n);
        fireFrame.pack();
        fireFrame.setVisible(true);
      }
 
+     //This will only be Druddigon or Noivern/Noibat
      public static JPanel truePokemon() {
        JPanel n = new JPanel();
-       if (firePokemon.get(0).equals("Magnemite")) {
-         n.add(createPokemon("Magnemite", new Color((100f/100f),
-                 (100f/100f),(20f/100f))));
-       }
-       if (firePokemon.get(0).equals("Magneton")) {
-         n.add(createPokemon("Magneton", new Color((100f/100f),
-                 (100f/100f),(20f/100f))));
-       }
-       if (firePokemon.get(0).equals("Magnezone")) {
-         n.add(createPokemon("Magnezone", new Color((100f/100f),
-                 (100f/100f),(20f/100f))));
-       }
-       if (firePokemon.get(0).equals("Forretress")) {
-         n.add(createPokemon("Forretress", new Color((13f/100f),
-                 (55f/100f),(13f/100f))));
-       }
-       if (firePokemon.get(0).equals("Fireix")) {
-         n.add(createPokemon("Fireix", new Color((21f/100f),
-                 (22f/100f),(22f/100f))));
-       }
-       if (firePokemon.get(0).equals("Scizor")) {
-         n.add(createPokemon("Scizor", new Color((100f/100f),
-                 (0f/100f),(0f/100f))));
-       }
-       if (firePokemon.get(0).equals("Skarmory")) {
-         n.add(createPokemon("Skarmory", new Color((86f/100f),
-                 (8f/100f),(24f/100f))));
-       }
-       if (firePokemon.get(0).equals("Mawile")) {
-         n.add(createPokemon("Mawile", new Color((10f/100f),
-                 (7f/100f),(6f/100f))));
-       }
-       if (firePokemon.get(0).equals("Aron")) {
-         n.add(createPokemon("Aron", new Color((21f/100f),
-                 (27f/100f),(31f/100f))));
-       }
-       if (firePokemon.get(0).equals("Lairon")) {
-         n.add(createPokemon("Lairon", new Color((21f/100f),
-                 (27f/100f),(31f/100f))));
-       }
-       if (firePokemon.get(0).equals("Aggron")) {
-         n.add(createPokemon("Aggron", new Color((21f/100f),
-                 (27f/100f),(31f/100f))));
-       }
-       if (firePokemon.get(0).equals("Beldum")) {
-         n.add(createPokemon("Beldum", new Color((0f/100f),
-                 (28f/100f),(67f/100f))));
-       }
-       if (firePokemon.get(0).equals("Metang")) {
-         n.add(createPokemon("Metang", new Color((0f/100f),
-                 (28f/100f),(67f/100f))));
-       }
-       if (firePokemon.get(0).equals("Metagross")) {
-         n.add(createPokemon("Metagross", new Color((0f/100f),
-                 (28f/100f),(67f/100f))));
-       }
-       if (firePokemon.get(0).equals("Regifire")) {
-         n.add(createPokemon("Regifire", new Color((25f/100f),
-                 (29f/100f),(30f/100f))));
-       }
-       if (firePokemon.get(0).equals("Jirachi")) {
-         n.add(createPokemon("Jirachi", new Color((83f/100f),
-                 (69f/100f),(22f/100f))));
-       }
-       if (firePokemon.get(0).equals("Empoleon")) {
-         n.add(createPokemon("Empoleon", new Color((0f/100f),
-                 (14f/100f),(40f/100f))));
-       }
-       if (firePokemon.get(0).equals("Shieldon")) {
-         n.add(createPokemon("Shieldon", new Color((100f/100f),
-                 (86f/100f),(35f/100f))));
-       }
-       if (firePokemon.get(0).equals("Bastiodon")) {
-         n.add(createPokemon("Bastiodon", new Color((100f/100f),
-                 (86f/100f),(35f/100f))));
-       }
-       if (firePokemon.get(0).equals("Bronzor")) {
-         n.add(createPokemon("Bronzor", new Color((80f/100f),
-                 (50f/100f),(20f/100f))));
-       }
-       if (firePokemon.get(0).equals("Bronzong")) {
-         n.add(createPokemon("Bronzong", new Color((80f/100f),
-                 (50f/100f),(20f/100f))));
-       }
-       if (firePokemon.get(0).equals("Lucario")) {
-         n.add(createPokemon("Lucario", new Color((27f/100f),
-                 (51f/100f),(71f/100f))));
-       }
-       if (firePokemon.get(0).equals("Probopass")) {
-         n.add(createPokemon("Probopass", new Color((0f/100f),
-                 (100f/100f),(100f/100f))));
-       }
-       if (firePokemon.get(0).equals("Dialga")) {
-         n.add(createPokemon("Dialga", new Color((29f/100f),
-                 (59f/100f),(82f/100f))));
-       }
-       if (firePokemon.get(0).equals("Heatran")) {
-         n.add(createPokemon("Heatran", new Color((80f/100f),
-                 (33f/100f),(0f/100f))));
-       }
-       if (firePokemon.get(0).equals("Excadrill")) {
-         n.add(createPokemon("Excadrill", new Color((58f/100f),
-                 (27f/100f),(21f/100f))));
-       }
-       if (firePokemon.get(0).equals("Escavalier")) {
-         n.add(createPokemon("Escavalier", new Color((57f/100f),
-                 (64f/100f),(69f/100f))));
-       }
-       if (firePokemon.get(0).equals("Ferroseed")) {
-         n.add(createPokemon("Ferroseed", new Color((0f/100f),
-                 (50f/100f),(0f/100f))));
-       }
-       if (firePokemon.get(0).equals("Ferrothorn")) {
-         n.add(createPokemon("Ferrothorn", new Color((0f/100f),
-                 (50f/100f),(0f/100f))));
-       }
-       if (firePokemon.get(0).equals("Klink")) {
-         n.add(createPokemon("Klink", new Color((50f/100f),
-                 (50f/100f),(50f/100f))));
-       }
-       if (firePokemon.get(0).equals("Klang")) {
-         n.add(createPokemon("Klang", new Color((50f/100f),
-                 (50f/100f),(50f/100f))));
-       }
-       if (firePokemon.get(0).equals("Klinklang")) {
-         n.add(createPokemon("Klinklang", new Color((50f/100f),
-                 (50f/100f),(50f/100f))));
-       }
-       if (firePokemon.get(0).equals("Pawniard")) {
-         n.add(createPokemon("Pawniard", new Color((50f/100f),
-                 (0f/100f),(13f/100f))));
-       }
-       if (firePokemon.get(0).equals("Bisharp")) {
-         n.add(createPokemon("Bisharp", new Color((50f/100f),
-                 (0f/100f),(13f/100f))));
-       }
-       if (firePokemon.get(0).equals("Durant")) {
-         n.add(createPokemon("Durant", new Color((4f/100f),
-                 (85f/100f),(32f/100f))));
-       }
-       if (firePokemon.get(0).equals("Cobalion")) {
-         n.add(createPokemon("Cobalion", new Color((75f/100f),
-                 (75f/100f),(75f/100f))));
-       }
-       if (firePokemon.get(0).equals("Genesect")) {
-         n.add(createPokemon("Genesect", new Color((75f/100f),
-                 (0f/100f),(100f/100f))));
-       }
-       if (firePokemon.get(0).equals("Honedge")) {
-         n.add(createPokemon("Honedge", new Color((10f/100f),
-                 (10f/100f),(44f/100f))));
-       }
-       if (firePokemon.get(0).equals("Doublade")) {
-         n.add(createPokemon("Doublade", new Color((10f/100f),
-                 (10f/100f),(44f/100f))));
-       }
-       if (firePokemon.get(0).equals("Aegislash")) {
-         n.add(createPokemon("Aegislash", new Color((10f/100f),
-                 (10f/100f),(44f/100f))));
-       }
-       if (firePokemon.get(0).equals("Klefki")) {
-         n.add(createPokemon("Klefki", new Color((83f/100f),
-                 (83f/100f),(83f/100f))));
-       }
+       ColorName trueColor = fireColors.get(firePokemon.get(0));
+       n.add(createPokemon(firePokemon.get(0), new Color(
+               trueColor.getRed(), trueColor.getGreen(), trueColor.getBlue())));
        return n;
      }
 
+     //This won't happen with Dragon type unless something HORRIBLE happens
      public static JLabel glitch() {
        ImageIcon pokePicture = new ImageIcon("images/MissingNo.png");
        JLabel pokeLabel = new JLabel("There was a glitch...", pokePicture,
@@ -916,26 +275,19 @@ public class FireTypeQuizGUI extends JPanel
        ImageIcon pokePicture = new ImageIcon("./images/Fire/" + pokemon +
            ".png");
        JLabel pokeLabel;
-       if (pokemon.equals("Jellicent-Male") ||
-           pokemon.equals("Jellicent-Female")) {
-         pokeLabel = new JLabel("You are Jellicent!", pokePicture,
+       if (pokemon.equals("Pyroar-Male") || pokemon.equals("Pyroar-Female")) {
+           pokeLabel = new JLabel("You are Pyroar!", pokePicture, 
              JLabel.CENTER);
-       } else if (pokemon.equals("Frillish-Male") ||
-           pokemon.equals("Frillish-Female")) {
-         pokeLabel = new JLabel("You are Frillish!", pokePicture,
-             JLabel.CENTER);
-           } else {
+       } else {
          pokeLabel = new JLabel("You are " + pokemon + "!", pokePicture,
-             JLabel.CENTER);
-         }
+           JLabel.CENTER);
+       }
        pokeLabel.setFont(new Font("SansSerif.bold", Font.PLAIN, 24));
        if((color.getRed() + color.getGreen() + color.getBlue())/3.0 > 128.0) {
          pokeLabel.setForeground(Color.BLACK);
        } else {
          pokeLabel.setForeground(Color.WHITE);
        }
-       /*pokeLabel.setForeground(new Color((1f - color.getRed()/255f), (1f - color.getGreen()/255f),
-             (1f - color.getBlue()/255f)));*/
        pokeLabel.setOpaque(true);
        pokeLabel.setBackground(color);
        return pokeLabel;
@@ -999,6 +351,119 @@ public class FireTypeQuizGUI extends JPanel
        firePokemon.add("Pyroar-Male");
        firePokemon.add("Pyroar-Female");
     //   firePokemon.add("Volcanion");
+       
+       fireColors.put("Charmander", new ColorName("Flame",
+               (8f/100f), (35f/100f), (13f/100f)));
+       fireColors.put("Charmeleon", new ColorName("Flame",
+               (8f/100f), (35f/100f), (13f/100f)));
+       fireColors.put("Charizard", new ColorName("Flame",
+               (8f/100f), (35f/100f), (13f/100f)));
+       fireColors.put("Vulpix", new ColorName("Blond",
+               (98f/100f), (94f/100f), (75f/100f)));
+       fireColors.put("Ninetales", new ColorName("Blond",
+               (98f/100f), (94f/100f), (75f/100f)));
+       fireColors.put("Growlithe", new ColorName("Cinnabar",
+               (89f/100f), (26f/100f), (20f/100f)));
+       fireColors.put("Arcanine", new ColorName("Cinnabar",
+               (89f/100f), (26f/100f), (20f/100f)));
+       fireColors.put("Ponyta", new ColorName("Champagne",
+               (97f/100f), (91f/100f), (81f/100f)));
+       fireColors.put("Rapidash", new ColorName("Champagne",
+               (97f/100f), (91f/100f), (81f/100f)));
+       fireColors.put("Magmar", new ColorName("Lava",
+               (81f/100f), (6f/100f), (13f/100f)));
+       fireColors.put("Flareon", new ColorName("Yellow",
+               (100f/100f), (100f/100f), (0f/100f)));
+       fireColors.put("Moltres", new ColorName("Ruby",
+               (88f/100f), (7f/100f), (37f/100f)));
+       fireColors.put("Cyndaquil", new ColorName("Amazon",
+               (23f/100f), (48f/100f), (34f/100f)));
+       fireColors.put("Quilava", new ColorName("Amazon",
+               (23f/100f), (48f/100f), (34f/100f)));
+       fireColors.put("Typhlosion", new ColorName("Amazon",
+               (23f/100f), (48f/100f), (34f/100f)));
+       fireColors.put("Slugma", new ColorName("Charcoal",
+               (21f/100f), (27f/100f), (31f/100f)));
+       fireColors.put("Magcargo", new ColorName("Charcoal",
+               (21f/100f), (27f/100f), (31f/100f)));
+       fireColors.put("Houndour", new ColorName("Black",
+               (0f/100f), (0f/100f), (0f/100f)));
+       fireColors.put("Houndoom", new ColorName("Black",
+               (0f/100f), (0f/100f), (0f/100f)));
+       fireColors.put("Magby", new ColorName("Lava",
+               (81f/100f), (6f/100f), (13f/100f)));
+       fireColors.put("Entei", new ColorName("Silver",
+               (75f/100f), (75f/100f), (75f/100f)));
+       fireColors.put("Ho-oh", new ColorName("Gold",
+               (83f/100f), (69f/100f), (22f/100f)));
+       fireColors.put("Torchic", new ColorName("Crimson",
+               (86f/100f), (8f/100f), (24f/100f)));
+       fireColors.put("Combusken", new ColorName("Crimson",
+               (86f/100f), (8f/100f), (24f/100f)));
+       fireColors.put("Blaziken", new ColorName("Crimson",
+               (86f/100f), (8f/100f), (24f/100f)));
+       fireColors.put("Numel", new ColorName("Sand Dune",
+               (59f/100f), (44f/100f), (9f/100f)));
+       fireColors.put("Camerupt", new ColorName("Sand Dune",
+               (59f/100f), (44f/100f), (9f/100f)));
+       fireColors.put("Torkoal", new ColorName("Smoke",
+               (45f/100f), (51f/100f), (46f/100f)));
+       fireColors.put("Chimchar", new ColorName("Mango",
+               (100f/100f), (51f/100f), (26f/100f)));
+       fireColors.put("Monferno", new ColorName("Mango",
+               (100f/100f), (51f/100f), (26f/100f)));
+       fireColors.put("Infernape", new ColorName("Mango",
+               (100f/100f), (51f/100f), (26f/100f)));
+       fireColors.put("Magmortar", new ColorName("Lava",
+               (81f/100f), (6f/100f), (13f/100f)));
+       fireColors.put("Heatran", new ColorName("Burnt Orange",
+               (80f/100f), (33f/100f), (0f/100f)));
+       fireColors.put("Victini", new ColorName("Sunset Orange",
+               (99f/100f), (37f/100f), (33f/100f)));
+       fireColors.put("Tepig", new ColorName("Candy Apple Red",
+               (100f/100f), (3f/100f), (0f/100f)));
+       fireColors.put("Pignite", new ColorName("Candy Apple Red",
+               (100f/100f), (3f/100f), (0f/100f)));
+       fireColors.put("Emboar", new ColorName("Candy Apple Red",
+               (100f/100f), (3f/100f), (0f/100f)));
+       fireColors.put("Pansear", new ColorName("Lust",
+               (90f/100f), (13f/100f), (13f/100f)));
+       fireColors.put("Simisear", new ColorName("Lust",
+               (90f/100f), (13f/100f), (13f/100f)));
+       fireColors.put("Darumaka", new ColorName("Lemon",
+               (100f/100f), (97f/100f), (0f/100f)));
+       fireColors.put("Darmanitan", new ColorName("Lemon",
+               (100f/100f), (97f/100f), (0f/100f)));
+       fireColors.put("Litwick", new ColorName("Dark Purple",
+               (20f/100f), (9f/100f), (30f/100f)));
+       fireColors.put("Lampent", new ColorName("Dark Purple",
+               (20f/100f), (9f/100f), (30f/100f)));
+       fireColors.put("Chandelure", new ColorName("Dark Purple",
+               (20f/100f), (9f/100f), (30f/100f)));
+       fireColors.put("Heatmor", new ColorName("Russet",
+               (50f/100f), (27f/100f), (11f/100f)));
+       fireColors.put("Larvesta", new ColorName("Sunglow",
+               (100f/100f), (80f/100f), (20f/100f)));
+       fireColors.put("Volcarona", new ColorName("Sunglow",
+               (100f/100f), (80f/100f), (20f/100f)));
+       fireColors.put("Reshiram", new ColorName("White",
+               (0f/100f), (0f/100f), (0f/100f)));
+       fireColors.put("Fennekin", new ColorName("Scarlet",
+               (99f/100f), (5f/100f), (21f/100f)));
+       fireColors.put("Braixen", new ColorName("Scarlet",
+               (99f/100f), (5f/100f), (21f/100f)));
+       fireColors.put("Delphox", new ColorName("Scarlet",
+               (99f/100f), (5f/100f), (21f/100f)));
+       fireColors.put("Fletchinder", new ColorName("Jet",
+               (20f/100f), (20f/100f), (20f/100f)));
+       fireColors.put("Talonflame", new ColorName("Jet",
+               (20f/100f), (20f/100f), (20f/100f)));
+       fireColors.put("Litleo", new ColorName("Auburn",
+               (65f/100f), (16f/100f), (16f/100f)));
+       fireColors.put("Pyroar-Male", new ColorName("Auburn",
+               (65f/100f), (16f/100f), (16f/100f)));
+       fireColors.put("Pyroar-Female", new ColorName("Auburn",
+               (65f/100f), (16f/100f), (16f/100f)));
 
     questions =  new LinkedList<Question>();
     Question question = new Question("Are you famous and well-known outside" +
@@ -1125,7 +590,7 @@ public class FireTypeQuizGUI extends JPanel
     questions.add(question);
 
     question = new Question("Are you either an excellent teacher or a " +
-        "steafast student who has a love for learning, who wishes the " +
+        "steadfast student who has a love for learning, who wishes the " +
         "world was smarter?");
     question.addPokemonYes("Litwick");
     question.addPokemonYes("Lampent");
