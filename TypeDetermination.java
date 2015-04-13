@@ -6,12 +6,9 @@
 
 //public static void main (String args[])
 //public static void innerSearch()
-import java.applet.Applet;
-import java.util.ArrayList;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map;
 import java.lang.*;
@@ -79,529 +76,530 @@ public class TypeDetermination extends JPanel implements ActionListener{
   public static void FigureOutType() {
     for(String key: traits.keySet()) {
       if (key.equals("Calm") && traits.get(key)) {
-        steel = steel + 1;                                                   
-        psychic = psychic + 2;                                               
-        ice = ice + 2;                                                       
-        bug = bug + 1;                                                       
-        grass = grass + 2;                                                   
-        water = water + 2;                                                   
-        normal = normal + 1;                                                 
+        steel = steel + 1;
+        psychic = psychic + 2;
+        ice = ice + 2;
+        bug = bug + 1;
+        grass = grass + 2;
+        water = water + 2;
+        normal = normal + 1;
         fairy= fairy+1;
       }
       else if (key.equals("Outgoing") && traits.get(key)) {
-        dragon = dragon + 1;                                                 
-        electric = electric + 2;                                             
-        psychic = psychic + 1;                                               
-        ice = ice + 1;                                                       
-        bug = bug + 1;                                                       
-        grass = grass + 2;                                                   
-        poison = poison + 1;                                                 
-        flying = flying + 1;                                                 
-        fire = fire + 2;                                                     
-        fighting = fighting + 1;                                             
-        water = water + 2;                                                   
-        normal = normal + 2;                                                 
+        dragon = dragon + 1;
+        electric = electric + 2;
+        psychic = psychic + 1;
+        ice = ice + 1;
+        bug = bug + 1;
+        grass = grass + 2;
+        poison = poison + 1;
+        flying = flying + 1;
+        fire = fire + 2;
+        fighting = fighting + 1;
+        water = water + 2;
+        normal = normal + 2;
         fairy = fairy + 2;
       }
       else if (key.equals("Kind") && traits.get(key)) {
-        dragon = dragon + 1;                                                 
-        electric = electric + 2;                                             
-        psychic = psychic + 1;                                               
-        ice = ice + 1;                                                       
-        ground = ground + 1;                                                 
-        rock = rock + 1;                                                     
-        bug = bug + 2;                                                       
-        grass = grass + 2;                                                   
-        flying = flying + 1;                                                 
-        fire = fire + 1;                                                     
-        water = water + 2;                                                   
-        normal = normal + 2;                                                 
+        dragon = dragon + 1;
+        electric = electric + 2;
+        psychic = psychic + 1;
+        ice = ice + 1;
+        ground = ground + 1;
+        rock = rock + 1;
+        bug = bug + 2;
+        grass = grass + 2;
+        flying = flying + 1;
+        fire = fire + 1;
+        water = water + 2;
+        normal = normal + 2;
         fairy = fairy + 2;
       }
       else if (key.equals("Smart/Nerdy") && traits.get(key)) {
-         dragon = dragon + 1;                                                 
-         ghost = ghost + 2;                                                   
-         dark = dark + 1;                                                     
-         steel = steel + 1;                                                   
-         electric = electric + 2;                                             
-         psychic = psychic + 2;                                               
-         ice = ice + 1;                                                       
-         bug = bug + 2;                                                       
-         grass = grass + 1;                                                   
-         flying = flying + 1;                                                 
-         water = water + 1;                                                   
-         normal = normal + 1;                                                 
+         dragon = dragon + 1;
+         ghost = ghost + 2;
+         dark = dark + 1;
+         steel = steel + 1;
+         electric = electric + 2;
+         psychic = psychic + 2;
+         ice = ice + 1;
+         bug = bug + 2;
+         grass = grass + 1;
+         flying = flying + 1;
+         water = water + 1;
+         normal = normal + 1;
          fairy = fairy + 1;
       }
       else if (key.equals("Smart/Nerdy") && !traits.get(key)) {
-        dragon = dragon + 2;                                                 
-        dark = dark + 1;                                                     
-        steel = steel + 1;                                                   
-        ghost = ghost + 1;                                                   
-        ice = ice + 1;                                                       
-        ground = ground + 2;                                                 
-        rock = rock + 2;                                                     
-        bug = bug + 1;                                                       
-        grass = grass + 1;                                                   
-        poison = poison + 2;                                                 
-        flying = flying + 1;                                                 
-        fire = fire + 1;                                                     
-        fighting = fighting + 2;                                             
-        water = water + 1;                                                   
+        dragon = dragon + 2;
+        dark = dark + 1;
+        steel = steel + 1;
+        ghost = ghost + 1;
+        ice = ice + 1;
+        ground = ground + 2;
+        rock = rock + 2;
+        bug = bug + 1;
+        grass = grass + 1;
+        poison = poison + 2;
+        flying = flying + 1;
+        fire = fire + 1;
+        fighting = fighting + 2;
+        water = water + 1;
         normal = normal + 1;
       }
       else if (key.equals("Creative") && traits.get(key)) {
-        ghost = ghost + 2;                                                   
-        electric = electric + 1;                                             
-        psychic = psychic + 1;                                               
-        ice = ice + 1;                                                       
-        ground = ground + 1;                                                 
-        bug = bug + 1;                                                       
-        grass = grass + 1;                                                   
-        flying = flying + 1;                                                 
-        water = water + 2;                                                   
-        normal = normal + 2;                                                 
+        ghost = ghost + 2;
+        electric = electric + 1;
+        psychic = psychic + 1;
+        ice = ice + 1;
+        ground = ground + 1;
+        bug = bug + 1;
+        grass = grass + 1;
+        flying = flying + 1;
+        water = water + 2;
+        normal = normal + 2;
         fairy = fairy + 2;
       }
       else if (key.equals("Decisive") && traits.get(key)) {
-         dragon = dragon + 2;                                                 
-         dark = dark + 1;                                                     
-         ghost = ghost + 2;                                                   
-         psychic = psychic + 2;                                               
-         flying = flying + 2;                                                 
-         fire = fire + 1;                                                     
+         dragon = dragon + 2;
+         dark = dark + 1;
+         ghost = ghost + 2;
+         psychic = psychic + 2;
+         flying = flying + 2;
+         fire = fire + 1;
          fighting = fighting + 2;
       }
       else if (key.equals("Sensitive") && traits.get(key)) {
-        dragon = dragon + 1;                                                 
-        steel = steel + 1;                                                   
-        ghost = ghost + 1;                                                   
-        electric = electric + 2;                                             
-        psychic = psychic + 1;                                               
-        ice = ice + 1;                                                       
-        ground = ground + 1;                                                 
-        bug = bug + 2;                                                       
-        grass = grass + 2;                                                   
-        poison = poison + 1;                                                 
-        flying = flying + 1;                                                 
-        fire = fire + 1;                                                     
-        water = water + 1;                                                   
-        normal = normal + 2;                                                 
+        dragon = dragon + 1;
+        steel = steel + 1;
+        ghost = ghost + 1;
+        electric = electric + 2;
+        psychic = psychic + 1;
+        ice = ice + 1;
+        ground = ground + 1;
+        bug = bug + 2;
+        grass = grass + 2;
+        poison = poison + 1;
+        flying = flying + 1;
+        fire = fire + 1;
+        water = water + 1;
+        normal = normal + 2;
         fairy = fairy + 2;
       }
       else if (key.equals("Lonely") && traits.get(key)) {
-        ghost = ghost + 2;                                                   
-        poison = poison + 1;                                                 
+        ghost = ghost + 2;
+        poison = poison + 1;
         flying = flying + 1;
       }
       else if (key.equals("Mature") && traits.get(key)) {
-         steel = steel + 2;                                                   
-         dragon = dragon + 1;                                                 
-         psychic = psychic + 1;                                               
-         ground = ground + 2;                                                 
-         rock = rock + 1;                                                     
+         steel = steel + 2;
+         dragon = dragon + 1;
+         psychic = psychic + 1;
+         ground = ground + 2;
+         rock = rock + 1;
          flying = flying + 1;
       }
       else if (key.equals("Naive") && traits.get(key)) {
-        steel = steel + 1;                                                   
-        electric = electric + 2;                                             
-        ice = ice + 2;                                                       
-        ground = ground + 1;                                                 
-        rock = rock + 1;                                                     
-        bug = bug + 1;                                                       
-        grass = grass + 1;                                                   
-        poison = poison + 2;                                                 
-        fire = fire + 1;                                                     
-        fighting = fighting + 1;                                             
-        water = water + 1;                                                   
-        normal = normal + 2;                                                 
+        steel = steel + 1;
+        electric = electric + 2;
+        ice = ice + 2;
+        ground = ground + 1;
+        rock = rock + 1;
+        bug = bug + 1;
+        grass = grass + 1;
+        poison = poison + 2;
+        fire = fire + 1;
+        fighting = fighting + 1;
+        water = water + 1;
+        normal = normal + 2;
         fairy = fairy + 2;
       }
       else if (key.equals("Humble") && traits.get(key)) {
-        ground = ground + 2;                                                 
-        rock = rock + 2;                                                     
-        grass = grass + 1;                                                   
-        water = water + 1;                                                   
-        normal = normal + 2;                                                 
+        ground = ground + 2;
+        rock = rock + 2;
+        grass = grass + 1;
+        water = water + 1;
+        normal = normal + 2;
         fairy = fairy + 1;
       }
       else if (key.equals("Loyal") && traits.get(key)) {
-        dragon = dragon + 1;                                                 
-        electric = electric + 2;                                             
-        psychic = psychic + 1;                                               
-        ice = ice + 1;                                                       
-        ground = ground + 2;                                                 
-        rock = rock + 1;                                                     
-        bug = bug + 2;                                                       
-        grass = grass + 2;                                                   
-        poison = poison + 1;                                                 
-        flying = flying + 1;                                                 
-        fire = fire + 1;                                                     
-        fighting = fighting + 2;                                             
-        water = water + 2;                                                   
-        normal = normal + 1;                                                 
+        dragon = dragon + 1;
+        electric = electric + 2;
+        psychic = psychic + 1;
+        ice = ice + 1;
+        ground = ground + 2;
+        rock = rock + 1;
+        bug = bug + 2;
+        grass = grass + 2;
+        poison = poison + 1;
+        flying = flying + 1;
+        fire = fire + 1;
+        fighting = fighting + 2;
+        water = water + 2;
+        normal = normal + 1;
         fairy = fairy + 1;
       }
       else if (key.equals("Quiet") && traits.get(key)) {
-        dark = dark + 1;                                                     
-        steel = steel + 2;                                                   
-        dragon = dragon + 1;                                                 
-        ghost = ghost + 1;                                                   
-        psychic = psychic + 2;                                               
-        ground = ground + 1;                                                 
-        rock = rock + 2;                                                     
-        bug = bug + 1;                                                       
-        grass = grass + 1;                                                   
-        poison = poison + 2;                                                 
-        ice = ice + 2;                                                             
-        fire = fire + 1;                                                     
-        water = water + 1;                                                   
+        dark = dark + 1;
+        steel = steel + 2;
+        dragon = dragon + 1;
+        ghost = ghost + 1;
+        psychic = psychic + 2;
+        ground = ground + 1;
+        rock = rock + 2;
+        bug = bug + 1;
+        grass = grass + 1;
+        poison = poison + 2;
+        ice = ice + 2;
+        fire = fire + 1;
+        water = water + 1;
         fairy = fairy + 1;
       }
       else if (key.equals("Assertive") && traits.get(key)) {
-        dark = dark + 2;                                                     
-        steel = steel + 2;                                                   
-        fire = fire + 2;                                                     
-        fighting = fighting + 2;                                             
+        dark = dark + 2;
+        steel = steel + 2;
+        fire = fire + 2;
+        fighting = fighting + 2;
         dragon = dragon + 1;
       }
       else if (key.equals("Aggressive") && traits.get(key)) {
-        dark = dark + 1;                                                     
-        fire = fire + 1;                                                     
+        dark = dark + 1;
+        fire = fire + 1;
         fighting = fighting + 2;
       }
       else if (key.equals("Bossy") && traits.get(key)) {
-        steel = steel + 1;                                                   
-        dragon = dragon + 1;                                                 
-        poison = poison + 1;                                                 
-        dark = dark + 2;                                                     
+        steel = steel + 1;
+        dragon = dragon + 1;
+        poison = poison + 1;
+        dark = dark + 2;
         fighting = fighting + 2;
       }
       else if (key.equals("Dark/Pessimistic") && traits.get(key)) {
-        dark = dark + 2;                                                     
-        ghost = ghost + 2;                                                   
-        poison = poison + 1;                                                 
+        dark = dark + 2;
+        ghost = ghost + 2;
+        poison = poison + 1;
         fighting = fighting + 1;
       }
       else if (key.equals("Serious") && traits.get(key)) {
-        dragon = dragon + 1;                                                 
-        ground = ground + 2;                                                 
-        rock = rock + 2;                                                     
-        grass = grass + 1;                                                   
-        flying = flying + 1;                                                 
+        dragon = dragon + 1;
+        ground = ground + 2;
+        rock = rock + 2;
+        grass = grass + 1;
+        flying = flying + 1;
         steel = steel + 1;
       }
       else if (key.equals("Cheerful/Optimistic") && traits.get(key)) {
-        dragon = dragon + 1;                                                 
-        steel = steel + 1;                                                   
-        ghost = ghost + 1;                                                   
-        electric = electric + 2;                                             
-        psychic = psychic + 1;                                               
-        ice = ice + 2;                                                       
-        ground = ground + 1;                                                 
-        rock = rock + 1;                                                     
-        bug = bug + 1;                                                       
-        grass = grass + 2;                                                   
-        poison = poison + 1;                                                 
-        flying = flying + 2;                                                 
-        fire = fire + 1;                                                     
-        water = water + 2;                                                   
-        normal = normal + 2;                                                 
+        dragon = dragon + 1;
+        steel = steel + 1;
+        ghost = ghost + 1;
+        electric = electric + 2;
+        psychic = psychic + 1;
+        ice = ice + 2;
+        ground = ground + 1;
+        rock = rock + 1;
+        bug = bug + 1;
+        grass = grass + 2;
+        poison = poison + 1;
+        flying = flying + 2;
+        fire = fire + 1;
+        water = water + 2;
+        normal = normal + 2;
         fairy = fairy + 2;
       }
       else if (key.equals("Loner") && traits.get(key)) {
-        dragon = dragon + 2;                                                 
-        dark = dark + 2;                                                     
-        steel = steel + 1;                                                   
-        ghost = ghost + 1;                                                   
-        rock = rock + 2;                                                     
-        bug = bug + 1;                                                       
-        poison = poison + 2;                                                 
-        flying = flying + 2;                                                 
-        fire = fire + 1;                                                     
-        fighting = fighting + 1;                                             
+        dragon = dragon + 2;
+        dark = dark + 2;
+        steel = steel + 1;
+        ghost = ghost + 1;
+        rock = rock + 2;
+        bug = bug + 1;
+        poison = poison + 2;
+        flying = flying + 2;
+        fire = fire + 1;
+        ice = ice + 2;
+        fighting = fighting + 1;
         fairy= fairy + 1;
       }
       else if (key.equals("Artistic") && traits.get(key)) {
-        dragon = dragon + 1;                                                 
-        steel = steel + 1;                                                   
-        ghost = ghost + 1;                                                   
-        electric = electric + 1;                                             
-        psychic = psychic + 1;                                               
-        ice = ice + 2;                                                       
-        ground = ground + 1;                                                 
-        bug = bug + 2;                                                       
-        grass = grass + 2;                                                   
-        fire = fire + 1;                                                     
-        water = water + 1;                                                   
-        normal = normal + 1;                                                 
+        dragon = dragon + 1;
+        steel = steel + 1;
+        ghost = ghost + 1;
+        electric = electric + 1;
+        psychic = psychic + 1;
+        ice = ice + 2;
+        ground = ground + 1;
+        bug = bug + 2;
+        grass = grass + 2;
+        fire = fire + 1;
+        water = water + 1;
+        normal = normal + 1;
         fairy = fairy + 2;
       }
       else if (key.equals("Shy") && traits.get(key)) {
-        dragon = dragon + 1;                                                 
-        ghost = ghost + 2;                                                   
-        ground = ground + 1;                                                 
-        bug = bug + 1;                                                       
+        dragon = dragon + 1;
+        ghost = ghost + 2;
+        ground = ground + 1;
+        bug = bug + 1;
         grass = grass + 1;
-        ice = ice + 1;                                           
+        ice = ice + 1;
         fairy = fairy + 1;
       }
       else if (key.equals("Tough") && traits.get(key)) {
-        dragon = dragon + 2;                                                 
-        dark = dark + 1;                                                     
-        steel = steel + 2;                                                   
-        rock = rock + 1;                                                     
-        fire = fire + 1;                                                     
+        dragon = dragon + 2;
+        dark = dark + 1;
+        steel = steel + 2;
+        rock = rock + 1;
+        fire = fire + 1;
         fighting = fighting + 2;
       }
       else if (key.equals("Distrustful/Reserved") && traits.get(key)) {
-        dragon = dragon + 2;                                                 
-        steel = steel + 1;                                                   
-        dark = dark + 2;                                                     
-        ghost = ghost + 1;                                                   
-        ground = ground + 1;                                                 
-        rock = rock + 2;                                                     
-        poison = poison + 2;                                                 
-        flying = flying + 1;                                                 
-        fire = fire + 2;                                                     
+        dragon = dragon + 2;
+        steel = steel + 1;
+        dark = dark + 2;
+        ghost = ghost + 1;
+        ground = ground + 1;
+        rock = rock + 2;
+        poison = poison + 2;
+        flying = flying + 1;
+        fire = fire + 2;
         fighting = fighting + 1;
       }
       else if (key.equals("Laidback") && traits.get(key)) {
-        psychic = psychic + 1;                                               
-        ice = ice + 2;                                                       
-        ground = ground + 1;                                                 
-        rock = rock + 1;                                                     
-        water = water + 2;                                                   
-        normal = normal + 1;                                                 
+        psychic = psychic + 1;
+        ice = ice + 2;
+        ground = ground + 1;
+        rock = rock + 1;
+        water = water + 2;
+        normal = normal + 1;
         fairy = fairy + 1;
       }
       else if (key.equals("Patient") && traits.get(key)) {
-        dragon = dragon + 2;                                                 
-        psychic = psychic + 1;                                               
-        ice = ice + 1;                                                       
-        ground = ground + 2;                                                 
-        bug = bug + 2;                                                       
-        grass = grass + 1;                                                   
-        flying = flying + 1;                                                 
-        water = water + 2;                                                   
-        normal = normal + 1;                                                 
+        dragon = dragon + 2;
+        psychic = psychic + 1;
+        ice = ice + 1;
+        ground = ground + 2;
+        bug = bug + 2;
+        grass = grass + 1;
+        flying = flying + 1;
+        water = water + 2;
+        normal = normal + 1;
         fairy = fairy + 1;
       }
       else if (key.equals("Energetic") && traits.get(key)) {
-        dragon = dragon + 2;                                                 
-        electric = electric + 2;                                             
-        psychic = psychic + 1;                                               
-        ice = ice + 1;                                                       
-        ground = ground + 1;                                                 
-        grass = grass + 1;                                                   
-        flying = flying + 2;                                                 
-        fire = fire + 1;                                                     
-        fighting = fighting + 2;                                             
-        water = water + 1;                                                   
-        normal = normal + 2;                                                 
+        dragon = dragon + 2;
+        electric = electric + 2;
+        psychic = psychic + 1;
+        ice = ice + 1;
+        ground = ground + 1;
+        grass = grass + 1;
+        flying = flying + 2;
+        fire = fire + 1;
+        fighting = fighting + 2;
+        water = water + 1;
+        normal = normal + 2;
         fairy = fairy + 2;
       }
       else if (key.equals("Lazy") && traits.get(key)) {
-        ghost = ghost + 1;                                                   
-        ground = ground + 2;                                                 
-        poison = poison + 2;                                                 
-        flying = flying + 1;                                                 
-        water = water + 1;                                                   
+        ghost = ghost + 1;
+        ground = ground + 2;
+        poison = poison + 2;
+        flying = flying + 1;
+        water = water + 1;
         normal = normal + 1;
       }
       else if (key.equals("Strange") && traits.get(key)) {
-        dragon = dragon + 1;                                                 
-        ghost = ghost + 2;                                                   
-        psychic = psychic + 2;                                               
-        ice = ice + 1;                                                       
-        bug = bug + 2;                                                       
-        grass = grass + 1;                                                   
-        flying = flying + 1;                                                 
+        dragon = dragon + 1;
+        ghost = ghost + 2;
+        psychic = psychic + 2;
+        ice = ice + 1;
+        bug = bug + 2;
+        grass = grass + 1;
+        flying = flying + 1;
         fairy = fairy + 1;
       }
       else if (key.equals("Intimidating") && traits.get(key)) {
-        dragon = dragon + 2;                                                 
-        dark = dark + 1;                                                     
-        steel = steel + 2;                                                   
-        ice = ice + 1;                                                       
-        ground = ground + 1;                                                 
-        rock = rock + 1;                                                     
+        dragon = dragon + 2;
+        dark = dark + 1;
+        steel = steel + 2;
+        ice = ice + 1;
+        ground = ground + 1;
+        rock = rock + 1;
         fire = fire + 1;
       }
       else if (key.equals("Flirty") && traits.get(key)) {
-        dark = dark + 1;                                                     
-        steel = steel + 1;                                                   
-        ghost = ghost + 1;                                                   
-        electric = electric + 1;                                             
-        psychic = psychic + 1;                                               
-        ice = ice + 1;                                                       
-        bug = bug + 1;                                                       
-        grass = grass + 1;                                                   
-        poison = poison + 2;                                                 
-        flying = flying + 1;                                                 
-        fire = fire + 2;                                                     
-        water = water + 2;                                                   
-        normal = normal + 1;                                                 
+        dark = dark + 1;
+        steel = steel + 1;
+        ghost = ghost + 1;
+        electric = electric + 1;
+        psychic = psychic + 1;
+        ice = ice + 1;
+        bug = bug + 1;
+        grass = grass + 1;
+        poison = poison + 2;
+        flying = flying + 1;
+        fire = fire + 2;
+        water = water + 2;
+        normal = normal + 1;
         fairy = fairy + 2;
       }
       else if (key.equals("Showoff") && traits.get(key)) {
-        steel = steel + 1;                                                   
-        dragon = dragon + 1;                                                 
-        dark = dark + 1;                                                     
-        ghost = ghost + 1;                                                   
-        electric = electric + 1;                                             
-        psychic = psychic + 1;                                               
-        ice = ice + 1;                                                       
-        poison = poison + 1;                                                 
-        flying = flying + 2;                                                 
-        fire = fire + 2;                                                     
-        fighting = fighting + 2;                                             
+        steel = steel + 1;
+        dragon = dragon + 1;
+        dark = dark + 1;
+        ghost = ghost + 1;
+        electric = electric + 1;
+        psychic = psychic + 1;
+        ice = ice + 1;
+        poison = poison + 1;
+        flying = flying + 2;
+        fire = fire + 2;
+        fighting = fighting + 2;
         normal = normal + 1;
       }
       else if (key.equals("Brave") && traits.get(key)) {
-        dragon = dragon + 1;                                                 
-        steel = steel + 1;                                                   
-        electric = electric + 1;                                             
-        ground = ground + 1;                                                 
-        rock = rock + 2;                                                     
-        flying = flying + 2;                                                 
-        fire = fire + 2;                                                     
+        dragon = dragon + 1;
+        steel = steel + 1;
+        electric = electric + 1;
+        ground = ground + 1;
+        rock = rock + 2;
+        flying = flying + 2;
+        fire = fire + 2;
         fighting = fighting + 1;
       }
       else if (key.equals("Timid/Cowardly") && traits.get(key)) {
-        ghost = ghost + 1;                                                   
-        electric = electric + 1;                                             
-        psychic = psychic + 1;                                               
-        ice = ice + 2;                                                       
-        rock = rock + 1;                                                     
-        bug = bug + 2;                                                       
-        grass = grass + 1;                                                   
-        water = water + 1;                                                   
-        normal = normal + 2;                                                 
+        ghost = ghost + 1;
+        electric = electric + 1;
+        psychic = psychic + 1;
+        ice = ice + 2;
+        rock = rock + 1;
+        bug = bug + 2;
+        grass = grass + 1;
+        water = water + 1;
+        normal = normal + 2;
         fairy = fairy + 2;
       }
       else if (key.equals("Sarcastic") && traits.get(key)) {
-        dark = dark + 2;                                                     
-        ghost = ghost + 2;                                                   
-        psychic = psychic + 2;                                               
-        ice = ice + 1;                                                       
-        poison = poison + 1;                                                 
-        flying = flying + 1;                                                 
+        dark = dark + 2;
+        ghost = ghost + 2;
+        psychic = psychic + 2;
+        ice = ice + 1;
+        poison = poison + 1;
+        flying = flying + 1;
         fighting = fighting + 1;
       }
       else if (key.equals("Charming/Charismatic") && traits.get(key)) {
-        dragon = dragon + 2;                                                 
-        electric = electric + 1;                                             
-        psychic = psychic + 1;                                               
-        ice = ice + 2;                                                       
-        bug = bug + 2;                                                       
-        grass = grass + 2;                                                   
-        flying = flying + 1;                                                 
-        fire = fire + 2;                                                     
-        water = water + 1;                                                   
-        normal = normal + 1;                                                 
+        dragon = dragon + 2;
+        electric = electric + 1;
+        psychic = psychic + 1;
+        ice = ice + 2;
+        bug = bug + 2;
+        grass = grass + 2;
+        flying = flying + 1;
+        fire = fire + 2;
+        water = water + 1;
+        normal = normal + 1;
         fairy = fairy + 2;
       }
       else if (key.equals("Fiery/Passionate") && traits.get(key)) {
-        dark = dark + 2;                                                     
-        steel = steel + 1;                                                   
-        ghost = ghost + 1;                                                   
-        ice = ice + 1;                                                       
-        ground = ground + 1;                                                 
-        rock = rock + 1;                                                     
-        fire = fire + 2;                                                     
-        fighting = fighting + 1;                                             
+        dark = dark + 2;
+        steel = steel + 1;
+        ghost = ghost + 1;
+        ice = ice + 1;
+        ground = ground + 1;
+        rock = rock + 1;
+        fire = fire + 2;
+        fighting = fighting + 1;
         dragon = dragon + 1;
       }
       else if (key.equals("Inquistive") && traits.get(key)) {
-        ghost = ghost + 1;                                                   
-        electric = electric + 1;                                             
-        psychic = psychic + 2;                                               
-        ice = ice + 2;                                                       
-        bug = bug + 1;                                                       
-        grass = grass + 1;                                                   
-        water = water + 1;                                                   
+        ghost = ghost + 1;
+        electric = electric + 1;
+        psychic = psychic + 2;
+        ice = ice + 2;
+        bug = bug + 1;
+        grass = grass + 1;
+        water = water + 1;
         fairy = fairy + 1;
       }
       else if (key.equals("Vain") && traits.get(key)) {
-        fire = fire + 2;                                                     
-        electric = electric + 2;                                             
-        grass = grass + 1;                                                   
-        fighting = fighting + 2;                                             
-        poison = poison + 1;                                                 
-        flying = flying + 2;                                                 
-        ghost = ghost + 2;                                                   
-        dragon = dragon + 2;                                                 
-        dark = dark + 2;                                                     
+        fire = fire + 2;
+        electric = electric + 2;
+        grass = grass + 1;
+        fighting = fighting + 2;
+        poison = poison + 1;
+        flying = flying + 2;
+        ghost = ghost + 2;
+        dragon = dragon + 2;
+        dark = dark + 2;
         fairy = fairy + 1;
       }
       else if (key.equals("Childlike") && traits.get(key)) {
-        water = water + 1;                                                   
-        electric = electric + 2;                                             
-        grass = grass + 1;                                                   
-        ice = ice + 2;                                                       
-        poison = poison + 1;                                                 
-        bug = bug + 2;                                                       
-        ghost = ghost + 1;                                                   
-        dragon = dragon +1;                                                  
-        dark = dark + 1;                                                     
-        fairy = fairy + 2; 
+        water = water + 1;
+        electric = electric + 2;
+        grass = grass + 1;
+        ice = ice + 2;
+        poison = poison + 1;
+        bug = bug + 2;
+        ghost = ghost + 1;
+        dragon = dragon +1;
+        dark = dark + 1;
+        fairy = fairy + 2;
       }
       else if (key.equals("Grumpy") && traits.get(key)) {
-        fire = fire + 1;                                                     
-        electric = electric + 1;                                             
-        fighting = fighting + 2;                                             
-        poison = poison + 1;                                                 
-        flying = flying + 1;                                                 
-        rock = rock + 2;                                                     
-        ghost = ghost + 1;                                                   
-        dragon = dragon + 2;                                                 
-        dark = dark + 2;                                                     
+        fire = fire + 1;
+        electric = electric + 1;
+        fighting = fighting + 2;
+        poison = poison + 1;
+        flying = flying + 1;
+        rock = rock + 2;
+        ghost = ghost + 1;
+        dragon = dragon + 2;
+        dark = dark + 2;
         steel = steel + 2;
       }
       else if (key.equals("Persistant") && traits.get(key)) {
-        fire = fire + 1;                                                     
-        fighting = fighting + 1;                                             
-        ground = ground + 1;                                                 
-        flying = flying + 1;                                                 
-        psychic = psychic + 1;                                               
-        dragon = dragon + 2;                                                 
-        dark = dark + 1;                                                     
-        steel = steel + 2; 
+        fire = fire + 1;
+        fighting = fighting + 1;
+        ground = ground + 1;
+        flying = flying + 1;
+        psychic = psychic + 1;
+        dragon = dragon + 2;
+        dark = dark + 1;
+        steel = steel + 2;
       }
       else if (key.equals("Soft/Affectionate") && traits.get(key)) {
-        fire = fire + 1;                                                     
-        water = water + 2;                                                   
-        electric = electric + 1;                                             
-        grass = grass + 2;                                                   
-        ground = ground + 1;                                                 
-        flying = flying + 1;                                                 
-        bug = bug + 2;                                                       
-        fairy = fairy + 2; 
+        fire = fire + 1;
+        water = water + 2;
+        electric = electric + 1;
+        grass = grass + 2;
+        ground = ground + 1;
+        flying = flying + 1;
+        bug = bug + 2;
+        fairy = fairy + 2;
       }
       else if (key.equals("Careful") && traits.get(key)) {
-        normal = normal + 1;                                                 
-        grass = grass + 1;                                                   
-        ice = ice + 1;                                                       
-        fighting = fighting + 1;                                             
-        poison = poison + 1;                                                 
-        ground = ground + 2;                                                 
-        psychic = psychic + 2;                                               
-        rock = rock + 1;                                                     
-        dragon = dragon + 1;                                                 
-        steel = steel + 2;                                                   
+        normal = normal + 1;
+        grass = grass + 1;
+        ice = ice + 1;
+        fighting = fighting + 1;
+        poison = poison + 1;
+        ground = ground + 2;
+        psychic = psychic + 2;
+        rock = rock + 1;
+        dragon = dragon + 1;
+        steel = steel + 2;
         fairy = fairy + 1;
       }
       else if (key.equals("Mischevious/Naughty") && traits.get(key)) {
-        fire = fire + 2;                                                     
-        grass = grass + 1;                                                   
-        ice = ice + 1;                                                       
-        poison = poison + 2;                                                 
-        flying = flying + 1;                                                 
-        psychic = psychic + 1;                                               
-        bug = bug + 1;                                                       
-        ghost = ghost + 2;                                                   
-        dark = dark + 2;                                                     
+        fire = fire + 2;
+        grass = grass + 1;
+        ice = ice + 1;
+        poison = poison + 2;
+        flying = flying + 1;
+        psychic = psychic + 1;
+        bug = bug + 1;
+        ghost = ghost + 2;
+        dark = dark + 2;
         fairy = fairy + 1;
       }
     }
@@ -720,7 +718,9 @@ public class TypeDetermination extends JPanel implements ActionListener{
     JPanel typePanel = new JPanel(new GridLayout(0, 1));
     if(numberMax == 1) {
       if (dragonVer) {
-        frame.setVisible(false);
+        frame.dispose();
+        frame.setUndecorated(true);
+        frame.getRootPane().setWindowDecorationStyle(JRootPane.NONE);
         String[] args = {};
         DragonTypeQuizGUI.main(args);
       }
@@ -739,11 +739,11 @@ public class TypeDetermination extends JPanel implements ActionListener{
         typePanel.add(type);
       }
       else if (fireVer) {
-        System.out.println("You're a Fire type!");
-        frame = new JFrame("FIRE");
-        ImageIcon typePic = new ImageIcon("images/Fire.png");
-        type = new JLabel("You're a Fire type!", typePic, JLabel.CENTER);
-        typePanel.add(type);
+        frame.dispose();
+        frame.setUndecorated(true);
+        frame.getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+        String[] args = {};
+        FireTypeQuizGUI.main(args);
       }
       else if (waterVer) {
         System.out.println("You're a Water type!");
@@ -795,11 +795,11 @@ public class TypeDetermination extends JPanel implements ActionListener{
         typePanel.add(type);
       }
       else if (ghostVer) {
-        System.out.println("You're a Ghost type!");
-        frame = new JFrame("GHOST");
-        ImageIcon typePic = new ImageIcon("images/Ghost.png");
-        type = new JLabel("You're a Ghost type!", typePic, JLabel.CENTER);
-        typePanel.add(type);
+        frame.dispose();
+        frame.setUndecorated(true);
+        frame.getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+        String[] args = {};
+        GhostTypeQuizGUI.main(args);
       }
       else if (electricVer) {
         System.out.println("You're an Electric type!");
@@ -816,11 +816,11 @@ public class TypeDetermination extends JPanel implements ActionListener{
         typePanel.add(type);
       }
       else if (iceVer) {
-        System.out.println("You're an Ice type!");
-        frame = new JFrame("ICE");
-        ImageIcon typePic = new ImageIcon("images/Ice.png");
-        type = new JLabel("You're an Ice type!", typePic, JLabel.CENTER);
-        typePanel.add(type);
+        frame.dispose();
+        frame.setUndecorated(true);
+        frame.getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+        String[] args = {};
+        IceTypeQuizGUI.main(args);
       }
       else if (darkVer) {
         System.out.println("You're a Dark type!");
@@ -830,18 +830,18 @@ public class TypeDetermination extends JPanel implements ActionListener{
         typePanel.add(type);
       }
       else if (steelVer) {
-        System.out.println("You're a Steel type!");
-        frame = new JFrame("STEEL");
-        ImageIcon typePic = new ImageIcon("images/Steel.png");
-        type = new JLabel("You're a Steel type!", typePic, JLabel.CENTER);
-        typePanel.add(type);
+        frame.dispose();
+        frame.setUndecorated(true);
+        frame.getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+        String[] args = {};
+        SteelTypeQuizGUI.main(args);
       }
       else if (fairyVer) {
-        System.out.println("You're a Fairy type!");
-        frame = new JFrame("FAIRY");
-        ImageIcon typePic = new ImageIcon("images/Fairy.png");
-        type = new JLabel("You're a Fairy type!", typePic, JLabel.CENTER);
-        typePanel.add(type);
+        frame.dispose();
+        frame.setUndecorated(true);
+        frame.getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+        String[] args = {};
+        FairyTypeQuizGUI.main(args);
       }
     } else {
         if (normalVer) {
@@ -851,7 +851,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
           normalSel.setBounds(80, 215, 100, 20);
           typePanel.add(normalSel);
           normalSel.addActionListener(new ActionListener() {
-            @Override 
+            @Override
             public void actionPerformed(ActionEvent e) {
               frame.setVisible(false);
               frame = new JFrame("NORMAL");
@@ -874,7 +874,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
           grassSel.setBounds(80, 215, 100, 20);
           typePanel.add(grassSel);
           grassSel.addActionListener(new ActionListener() {
-            @Override 
+            @Override
             public void actionPerformed(ActionEvent e) {
               frame.setVisible(false);
               frame = new JFrame("GRASS");
@@ -897,19 +897,13 @@ public class TypeDetermination extends JPanel implements ActionListener{
           fireSel.setBounds(80, 215, 100, 20);
           typePanel.add(fireSel);
           fireSel.addActionListener(new ActionListener() {
-            @Override 
+            @Override
             public void actionPerformed(ActionEvent e) {
-              frame.setVisible(false);
-              frame = new JFrame("FIRE");
-              ImageIcon typePic = new ImageIcon("images/Fire.png");
-              JLabel type = new JLabel("You're a Fire type!", typePic,
-                JLabel.CENTER);
-              JPanel typePanel = new JPanel(new GridLayout(0, 1));
-              typePanel.add(type);
-              frame.setContentPane(typePanel);
-              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-              frame.pack();
-              frame.setVisible(true);
+              frame.dispose();
+              frame.setUndecorated(true);
+              frame.getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+              String[] args = {};
+              FireTypeQuizGUI.main(args);
             }
           });
         }
@@ -920,7 +914,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
           waterSel.setBounds(80, 215, 100, 20);
           typePanel.add(waterSel);
           waterSel.addActionListener(new ActionListener() {
-            @Override 
+            @Override
             public void actionPerformed(ActionEvent e) {
               frame.setVisible(false);
               frame = new JFrame("WATER");
@@ -943,7 +937,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
           fightingSel.setBounds(80, 215, 100, 20);
           typePanel.add(fightingSel);
           fightingSel.addActionListener(new ActionListener() {
-            @Override 
+            @Override
             public void actionPerformed(ActionEvent e) {
               frame.setVisible(false);
               frame = new JFrame("FIGHTING");
@@ -966,7 +960,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
           flyingSel.setBounds(80, 215, 100, 20);
           typePanel.add(flyingSel);
           flyingSel.addActionListener(new ActionListener() {
-            @Override 
+            @Override
             public void actionPerformed(ActionEvent e) {
               frame.setVisible(false);
               frame = new JFrame("FLYING");
@@ -983,13 +977,13 @@ public class TypeDetermination extends JPanel implements ActionListener{
           });
         }
         if (poisonVer) {
-          JButton poisonSel = new JButton("Someone who has very few friends" + 
+          JButton poisonSel = new JButton("Someone who has very few friends" +
              " and generally is disliked because people find him/her annoying" +
             " or just don't understand him/her");
           poisonSel.setBounds(80, 215, 100, 20);
           typePanel.add(poisonSel);
           poisonSel.addActionListener(new ActionListener() {
-            @Override 
+            @Override
             public void actionPerformed(ActionEvent e) {
               frame.setVisible(false);
               frame = new JFrame("POISON");
@@ -1012,7 +1006,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
           groundSel.setBounds(80, 215, 100, 20);
           typePanel.add(groundSel);
           groundSel.addActionListener(new ActionListener() {
-            @Override 
+            @Override
             public void actionPerformed(ActionEvent e) {
               frame.setVisible(false);
               frame = new JFrame("GROUND");
@@ -1035,7 +1029,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
           rockSel.setBounds(80, 215, 100, 20);
           typePanel.add(rockSel);
           rockSel.addActionListener(new ActionListener() {
-            @Override 
+            @Override
             public void actionPerformed(ActionEvent e) {
               frame.setVisible(false);
               frame = new JFrame("ROCK");
@@ -1058,7 +1052,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
           bugSel.setBounds(80, 215, 100, 20);
           typePanel.add(bugSel);
           bugSel.addActionListener(new ActionListener() {
-            @Override 
+            @Override
             public void actionPerformed(ActionEvent e) {
               frame.setVisible(false);
               frame = new JFrame("BUG");
@@ -1081,19 +1075,13 @@ public class TypeDetermination extends JPanel implements ActionListener{
           ghostSel.setBounds(80, 215, 100, 20);
           typePanel.add(ghostSel);
           ghostSel.addActionListener(new ActionListener() {
-            @Override 
+            @Override
             public void actionPerformed(ActionEvent e) {
-              frame.setVisible(false);
-              frame = new JFrame("GHOST");
-              ImageIcon typePic = new ImageIcon("images/Ghost.png");
-              JLabel type = new JLabel("You're a Ghost type!", typePic,
-                JLabel.CENTER);
-              JPanel typePanel = new JPanel(new GridLayout(0, 1));
-              typePanel.add(type);
-              frame.setContentPane(typePanel);
-              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-              frame.pack();
-              frame.setVisible(true);
+                frame.dispose();
+                frame.setUndecorated(true);
+                frame.getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+                String[] args = {};
+                GhostTypeQuizGUI.main(args);
             }
           });
         }
@@ -1104,7 +1092,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
           electricSel.setBounds(80, 215, 100, 20);
           typePanel.add(electricSel);
           electricSel.addActionListener(new ActionListener() {
-            @Override 
+            @Override
             public void actionPerformed(ActionEvent e) {
               frame.setVisible(false);
               frame = new JFrame("ELECTRIC");
@@ -1127,7 +1115,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
           psychicSel.setBounds(80, 215, 100, 20);
           typePanel.add(psychicSel);
           psychicSel.addActionListener(new ActionListener() {
-            @Override 
+            @Override
             public void actionPerformed(ActionEvent e) {
               frame.setVisible(false);
               frame = new JFrame("PSYCHIC");
@@ -1149,19 +1137,13 @@ public class TypeDetermination extends JPanel implements ActionListener{
           iceSel.setBounds(80, 215, 100, 20);
           typePanel.add(iceSel);
           iceSel.addActionListener(new ActionListener() {
-            @Override 
+            @Override
             public void actionPerformed(ActionEvent e) {
-              frame.setVisible(false);
-              frame = new JFrame("ICE");
-              ImageIcon typePic = new ImageIcon("images/Ice.png");
-              JLabel type = new JLabel("You're an Ice type!", typePic,
-                JLabel.CENTER);
-              JPanel typePanel = new JPanel(new GridLayout(0, 1));
-              typePanel.add(type);
-              frame.setContentPane(typePanel);
-              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-              frame.pack();
-              frame.setVisible(true);
+                frame.dispose();
+                frame.setUndecorated(true);
+                frame.getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+                String[] args = {};
+                IceTypeQuizGUI.main(args);
             }
           });
         }
@@ -1172,19 +1154,13 @@ public class TypeDetermination extends JPanel implements ActionListener{
           dragonSel.setBounds(80, 215, 100, 20);
           typePanel.add(dragonSel);
           dragonSel.addActionListener(new ActionListener() {
-            @Override 
+            @Override
             public void actionPerformed(ActionEvent e) {
-              frame.setVisible(false);
-              frame = new JFrame("DRAGON");
-              ImageIcon typePic = new ImageIcon("images/Dragon.png");
-              JLabel type = new JLabel("You're a Dragon type!", typePic,
-                JLabel.CENTER);
-              JPanel typePanel = new JPanel(new GridLayout(0, 1));
-              typePanel.add(type);
-              frame.setContentPane(typePanel);
-              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-              frame.pack();
-              frame.setVisible(true);
+                frame.dispose();
+                frame.setUndecorated(true);
+                frame.getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+                String[] args = {};
+                DragonTypeQuizGUI.main(args);
             }
           });
         }
@@ -1195,7 +1171,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
           darkSel.setBounds(80, 215, 100, 20);
           typePanel.add(darkSel);
           darkSel.addActionListener(new ActionListener() {
-            @Override 
+            @Override
             public void actionPerformed(ActionEvent e) {
               frame.setVisible(false);
               frame = new JFrame("DARK");
@@ -1218,19 +1194,13 @@ public class TypeDetermination extends JPanel implements ActionListener{
           steelSel.setBounds(80, 215, 100, 20);
           typePanel.add(steelSel);
           steelSel.addActionListener(new ActionListener() {
-            @Override 
+            @Override
             public void actionPerformed(ActionEvent e) {
-              frame.setVisible(false);
-              frame = new JFrame("STEEL");
-              ImageIcon typePic = new ImageIcon("images/Steel.png");
-              JLabel type = new JLabel("You're a Steel type!", typePic,
-                JLabel.CENTER);
-              JPanel typePanel = new JPanel(new GridLayout(0, 1));
-              typePanel.add(type);
-              frame.setContentPane(typePanel);
-              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-              frame.pack();
-              frame.setVisible(true);
+                frame.dispose();
+                frame.setUndecorated(true);
+                frame.getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+                String[] args = {};
+                SteelTypeQuizGUI.main(args);
             }
           });
         }
@@ -1240,19 +1210,13 @@ public class TypeDetermination extends JPanel implements ActionListener{
           fairySel.setBounds(80, 215, 100, 20);
           typePanel.add(fairySel);
           fairySel.addActionListener(new ActionListener() {
-            @Override 
+            @Override
             public void actionPerformed(ActionEvent e) {
-              frame.setVisible(false);
-              frame = new JFrame("FAIRY");
-              ImageIcon typePic = new ImageIcon("images/Fairy.png");
-              JLabel type = new JLabel("You're a Fairy type!", typePic,
-                JLabel.CENTER);
-              JPanel typePanel = new JPanel(new GridLayout(0, 1));
-              typePanel.add(type);
-              frame.setContentPane(typePanel);
-              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-              frame.pack();
-              frame.setVisible(true);
+                frame.dispose();
+                frame.setUndecorated(true);
+                frame.getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+                String[] args = {};
+                FairyTypeQuizGUI.main(args);
             }
           });
         }
@@ -1337,7 +1301,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
     submit.setBounds(80, 215, 100, 20);
     selections.add(submit);
     submit.addActionListener(new ActionListener() {
-      @Override 
+      @Override
       public void actionPerformed(ActionEvent e) {
         boolean allSet = true;
         for(String key: traits.keySet()) {
@@ -1370,7 +1334,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
         }
       }
     });
-    
+
     frame.setContentPane(selections);
 
     frame.pack();
