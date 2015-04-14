@@ -347,7 +347,7 @@ public class DarkTypeQuizGUI extends JPanel
     questions.add(question);
 
     question = new Question("When you work with a team, do you tend to let " +
-        "your temmates do most of the work, but take part of the credit?");
+        "your teammates do most of the work, but take part of the credit?");
     question.addPokemonYes("Poochyena");
     question.addPokemonYes("Mightyena");
     questions.add(question);
@@ -378,11 +378,10 @@ public class DarkTypeQuizGUI extends JPanel
     question.addPokemonYes("Lapras");
     questions.add(question);
 
-    question = new Question("Are you prone to runny noses from allergies, or" +
-            " are you more likely to get affected by colds and other " +
-            "contagious sicknesses?");
-    question.addPokemonYes("Cubchoo");
-    question.addPokemonYes("Beartic");
+    question = new Question("Is your greatest love either monetary wealth, or" +
+            " jewelry and other sparkly, expensive thing?");
+    question.addPokemonYes("Murkrow");
+    question.addPokemonYes("Honchkrow");
     questions.add(question);
 
     question = new Question("Are you likely to get defensive or lash out if " +
@@ -519,15 +518,17 @@ public class DarkTypeQuizGUI extends JPanel
     question.addPokemonYes("Articuno");
     questions.add(question);
 
-    question = new Question("Do you have rather notdarkable facial hair, or " +
-            "have you experienced a debilitating injury (broken bones, etc.)?");
-    question.addPokemonYes("Walrein");
-    question.addPokemonNo("Sealeo");
+    question = new Question("Do you have underlings that do the grunt work " +
+            "of your job or operation, while you do the more, ahem, important" +
+            "tasks?");
+    question.addPokemonYes("Honchkrow");
+    question.addPokemonNo("Murkrow");
     questions.add(question);
  
-    question = new Question("Do you like to sleep in and stay up late, "+
-            "as opposed to going to bed early and waking up with the sun?");
-    question.addPokemonYes("Dewgong");
+    question = new Question("Do you like taking walks at night, in the dark, " +
+            "or do you work out (and sweat profusely) in order to maintain " +
+            "control over your stress levels?");
+    question.addPokemonYes("Umbreon");
     questions.add(question);
 
     question = new Question("Is dark cream your favorite kind of dessert, and " +
