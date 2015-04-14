@@ -351,11 +351,11 @@ public class FireTypeQuizGUI extends JPanel
     //   firePokemon.add("Volcanion");
        
        fireColors.put("Charmander", new ColorName("Flame",
-               (8f/100f), (35f/100f), (13f/100f)));
+               (89f/100f), (35f/100f), (13f/100f)));
        fireColors.put("Charmeleon", new ColorName("Flame",
-               (8f/100f), (35f/100f), (13f/100f)));
+               (89f/100f), (35f/100f), (13f/100f)));
        fireColors.put("Charizard", new ColorName("Flame",
-               (8f/100f), (35f/100f), (13f/100f)));
+               (89f/100f), (35f/100f), (13f/100f)));
        fireColors.put("Vulpix", new ColorName("Blond",
                (98f/100f), (94f/100f), (75f/100f)));
        fireColors.put("Ninetales", new ColorName("Blond",

@@ -366,22 +366,22 @@ public class DarkTypeQuizGUI extends JPanel
     question.addPokemonYes("Liepard");
     questions.add(question);
 
-    question = new Question("Do you have somewhat harder time understanding " +
-            "people, but love learning about human psychology or philosophy?");
-    question.addPokemonYes("Snover");
-    question.addPokemonYes("Abomasnow");
+    question = new Question("Do you have a magnetic personality that causes " +
+        "others to do what you want, or believe what you say?");
+    question.addPokemonYes("Inkay");
+    question.addPokemonYes("Malamar");
     questions.add(question);
 
-    question = new Question("Do you tend to do favors for people without any " +
-            "reward in mind, even sometimes, big favors that take a lot " +
-            "out of you?");
-    question.addPokemonYes("Lapras");
+    question = new Question("Do you have the odd habit of collecting a " +
+        "certain group of items?");
+    question.addPokemonYes("Sableye");
     questions.add(question);
 
-    question = new Question("Is your greatest love either monetary wealth, or" +
-            " jewelry and other sparkly, expensive thing?");
-    question.addPokemonYes("Murkrow");
-    question.addPokemonYes("Honchkrow");
+    question = new Question("Do you either let your natural body odor escape " +
+        "your body unquashed, or do you wear heavy amounts of perfume or " +
+        "cologne?");
+    question.addPokemonYes("Stunky");
+    question.addPokemonYes("Skuntank");
     questions.add(question);
 
     question = new Question("Are you likely to get defensive or lash out if " +
@@ -412,11 +412,10 @@ public class DarkTypeQuizGUI extends JPanel
     question.addPokemonYes("Froslass");
     questions.add(question);
 
-    question = new Question("Were you raised in a sheltered " +
-            "environment, where there was no violence or calamity or death " +
-            "in your family?");
-    question.addPokemonYes("Amaura");
-    question.addPokemonYes("Aurorus");
+    question = new Question("Are you into gangstah culture, are a part of " +
+        "a street gang, or would like to join a street gang but are too young?");
+    question.addPokemonYes("Scraggy");
+    question.addPokemonYes("Scrafty");
     questions.add(question);
 
     question = new Question("Are you normally friendly and outgoing, but tend" +
@@ -512,10 +511,10 @@ public class DarkTypeQuizGUI extends JPanel
     question.addPokemonNo("Krokorok");
     questions.add(question);
 
-    question = new Question("Are you famous for either a heroic rescue in the" +
-            " wilderness, or for surviving in unfavorable environments such " +
-            "the desert or the mountains?");
-    question.addPokemonYes("Articuno");
+    question = new Question("Are you someone who always speaks their minds " +
+        "or does what they want, without first considering the opinions of " +
+        "others?");
+    question.addPokemonYes("Pangoro");
     questions.add(question);
 
     question = new Question("Do you have underlings that do the grunt work " +
@@ -531,21 +530,19 @@ public class DarkTypeQuizGUI extends JPanel
     question.addPokemonYes("Umbreon");
     questions.add(question);
 
-    question = new Question("Is dark cream your favorite kind of dessert, and " +
-            "do you hate sharing your food with people?");
-    question.addPokemonYes("Vanilluxe");
-    question.addPokemonNo("Vanillish");
+    question = new Question("Do you tend to break things or hurt others when " +
+        "you get angry, or are you in a position of political power?");
+    question.addPokemonYes("Tyranitar");
     questions.add(question);
 
-    question = new Question("Are you steadfast and unchanging in your " +
-            "thoughts or beliefs, even if everyone else thinks you're wrong?");
-    question.addPokemonYes("Regdark");
+    question = new Question("Would you mind not living in hot or arid areas, " +
+        "and do you have a bad habit of stalking people online?");
+    question.addPokemonYes("Cacturne");
     questions.add(question);
 
-    question = new Question("Are you the kind of person who never tells " +
-            "their inner thoughts, and despise people who feel the need to " +
-            "prod?");
-    question.addPokemonYes("Cloyster");
+    question = new Question("Do you have the ability to fit in with almost " +
+        "any kind of crowd or group of people?");
+    question.addPokemonYes("Greninja");
     questions.add(question);
 
     question = new Question("Are you able to get yourself out of sticky " +
@@ -567,9 +564,10 @@ public class DarkTypeQuizGUI extends JPanel
     question.addPokemonYes("Kyurem");
     questions.add(question);
 
-    question = new Question("Has a man broken your heart and abandoned you, " +
-            "and has this made you difficult to love again?");
-    question.addPokemonYes("Froslass");
+    question = new Question("Do you take great pride in your strength or " +
+        "athletic ability, and like picking on those who are not as " +
+        "physically fit as you?");
+    question.addPokemonYes("Drapion");
     questions.add(question);
 
     darkFrame = new JFrame("DARK TYPE QUIZ");

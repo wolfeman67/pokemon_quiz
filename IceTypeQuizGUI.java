@@ -580,6 +580,7 @@ public class IceTypeQuizGUI extends JPanel
     question = new Question("Has a man broken your heart and abandoned you, " +
             "and has this made you difficult to love again?");
     question.addPokemonYes("Froslass");
+    question.addPokemonNo("Glalie");
     questions.add(question);
 
     iceFrame = new JFrame("ICE TYPE QUIZ");

@@ -76,29 +76,28 @@ public class TypeDetermination extends JPanel implements ActionListener{
   public static void FigureOutType() {
     for(String key: traits.keySet()) {
       if (key.equals("Calm") && traits.get(key)) {
+        rock = rock + 1;
         steel = steel + 1;
         psychic = psychic + 2;
         ice = ice + 2;
         bug = bug + 1;
         grass = grass + 2;
-        water = water + 2;
+        water = water + 3;
         normal = normal + 1;
-        fairy= fairy+1;
       }
       else if (key.equals("Outgoing") && traits.get(key)) {
         dragon = dragon + 1;
         electric = electric + 2;
         psychic = psychic + 1;
-        ice = ice + 1;
         bug = bug + 1;
         grass = grass + 2;
         poison = poison + 1;
         flying = flying + 1;
         fire = fire + 2;
-        fighting = fighting + 1;
+        fighting = fighting + 2;
         water = water + 2;
         normal = normal + 2;
-        fairy = fairy + 2;
+        fairy = fairy + 1;
       }
       else if (key.equals("Kind") && traits.get(key)) {
         dragon = dragon + 1;
@@ -108,9 +107,8 @@ public class TypeDetermination extends JPanel implements ActionListener{
         ground = ground + 1;
         rock = rock + 1;
         bug = bug + 2;
-        grass = grass + 2;
+        grass = grass + 4;
         flying = flying + 1;
-        fire = fire + 1;
         water = water + 2;
         normal = normal + 2;
         fairy = fairy + 2;
@@ -121,7 +119,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
          dark = dark + 1;
          steel = steel + 1;
          electric = electric + 2;
-         psychic = psychic + 2;
+         psychic = psychic + 4;
          ice = ice + 1;
          bug = bug + 2;
          grass = grass + 1;
@@ -137,13 +135,13 @@ public class TypeDetermination extends JPanel implements ActionListener{
         ghost = ghost + 1;
         ice = ice + 1;
         ground = ground + 2;
-        rock = rock + 2;
+        rock = rock + 3;
         bug = bug + 1;
         grass = grass + 1;
         poison = poison + 2;
         flying = flying + 1;
         fire = fire + 1;
-        fighting = fighting + 2;
+        fighting = fighting + 3;
         water = water + 1;
         normal = normal + 1;
       }
@@ -157,7 +155,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
         grass = grass + 1;
         flying = flying + 1;
         water = water + 2;
-        normal = normal + 2;
+        normal = normal + 1;
         fairy = fairy + 2;
       }
       else if (key.equals("Decisive") && traits.get(key)) {
@@ -166,11 +164,10 @@ public class TypeDetermination extends JPanel implements ActionListener{
          ghost = ghost + 2;
          psychic = psychic + 2;
          flying = flying + 2;
-         fire = fire + 1;
          fighting = fighting + 2;
       }
       else if (key.equals("Sensitive") && traits.get(key)) {
-        dragon = dragon + 1;
+        rock = rock + 1;
         steel = steel + 1;
         ghost = ghost + 1;
         electric = electric + 2;
@@ -181,7 +178,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
         grass = grass + 2;
         poison = poison + 1;
         flying = flying + 1;
-        fire = fire + 1;
+        fire = fire + 2;
         water = water + 1;
         normal = normal + 2;
         fairy = fairy + 2;
@@ -190,37 +187,37 @@ public class TypeDetermination extends JPanel implements ActionListener{
         ghost = ghost + 2;
         poison = poison + 1;
         flying = flying + 1;
+        ground = ground + 1;
       }
       else if (key.equals("Mature") && traits.get(key)) {
-         steel = steel + 2;
+         steel = steel + 3;
          dragon = dragon + 1;
          psychic = psychic + 1;
          ground = ground + 2;
-         rock = rock + 1;
+         rock = rock + 2;
          flying = flying + 1;
       }
       else if (key.equals("Naive") && traits.get(key)) {
         steel = steel + 1;
         electric = electric + 2;
-        ice = ice + 2;
+        ice = ice + 1;
         ground = ground + 1;
         rock = rock + 1;
         bug = bug + 1;
         grass = grass + 1;
-        poison = poison + 2;
+        poison = poison + 3;
         fire = fire + 1;
         fighting = fighting + 1;
         water = water + 1;
-        normal = normal + 2;
+        normal = normal + 3;
         fairy = fairy + 2;
       }
       else if (key.equals("Humble") && traits.get(key)) {
-        ground = ground + 2;
+        ground = ground + 3;
         rock = rock + 2;
         grass = grass + 1;
         water = water + 1;
-        normal = normal + 2;
-        fairy = fairy + 1;
+        normal = normal + 1;
       }
       else if (key.equals("Loyal") && traits.get(key)) {
         dragon = dragon + 1;
@@ -228,7 +225,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
         psychic = psychic + 1;
         ice = ice + 1;
         ground = ground + 2;
-        rock = rock + 1;
+        rock = rock + 2;
         bug = bug + 2;
         grass = grass + 2;
         poison = poison + 1;
@@ -236,7 +233,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
         fire = fire + 1;
         fighting = fighting + 2;
         water = water + 2;
-        normal = normal + 1;
+        normal = normal + 2;
         fairy = fairy + 1;
       }
       else if (key.equals("Quiet") && traits.get(key)) {
@@ -259,11 +256,11 @@ public class TypeDetermination extends JPanel implements ActionListener{
         dark = dark + 2;
         steel = steel + 2;
         fire = fire + 2;
-        fighting = fighting + 2;
+        fighting = fighting + 3;
         dragon = dragon + 1;
       }
       else if (key.equals("Aggressive") && traits.get(key)) {
-        dark = dark + 1;
+        dark = dark + 3;
         fire = fire + 1;
         fighting = fighting + 2;
       }
@@ -271,12 +268,12 @@ public class TypeDetermination extends JPanel implements ActionListener{
         steel = steel + 1;
         dragon = dragon + 1;
         poison = poison + 1;
-        dark = dark + 2;
+        dark = dark + 3;
         fighting = fighting + 2;
       }
       else if (key.equals("Dark/Pessimistic") && traits.get(key)) {
         dark = dark + 2;
-        ghost = ghost + 2;
+        ghost = ghost + 3;
         poison = poison + 1;
         fighting = fighting + 1;
       }
@@ -304,35 +301,32 @@ public class TypeDetermination extends JPanel implements ActionListener{
         fire = fire + 1;
         water = water + 2;
         normal = normal + 2;
-        fairy = fairy + 2;
+        fairy = fairy + 1;
       }
       else if (key.equals("Loner") && traits.get(key)) {
-        dragon = dragon + 2;
+        dragon = dragon + 1;
         dark = dark + 2;
         steel = steel + 1;
-        ghost = ghost + 1;
+        ghost = ghost + 3;
         rock = rock + 2;
         bug = bug + 1;
         poison = poison + 2;
         flying = flying + 2;
         fire = fire + 1;
-        ice = ice + 2;
+        ice = ice + 1;
         fighting = fighting + 1;
-        fairy= fairy + 1;
       }
       else if (key.equals("Artistic") && traits.get(key)) {
-        dragon = dragon + 1;
         steel = steel + 1;
         ghost = ghost + 1;
         electric = electric + 1;
         psychic = psychic + 1;
         ice = ice + 2;
         ground = ground + 1;
-        bug = bug + 2;
-        grass = grass + 2;
+        bug = bug + 1;
+        grass = grass + 1;
         fire = fire + 1;
         water = water + 1;
-        normal = normal + 1;
         fairy = fairy + 2;
       }
       else if (key.equals("Shy") && traits.get(key)) {
@@ -341,44 +335,46 @@ public class TypeDetermination extends JPanel implements ActionListener{
         ground = ground + 1;
         bug = bug + 1;
         grass = grass + 1;
-        ice = ice + 1;
+        ice = ice + 4;
+        rock = rock + 2;
         fairy = fairy + 1;
       }
       else if (key.equals("Tough") && traits.get(key)) {
         dragon = dragon + 2;
         dark = dark + 1;
-        steel = steel + 2;
-        rock = rock + 1;
-        fire = fire + 1;
+        steel = steel + 3;
+        rock = rock + 2;
+        fire = fire + 2;
         fighting = fighting + 2;
       }
       else if (key.equals("Distrustful/Reserved") && traits.get(key)) {
-        dragon = dragon + 2;
-        steel = steel + 1;
+        dragon = dragon + 1;
+        steel = steel + 2;
         dark = dark + 2;
         ghost = ghost + 1;
         ground = ground + 1;
-        rock = rock + 2;
+        rock = rock + 1;
         poison = poison + 2;
         flying = flying + 1;
-        fire = fire + 2;
+        fire = fire + 1;
         fighting = fighting + 1;
       }
       else if (key.equals("Laidback") && traits.get(key)) {
         psychic = psychic + 1;
-        ice = ice + 2;
-        ground = ground + 1;
-        rock = rock + 1;
+        ice = ice + 1;
+        ground = ground + 3;
+        rock = rock + 2;
         water = water + 2;
-        normal = normal + 1;
+        normal = normal + 3;
         fairy = fairy + 1;
       }
       else if (key.equals("Patient") && traits.get(key)) {
-        dragon = dragon + 2;
+        dragon = dragon + 1;
         psychic = psychic + 1;
         ice = ice + 1;
         ground = ground + 2;
         bug = bug + 2;
+        rock = rock + 1;
         grass = grass + 1;
         flying = flying + 1;
         water = water + 2;
@@ -387,20 +383,20 @@ public class TypeDetermination extends JPanel implements ActionListener{
       }
       else if (key.equals("Energetic") && traits.get(key)) {
         dragon = dragon + 2;
-        electric = electric + 2;
+        electric = electric + 4;
         psychic = psychic + 1;
-        ice = ice + 1;
         ground = ground + 1;
         grass = grass + 1;
         flying = flying + 2;
         fire = fire + 1;
         fighting = fighting + 2;
         water = water + 1;
-        normal = normal + 2;
+        normal = normal + 1;
         fairy = fairy + 2;
       }
       else if (key.equals("Lazy") && traits.get(key)) {
         ghost = ghost + 1;
+        rock = rock + 1;
         ground = ground + 2;
         poison = poison + 2;
         flying = flying + 1;
@@ -412,27 +408,26 @@ public class TypeDetermination extends JPanel implements ActionListener{
         ghost = ghost + 2;
         psychic = psychic + 2;
         ice = ice + 1;
-        bug = bug + 2;
+        bug = bug + 3;
         grass = grass + 1;
         flying = flying + 1;
-        fairy = fairy + 1;
+        fairy = fairy + 3;
       }
       else if (key.equals("Intimidating") && traits.get(key)) {
-        dragon = dragon + 2;
+        dragon = dragon + 4;
         dark = dark + 1;
         steel = steel + 2;
-        ice = ice + 1;
         ground = ground + 1;
-        rock = rock + 1;
+        rock = rock + 2;
         fire = fire + 1;
       }
       else if (key.equals("Flirty") && traits.get(key)) {
         dark = dark + 1;
         steel = steel + 1;
         ghost = ghost + 1;
-        electric = electric + 1;
+        electric = electric + 2;
         psychic = psychic + 1;
-        ice = ice + 1;
+        ice = ice + 2;
         bug = bug + 1;
         grass = grass + 1;
         poison = poison + 2;
@@ -448,10 +443,9 @@ public class TypeDetermination extends JPanel implements ActionListener{
         dark = dark + 1;
         ghost = ghost + 1;
         electric = electric + 1;
-        psychic = psychic + 1;
-        ice = ice + 1;
+        psychic = psychic + 2;
         poison = poison + 1;
-        flying = flying + 2;
+        flying = flying + 3;
         fire = fire + 2;
         fighting = fighting + 2;
         normal = normal + 1;
@@ -461,10 +455,10 @@ public class TypeDetermination extends JPanel implements ActionListener{
         steel = steel + 1;
         electric = electric + 1;
         ground = ground + 1;
-        rock = rock + 2;
-        flying = flying + 2;
-        fire = fire + 2;
-        fighting = fighting + 1;
+        rock = rock + 1;
+        flying = flying + 3;
+        fire = fire + 3;
+        fighting = fighting + 2;
       }
       else if (key.equals("Timid/Cowardly") && traits.get(key)) {
         ghost = ghost + 1;
@@ -472,7 +466,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
         psychic = psychic + 1;
         ice = ice + 2;
         rock = rock + 1;
-        bug = bug + 2;
+        bug = bug + 3;
         grass = grass + 1;
         water = water + 1;
         normal = normal + 2;
@@ -483,9 +477,10 @@ public class TypeDetermination extends JPanel implements ActionListener{
         ghost = ghost + 2;
         psychic = psychic + 2;
         ice = ice + 1;
-        poison = poison + 1;
+        poison = poison + 3;
         flying = flying + 1;
         fighting = fighting + 1;
+        normal = normal + 1;
       }
       else if (key.equals("Charming/Charismatic") && traits.get(key)) {
         dragon = dragon + 2;
@@ -498,27 +493,27 @@ public class TypeDetermination extends JPanel implements ActionListener{
         fire = fire + 2;
         water = water + 1;
         normal = normal + 1;
-        fairy = fairy + 2;
+        fairy = fairy + 3;
       }
       else if (key.equals("Fiery/Passionate") && traits.get(key)) {
         dark = dark + 2;
         steel = steel + 1;
+        electric = electric + 1;
         ghost = ghost + 1;
         ice = ice + 1;
         ground = ground + 1;
-        rock = rock + 1;
-        fire = fire + 2;
+        fire = fire + 3;
         fighting = fighting + 1;
-        dragon = dragon + 1;
       }
       else if (key.equals("Inquistive") && traits.get(key)) {
         ghost = ghost + 1;
-        electric = electric + 1;
+        electric = electric + 2;
         psychic = psychic + 2;
         ice = ice + 2;
         bug = bug + 1;
+        normal = normal + 1;
         grass = grass + 1;
-        water = water + 1;
+        water = water + 3;
         fairy = fairy + 1;
       }
       else if (key.equals("Vain") && traits.get(key)) {
@@ -529,9 +524,10 @@ public class TypeDetermination extends JPanel implements ActionListener{
         poison = poison + 1;
         flying = flying + 2;
         ghost = ghost + 2;
-        dragon = dragon + 2;
+        dragon = dragon + 1;
         dark = dark + 2;
         fairy = fairy + 1;
+        normal = normal + 1;
       }
       else if (key.equals("Childlike") && traits.get(key)) {
         water = water + 1;
@@ -559,6 +555,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
       }
       else if (key.equals("Persistant") && traits.get(key)) {
         fire = fire + 1;
+        rock = rock + 1;
         fighting = fighting + 1;
         ground = ground + 1;
         flying = flying + 1;
@@ -575,7 +572,9 @@ public class TypeDetermination extends JPanel implements ActionListener{
         ground = ground + 1;
         flying = flying + 1;
         bug = bug + 2;
-        fairy = fairy + 2;
+        fairy = fairy + 1;
+        ice = ice + 1;
+        normal = normal + 1;
       }
       else if (key.equals("Careful") && traits.get(key)) {
         normal = normal + 1;
@@ -583,9 +582,9 @@ public class TypeDetermination extends JPanel implements ActionListener{
         ice = ice + 1;
         fighting = fighting + 1;
         poison = poison + 1;
-        ground = ground + 2;
+        ground = ground + 1;
         psychic = psychic + 2;
-        rock = rock + 1;
+        rock = rock + 3;
         dragon = dragon + 1;
         steel = steel + 2;
         fairy = fairy + 1;
@@ -595,6 +594,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
         grass = grass + 1;
         ice = ice + 1;
         poison = poison + 2;
+        electric = electric + 1;
         flying = flying + 1;
         psychic = psychic + 1;
         bug = bug + 1;
@@ -610,6 +610,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
     max = Math.max(max, bug);
     max = Math.max(max, ice);
     max = Math.max(max, grass);
+    max = Math.max(max, water);
     max = Math.max(max, fairy);
     max = Math.max(max, ghost);
     max = Math.max(max, dark);
@@ -845,9 +846,9 @@ public class TypeDetermination extends JPanel implements ActionListener{
       }
     } else {
         if (normalVer) {
-          JButton normalSel = new JButton("A rather friendly or intelligent" +
-           " individual that likes to make people smile or someone who doesn't"+
-            " really have a set, definable personality (is their own person)");
+          JButton normalSel = new JButton("An average person, who doesn't " +
+              "really have any definable traits, but is pleasant enough " +
+              "to be around");
           normalSel.setBounds(80, 215, 100, 20);
           typePanel.add(normalSel);
           normalSel.addActionListener(new ActionListener() {
@@ -908,9 +909,9 @@ public class TypeDetermination extends JPanel implements ActionListener{
           });
         }
         if (waterVer) {
-          JButton waterSel = new JButton("A normal, every day person who has" +
-             " a distinct personality or ability that makes him/her somewhat" +
-            " interesting and is generally very pleasant and fun to be around");
+          JButton waterSel = new JButton("A normal person who is rather" +
+             " chill and relaxed, and has an affable personality that " +
+             "draws people to him/her.");
           waterSel.setBounds(80, 215, 100, 20);
           typePanel.add(waterSel);
           waterSel.addActionListener(new ActionListener() {
@@ -1071,7 +1072,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
         if (ghostVer) {
           JButton ghostSel = new JButton("An introverted individual who likes" +
              " to let his/her imagination run free and/or put their emotions" +
-            " into a form of art");
+            " into a form of art, and is a little pessimistic");
           ghostSel.setBounds(80, 215, 100, 20);
           typePanel.add(ghostSel);
           ghostSel.addActionListener(new ActionListener() {
@@ -1133,7 +1134,8 @@ public class TypeDetermination extends JPanel implements ActionListener{
         }
         if (iceVer) {
           JButton iceSel = new JButton("A dreamy and mysterious person who" +
-             " many fall for or admire but don't understand, can be artistic");
+             " people fall for or admire but don't understand, can be " +
+             "artistic and also a little shy");
           iceSel.setBounds(80, 215, 100, 20);
           typePanel.add(iceSel);
           iceSel.addActionListener(new ActionListener() {
@@ -1188,9 +1190,9 @@ public class TypeDetermination extends JPanel implements ActionListener{
           });
         }
         if (steelVer) {
-          JButton steelSel = new JButton("A somewhat stoic or emotionless" +
+          JButton steelSel = new JButton("A somewhat stoic or hardened" +
              " individual who tries to keep their problems or worries to" +
-            " themselves");
+            " themselves, and has the ability to survive calamity");
           steelSel.setBounds(80, 215, 100, 20);
           typePanel.add(steelSel);
           steelSel.addActionListener(new ActionListener() {
