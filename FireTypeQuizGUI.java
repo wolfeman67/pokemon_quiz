@@ -445,7 +445,7 @@ public class FireTypeQuizGUI extends JPanel
        fireColors.put("Volcarona", new ColorName("Sunglow",
                (100f/100f), (80f/100f), (20f/100f)));
        fireColors.put("Reshiram", new ColorName("White",
-               (0f/100f), (0f/100f), (0f/100f)));
+               (100f/100f), (100f/100f), (100f/100f)));
        fireColors.put("Fennekin", new ColorName("Scarlet",
                (99f/100f), (5f/100f), (21f/100f)));
        fireColors.put("Braixen", new ColorName("Scarlet",

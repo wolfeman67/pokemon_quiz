@@ -17,7 +17,7 @@ public class GrassTypeQuizGUI extends JPanel
   static ArrayList<String> thoseInAgreement = new ArrayList<String>();
   static ArrayList<String> thoseInDenial = new ArrayList<String>();
   static ArrayList<String> grassPokemon = new ArrayList<String>();
-  static Map <String, ColorName> grassColors = 
+  static Map <String, ColorName> grassColors =
           new HashMap<String, ColorName>();
    public GrassTypeQuizGUI() {
      super(new GridLayout(0,1));
@@ -239,10 +239,10 @@ public class GrassTypeQuizGUI extends JPanel
      public void actionPerformed(ActionEvent e) {
        String finalPokemon = e.getActionCommand();
        Color color = ((JButton)e.getSource()).getBackground();
-       
+
        JPanel n = new JPanel();
        n.add(createPokemon(finalPokemon, color));
-       
+
        grassFrame.getContentPane().removeAll();
        grassFrame.add(n);
        grassFrame.pack();
@@ -369,7 +369,7 @@ public class GrassTypeQuizGUI extends JPanel
        grassPokemon.add("Trevenant");
        grassPokemon.add("Pumpkaboo");
        grassPokemon.add("Gourgeist");
-       
+
        grassColors.put("Bulbasaur", new ColorName("Teal Green",
                (0f/100f), (51f/100f), (50f/100f)));
        grassColors.put("Ivysaur", new ColorName("Teal Green",
@@ -544,14 +544,15 @@ public class GrassTypeQuizGUI extends JPanel
     question.addPokemonYes("Shaymin");
     question.addPokemonYes("Virizion");
     questions.add(question);
-    
+
     question = new Question("What gender are you?");
     question.addPokemonNo("Petilil");
     question.addPokemonNo("Lilligant");
     questions.add(question);
 
     question = new Question("Do you get the feeling that someone is mooching " +
-      "off of you, or that someone is negatively affecting you in some way?");
+      "off of you, or that someone is negatively affecting you in some way, " +
+      "or do you do drugs");
     question.addPokemonYes("Paras");
     question.addPokemonYes("Parsect");
     questions.add(question);
@@ -565,7 +566,7 @@ public class GrassTypeQuizGUI extends JPanel
 
     question = new Question("Are you cranky and surly when you don't get your" +
       " daily fix for the day (caffeinated beverages, entertainment, or, " +
-        "ahem, illicit substances)?");
+      "ahem, illicit substances)?");
     question.addPokemonYes("Pansage");
     question.addPokemonYes("Simisage");
     questions.add(question);
@@ -593,7 +594,7 @@ public class GrassTypeQuizGUI extends JPanel
 
     question = new Question("Do you wear perfume or cologne that makes you " +
       "smell pleasant, or do you have an affable and friendly personality " +
-      "draws people closer to you?");
+      "that draws people closer to you?");
     question.addPokemonYes("Chikorita");
     question.addPokemonYes("Bayleef");
     question.addPokemonYes("Meganium");
@@ -633,9 +634,15 @@ public class GrassTypeQuizGUI extends JPanel
     questions.add(question);
 
     question = new Question("Are you a morning person who tends to eat rather" +
-      " little amounts of food, at least compared to most other people?");
+      " small amounts of food, at least compared to most other people?");
     question.addPokemonYes("Sunkern");
     question.addPokemonYes("Sunflora");
+    questions.add(question);
+
+    question = new Question("Do you find that your feelings or moods change " +
+      "with the seasons or with the weather?");
+    question.addPokemonYes("Deerling");
+    question.addPokemonYes("Sawsbuck");
     questions.add(question);
 
     question = new Question("Are you more active in the nighttime hours, than" +
@@ -680,6 +687,14 @@ public class GrassTypeQuizGUI extends JPanel
     question.addPokemonYes("Jumpluff");
     questions.add(question);
 
+    question = new Question("Do you have a rather hedonistic outlook on life," +
+      " and tend to put your personal feelings/need for fun above " +
+      "responsibilities?");
+    question.addPokemonYes("Lotad");
+    question.addPokemonYes("Lombre");
+    question.addPokemonYes("Ludicolo");
+    questions.add(question);
+
     question = new Question("Are you calm and collected in any situation, " +
       "because you don't really care about things or give off the impression " +
       "that you do not?");
@@ -694,6 +709,87 @@ public class GrassTypeQuizGUI extends JPanel
     question.addPokemonYes("Bulbasaur");
     question.addPokemonYes("Ivysaur");
     question.addPokemonYes("Venusaur");
+    questions.add(question);
+
+    question = new Question("Are you more on your guard in public, or when " +
+      "meeting new people, than what most people consider normal?");
+    question.addPokemonYes("Shroomish");
+    question.addPokemonYes("Breloom");
+    questions.add(question);
+
+    question = new Question("Are you normally closed up and introverted in " +
+      "public, but are very sociable and talkative when around people you " +
+      "are close to?");
+    question.addPokemonYes("Cherubi");
+    question.addPokemonYes("Cherrim");
+    questions.add(question);
+
+    question = new Question("Are you a florist by profession, or do you pour " +
+      "yourself into an art form in which you excel at?");
+    question.addPokemonYes("Budew");
+    question.addPokemonYes("Roselia");
+    question.addPokemonYes("Roserade");
+    questions.add(question);
+
+    question = new Question("Are you not a particularly picky eater, who is " +
+      "willing to try new dishes, even one's most people would bawk at?");
+    question.addPokemonYes("Bellsprout");
+    question.addPokemonYes("Weepinbell");
+    question.addPokemonYes("Victreebel");
+    questions.add(question);
+
+    question = new Question("Do you live in a house that is near a large body" +
+      " of water (lake, river, ocean, etc), or do you tend to a garden?");
+    question.addPokemonYes("Turtwig");
+    question.addPokemonYes("Grotle");
+    question.addPokemonYes("Torterra");
+    questions.add(question);
+
+    question = new Question("Are you a naturally maternal person, who " +
+      "somewhat \"babies\" your friends, or do you have the talent of making " +
+      "clothes, or designing fashions?");
+    question.addPokemonYes("Sewaddle");
+    question.addPokemonYes("Swadloon");
+    question.addPokemonYes("Leavanny");
+    questions.add(question);
+
+    question = new Question("Do you belive that you sometimes have to trick " +
+      "people in order to get them to do what you want or do something that " +
+      "could potentially be better for them?");
+    question.addPokemonYes("Carnivine");
+    questions.add(question);
+
+    question = new Question("Are you passionately curious about the science " +
+      "of human intercations, or psychology in general?");
+    question.addPokemonYes("Snover");
+    question.addPokemonYes("Abomasnow");
+    questions.add(question);
+
+    question = new Question("Do people consider you beautiful and/or amazing," +
+      " but also a bit high maintenance?");
+    question.addPokemonYes("Petilil");
+    question.addPokemonYes("Lilligant");
+    questions.add(question);
+
+    question = new Question("Do you wrestle or play football well, are a " +
+      "stunt double, or are able to take a physical or verbal beating " +
+      "unfazed?");
+    question.addPokemonYes("Chespin");
+    question.addPokemonYes("Quiladin");
+    question.addPokemonYes("Chesnaught");
+    questions.add(question);
+
+    question = new Question("Do you have tatoos or other similar body art, or" +
+      " like wearing fandom related clothing?");
+    question.addPokemonYes("Foongus");
+    question.addPokemonYes("Amoonguss");
+    questions.add(question);
+
+    question = new Question("Do you actively look for ways to escape a " +
+      "workload, or shirk responsibilities, so that you can engage in more " +
+      "enjoyable activities, like visiting friends?");
+    question.addPokemonYes("Cottonee");
+    question.addPokemonYes("Whimsicott");
     questions.add(question);
 
     question = new Question("Are you still biologically a child (under the" +
@@ -795,6 +891,13 @@ public class GrassTypeQuizGUI extends JPanel
     question.addPokemonNo("Bayleef");
     questions.add(question);
 
+    question = new Question("Do you tend to party the hardest out of all " +
+      "party guests, and are usually drunk or delirious in your stupor of " +
+      "fun?");
+    question.addPokemonYes("Ludicolo");
+    question.addPokemonNo("Lombre");
+    questions.add(question);
+
     question = new Question("Do you like partaking in parkour, or other " +
       "somewhat dangerous or reckless activities, like skydiving or " +
       "extreme skateboarding?");
@@ -813,7 +916,7 @@ public class GrassTypeQuizGUI extends JPanel
     question.addPokemonYes("Leafeon");
     questions.add(question);
 
-    question = new Question("Do you like surroundings yourself with scented " +
+    question = new Question("Do you often surround yourself with scented " +
       "materials like candles or incense, or do you have a large ego that " +
       "sometimes pushes people away?");
     question.addPokemonYes("Vileplume");
@@ -827,11 +930,62 @@ public class GrassTypeQuizGUI extends JPanel
     question.addPokemonNo("Skiploom");
     questions.add(question);
 
+    question = new Question("Do you act nice or do favors for people, so that" +
+      " they have no choice but do things for you in return, or just for " +
+      "the sake of popularity?");
+    question.addPokemonYes("Victreebel");
+    question.addPokemonNo("Weepinbell");
+    questions.add(question);
+
     question = new Question("Do people say that you have the mentality of a " +
       "caveman, or do you prefer a culture that existed in the past, as " +
       "opposed to the current culture?");
     question.addPokemonYes("Tangrowth");
     question.addPokemonNo("Tangela");
+    questions.add(question);
+
+    question = new Question("Do you often times find yourself pretending to " +
+      "be kind to people you despise just to keep peace, but if you had the " +
+      "chance you would cause them serious harm?");
+    question.addPokemonYes("Roserade");
+    question.addPokemonNo("Roselia");
+    questions.add(question);
+
+    question = new Question("Do you allow people (friends, and possibly " +
+      "strangers) to stay at your house for an extended period of time, or " +
+      "do you have a plethora of pets in your home?");
+    question.addPokemonYes("Torterra");
+    question.addPokemonNo("Grotle");
+    questions.add(question);
+
+    question = new Question("Are you a generous and philanthropic person " +
+      "who likes contributing to charities, or have you raised children " +
+      "that most consider respectable or well-behaved?");
+    question.addPokemonYes("Leavanny");
+    question.addPokemonNo("Swadloon");
+    questions.add(question);
+
+    question = new Question("Are you protective of your friends, and usually "+
+      "are the first one to stand up for them or provide them with aid?");
+    question.addPokemonYes("Chesnaught");
+    question.addPokemonNo("Quiladin");
+    questions.add(question);
+
+    question = new Question("Do you study world history in order to uncover a" +
+      " way of attaining world peace, or are you a famed negotiator/" +
+      "peacekeeper?");
+    question.addPokemonYes("Celebi");
+    questions.add(question);
+
+    question = new Question("Are you seen as a hero to some, and a public " +
+      "enemy to others, or are you renowned as a warrior, who is also " +
+      "into their feminine, or more intellectual, side?");
+    question.addPokemonYes("Virizion");
+    questions.add(question);
+
+    question = new Question("Have you made the battle against pollution and " +
+      "for finding alternative sources your true purpose?");
+    question.addPokemonYes("Shaymin");
     questions.add(question);
 
     grassFrame = new JFrame("GRASS TYPE QUIZ");

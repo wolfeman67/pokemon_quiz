@@ -36,14 +36,19 @@ public class TypeDetermination extends JPanel implements ActionListener{
   static int water = 0;
   static int normal = 0;
   static int fairy=0;
+  static boolean black = false;
 
 
   public TypeDetermination(String trait) {
     super(new BorderLayout());
     JRadioButton yesButton = new JRadioButton("Yes");
+    yesButton.setFocusable(false);
+    yesButton.setFont(new Font("Serif", Font.BOLD, 14));
     yesButton.setActionCommand(trait + ": Yes");
 
     JRadioButton noButton = new JRadioButton("No");
+    noButton.setFocusable(false);
+    noButton.setFont(new Font("Serif", Font.BOLD, 14));
     noButton.setActionCommand(trait + ": No");
 
     ButtonGroup traitGroup = new ButtonGroup();
@@ -54,6 +59,28 @@ public class TypeDetermination extends JPanel implements ActionListener{
     noButton.addActionListener(this);
 
     JLabel traitLabel = new JLabel(trait);
+    traitLabel.setFont(new Font("Serif", Font.BOLD, 20));
+    traitLabel.setOpaque(true);
+    this.setOpaque(true);
+    yesButton.setOpaque(true);
+    noButton.setOpaque(true);
+    if (black) {
+      traitLabel.setBackground(Color.BLACK);
+      traitLabel.setForeground(Color.WHITE);
+      this.setBackground(Color.BLACK);
+      yesButton.setBackground(Color.BLACK);
+      yesButton.setForeground(Color.WHITE);
+      noButton.setBackground(Color.BLACK);
+      noButton.setForeground(Color.WHITE);
+    } else {
+      traitLabel.setBackground(Color.WHITE);
+      traitLabel.setForeground(Color.BLACK);
+      this.setBackground(Color.WHITE);
+      yesButton.setBackground(Color.WHITE);
+      yesButton.setForeground(Color.BLACK);
+      noButton.setBackground(Color.WHITE);
+      noButton.setForeground(Color.BLACK);
+    }
 
     JPanel radioPanel = new JPanel(new BorderLayout());
     radioPanel.add(yesButton, BorderLayout.WEST);
@@ -582,7 +609,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
         ice = ice + 1;
         fighting = fighting + 1;
         poison = poison + 1;
-        ground = ground + 1;
+        ground = ground + 2;
         psychic = psychic + 2;
         rock = rock + 3;
         dragon = dragon + 1;
@@ -1297,10 +1324,16 @@ public class TypeDetermination extends JPanel implements ActionListener{
     traits.put("Mischevious/Naughty", null);
     JPanel selections = new JPanel(new GridLayout(0, 1));
     for(String key: traits.keySet()) {
+      if (black) {
+        black = false;
+      } else {
+        black = true;
+      }
       selections.add(new TypeDetermination(key));
     }
     submit = new JButton("Submit");
-    submit.setBounds(80, 215, 100, 20);
+    submit.setFont(new Font("Serif", Font.BOLD, 20));
+    //submit.setBounds(80, 215, 100, 20);
     selections.add(submit);
     submit.addActionListener(new ActionListener() {
       @Override
