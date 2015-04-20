@@ -749,16 +749,6 @@ public class FireTypeQuizGUI extends JPanel
     question.addPokemonNo("Monferno");
     questions.add(question);
 
-    question = new Question("Do you perform better when under pressure or " +
-        "when stakes are high?");
-    question.addPokemonYes("Fireix");
-    questions.add(question);
-
-    question = new Question("Have you studied or have came up with theories" +
-        " on how to feasibly construct a time machine?");
-    question.addPokemonYes("Dialga");
-    questions.add(question);
-
     question = new Question("Are you famous because of your ability as a " +
         "fighter or for your endurance, and do you have battle scars or " +
         "injuries from your experiences?");

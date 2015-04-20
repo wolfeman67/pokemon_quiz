@@ -331,8 +331,94 @@ public class DarkTypeQuizGUI extends JPanel
        darkPokemon.add("Malamar");
        darkPokemon.add("Yveltal");
        
-       darkColors.put("Dewgong", new ColorName("Turquoise",
-               (25f/100f), (88f/100f), (82f/100f)));
+       darkColors.put("Umbreon", new ColorName("Moonstone Blue",
+               (45f/100f), (66f/100f), (76f/100f)));
+       darkColors.put("Murkrow", new ColorName("Dollar Bill",
+               (52f/100f), (73f/100f), (40f/100f)));
+       darkColors.put("Sneasel", new ColorName("Steel Blue",
+               (27f/100f), (51f/100f), (71f/100f)));
+       darkColors.put("Houndour", new ColorName("Crimson",
+               (86f/100f), (8f/100f), (24f/100f)));
+       darkColors.put("Houndoom", new ColorName("Crimson",
+               (86f/100f), (8f/100f), (24f/100f)));
+       darkColors.put("Tyranitar", new ColorName("Onyx",
+               (21f/100f), (22f/100f), (22f/100f)));
+       darkColors.put("Poochyena", new ColorName("Gray",
+               (50f/100f), (50f/100f), (50f/100f)));
+       darkColors.put("Mightyena", new ColorName("Gray",
+               (50f/100f), (50f/100f), (50f/100f)));
+       darkColors.put("Nuzleaf", new ColorName("Forest Green",
+               (0f/100f), (27f/100f), (13f/100f)));
+       darkColors.put("Shiftry", new ColorName("Forest Green",
+               (0f/100f), (27f/100f), (13f/100f)));
+       darkColors.put("Sableye", new ColorName("Glitter",
+               (90f/100f), (91f/100f), (98f/100f)));
+       darkColors.put("Carvanha", new ColorName("Dark Blue",
+               (0f/100f), (0f/100f), (55f/100f)));
+       darkColors.put("Sharpedo", new ColorName("Dark Blue",
+               (0f/100f), (0f/100f), (55f/100f)));
+       darkColors.put("Cacturne", new ColorName("Dark Green",
+               (0f/100f), (20f/100f), (13f/100f)));
+       darkColors.put("Crawdaunt", new ColorName("Rust",
+               (72f/100f), (25f/100f), (5f/100f)));
+       darkColors.put("Absol", new ColorName("Ghost White",
+               (97f/100f), (97f/100f), (100f/100f)));
+       darkColors.put("Honchkrow", new ColorName("Dollar Bill",
+               (52f/100f), (73f/100f), (40f/100f)));
+       darkColors.put("Stunky", new ColorName("Ube",
+               (53f/100f), (47f/100f), (76f/100f)));
+       darkColors.put("Skuntank", new ColorName("Ube",
+               (53f/100f), (47f/100f), (76f/100f)));
+       darkColors.put("Spiritomb", new ColorName("Harlequin",
+               (25f/100f), (100f/100f), (0f/100f)));
+       darkColors.put("Drapion", new ColorName("Indigo",
+               (29f/100f), (0f/100f), (51f/100f)));
+       darkColors.put("Weavile", new ColorName("Steel Blue",
+               (27f/100f), (51f/100f), (71f/100f)));
+       darkColors.put("Darkrai", new ColorName("Black",
+               (0f/100f), (0f/100f), (0f/100f)));
+       darkColors.put("Purrloin", new ColorName("Magenta",
+               (100f/100f), (0f/100f), (100f/100f)));
+       darkColors.put("Liepard", new ColorName("Magenta",
+               (100f/100f), (0f/100f), (100f/100f)));
+       darkColors.put("Sandile", new ColorName("Sand",
+               (76f/100f), (70f/100f), (50f/100f)));
+       darkColors.put("Krokorok", new ColorName("Sand",
+               (76f/100f), (70f/100f), (50f/100f)));
+       darkColors.put("Krookodile", new ColorName("Sand",
+               (76f/100f), (70f/100f), (50f/100f)));
+       darkColors.put("Scraggy", new ColorName("Saffron",
+               (96f/100f), (77f/100f), (19f/100f)));
+       darkColors.put("Scrafty", new ColorName("Saffron",
+               (96f/100f), (77f/100f), (19f/100f)));
+       darkColors.put("Zorua", new ColorName("Lust",
+               (90f/100f), (13f/100f), (13f/100f)));
+       darkColors.put("Zoroark", new ColorName("Lust",
+               (90f/100f), (13f/100f), (13f/100f)));
+       darkColors.put("Pawniard", new ColorName("Gunmetal",
+               (16f/100f), (20f/100f), (22f/100f)));
+       darkColors.put("Bisharp", new ColorName("Gunmetal",
+               (16f/100f), (20f/100f), (22f/100f)));
+       darkColors.put("Vullaby", new ColorName("Eggshell",
+               (94f/100f), (92f/100f), (84f/100f)));
+       darkColors.put("Mandibuzz", new ColorName("Eggshell",
+               (94f/100f), (92f/100f), (84f/100f)));
+       darkColors.put("Deino", new ColorName("Dark Purple",
+               (20f/100f), (9f/100f), (30f/100f)));
+       darkColors.put("Zweilous", new ColorName("Dark Purple",
+               (20f/100f), (9f/100f), (30f/100f)));
+       darkColors.put("Hydreigon", new ColorName("Dark Purple",
+               (20f/100f), (9f/100f), (30f/100f)));
+       darkColors.put("Greninja", new ColorName("Ultramarine",
+               (7f/100f), (4f/100f), (56f/100f)));
+       darkColors.put("Pangoro", new ColorName("Jet",
+               (20f/100f), (20f/100f), (20f/100f)));
+       darkColors.put("Inkay", new ColorName("Electric Violet",
+               (56f/100f), (0f/100f), (100f/100f)));
+       darkColors.put("Malamar", new ColorName("Electric Violet",
+               (56f/100f), (0f/100f), (100f/100f)));
+       darkColors.put("Yveltal", new ColorName("Devil Red",
+               (53f/100f), (0f/100f), (7f/100f)));
 
     questions =  new LinkedList<Question>();
     Question question = new Question("Are you famous and well-known outside" +
@@ -342,6 +428,12 @@ public class DarkTypeQuizGUI extends JPanel
     questions.add(question);
     
     question = new Question("What gender are you?");
+    question.addPokemonNo("Vullaby");
+    question.addPokemonNo("Mandibuzz");
+    questions.add(question);
+
+    question = new Question("Do you like dressing up in \"goth\" clothing " +
+      "or the sort of clothes you could find at a place like Hot Topic?");
     question.addPokemonNo("Vullaby");
     question.addPokemonNo("Mandibuzz");
     questions.add(question);
@@ -377,24 +469,17 @@ public class DarkTypeQuizGUI extends JPanel
     question.addPokemonYes("Sableye");
     questions.add(question);
 
+    question = new Question("Do you have the ability to detect where future " +
+      "problems or conflicts will arise, or are you a rather pessimistic or " +
+      "depressed person?");
+    question.addPokemonYes("Absol");
+    questions.add(question);
+
     question = new Question("Do you either let your natural body odor escape " +
         "your body unquashed, or do you wear heavy amounts of perfume or " +
         "cologne?");
     question.addPokemonYes("Stunky");
     question.addPokemonYes("Skuntank");
-    questions.add(question);
-
-    question = new Question("Are you likely to get defensive or lash out if " +
-        "someone mocks you or belittles you?");
-    question.addPokemonYes("Cyndaquil");
-    question.addPokemonYes("Quilava");
-    question.addPokemonYes("Typhlosion");
-    questions.add(question);
-
-    question = new Question("Do you prefer the wintertime over the summertime" +
-            ", and do you tend to disappear when you are not " +
-            "feeling well emotionally?");
-    question.addPokemonYes("Cryogonal");
     questions.add(question);
 
     question = new Question("Do you have perfect, 20/20 vision or have never" +
@@ -404,63 +489,53 @@ public class DarkTypeQuizGUI extends JPanel
     question.addPokemonYes("Krookodile");
     questions.add(question);
 
-    question = new Question("Are you a cold and distant person, who likes to" +
-            " separate yourself from your peers in order to do your own thing" +
-            " in isolation?");
-    question.addPokemonYes("Snorunt");
-    question.addPokemonYes("Glalie");
-    question.addPokemonYes("Froslass");
-    questions.add(question);
-
-    question = new Question("Are you into gangstah culture, are a part of " +
+    question = new Question("Are you into hoodlum culture, are a part of " +
         "a street gang, or would like to join a street gang but are too young?");
     question.addPokemonYes("Scraggy");
     question.addPokemonYes("Scrafty");
     questions.add(question);
 
-    question = new Question("Are you normally friendly and outgoing, but tend" +
-        " to clam up and push people away when things aren't going well?");
-    question.addPokemonYes("Darumaka");
-    question.addPokemonYes("Darmanitan");
+    question = new Question("Are you obsessed with attaining great sums of " +
+      "money or material possessions?");
+    question.addPokemonYes("Murkrow");
+    question.addPokemonYes("Honchkrow");
     questions.add(question);
 
-    question = new Question("Are you normally quiet and unassuming, " +
-        "unless something triggers you, which causes you to go off onto a " +
-        "violent tirade or break things?");
-    question.addPokemonYes("Numel");
-    question.addPokemonYes("Camerupt");
+    question = new Question("Are you a charming person, who has the " +
+      "reputation as a bad boy/girl, and people never forget about you?");
+    question.addPokemonYes("Houndour");
+    question.addPokemonYes("Houndoom");
     questions.add(question);
 
-    question = new Question("Do you either believe in Santa Claus, or have " +
-            "you made it your life's purpose to give to others?");
-    question.addPokemonYes("Delibird");
+    question = new Question("Do you mock those you consider inferior to you " +
+      "when you are confident in your abilities, but also tend to dwell on " +
+      "your shortcomings?");
+    question.addPokemonYes("Carvanha");
+    question.addPokemonYes("Sharpedo");
     questions.add(question);
 
-    question = new Question("Are you known to be a particularly affectionate " +
-            "person, or a rather seductive person who gets a bad reputation " +
-            "for being \"easy\"?");
-    question.addPokemonYes("Smoochum");
-    question.addPokemonYes("Jynx");
+    question = new Question("Do you feel trapped or confined by society's " +
+      "rules, have ever been incarcerated, or have multiple personalities?");
+    question.addPokemonYes("Spiritomb");
     questions.add(question);
 
-    question = new Question("Are you heavyset or plump, but do not feel bad " +
-            "about your weight, or do you play a sport involving a ball " +
-            "adeptly?");
-    question.addPokemonYes("Spheal");
-    question.addPokemonYes("Sealeo");
-    question.addPokemonYes("Walrein");
+    question = new Question("Do you tend to strategize and analyze everything" +
+      ", and like forming plans before going into things?");
+    question.addPokemonYes("Pawniard");
+    question.addPokemonYes("Bisharp");
     questions.add(question);
 
     question = new Question("Have you or would you turn to a life of crime " +
-            "or thievery to attain great wealth or make end's meat?");
+            "or thievery to attain great wealth or make end's meet?");
     question.addPokemonYes("Sneasel");
     question.addPokemonYes("Weavile");
     questions.add(question);
 
-    question = new Question("Are you the kind of person to cover up your " +
-            "tracks or put the blame on someone else when you make mistakes?");
-    question.addPokemonYes("Bergmite");
-    question.addPokemonYes("Avalugg");
+    question = new Question("Did you live in an abusive environment where " +
+      "either your friends or family tended to quarrel or fight often?");
+    question.addPokemonYes("Deino");
+    question.addPokemonYes("Zweilous");
+    question.addPokemonYes("Hydreigon");
     questions.add(question);
 
     question = new Question("Are you still biologically a child (under the" +
@@ -511,15 +586,39 @@ public class DarkTypeQuizGUI extends JPanel
     question.addPokemonNo("Krokorok");
     questions.add(question);
 
+    question = new Question("Do you create works of art that startle, "+
+      "frighten, or shock the weak in heart?");
+    question.addPokemonYes("Nuzleaf");
+    question.addPokemonYes("Shiftry");
+    questions.add(question);
+
+    question = new Question("Are you rather reclusive and prefer living " +
+      "alone, and does this lifestyle unnerve people?");
+    question.addPokemonYes("Shiftry");
+    question.addPokemonNo("Nuzleaf");
+    questions.add(question);
+
+    question = new Question("Because you have experienced hardships that have" +
+      " made you a harder person, are you more grouchy and combatitive than " +
+      "most normal people?");
+    question.addPokemonYes("Hydreigon");
+    question.addPokemonNo("Zweilous");
+    questions.add(question);
+
     question = new Question("Are you someone who always speaks their minds " +
         "or does what they want, without first considering the opinions of " +
         "others?");
     question.addPokemonYes("Pangoro");
     questions.add(question);
 
+    question = new Question("Do you have a competitive drive that sometimes " +
+      "causes you to act harshly or play dirty in your desire to be the best?");
+    question.addPokemonYes("Crawdaunt");
+    questions.add(question);
+
     question = new Question("Do you have underlings that do the grunt work " +
             "of your job or operation, while you do the more, ahem, important" +
-            "tasks?");
+            " tasks?");
     question.addPokemonYes("Honchkrow");
     question.addPokemonNo("Murkrow");
     questions.add(question);
@@ -558,10 +657,9 @@ public class DarkTypeQuizGUI extends JPanel
     question.addPokemonYes("Yveltal");
     questions.add(question);
 
-    question = new Question("Have you made it your goal in life to discover " +
-        "absolute truths in the world, or to make a grand scientific " +
-        "discovery no one else has?");
-    question.addPokemonYes("Kyurem");
+    question = new Question("Are you someone or have you played someone in "+
+      "film that gives people nightmares?");
+    question.addPokemonYes("Darkrai");
     questions.add(question);
 
     question = new Question("Do you take great pride in your strength or " +
