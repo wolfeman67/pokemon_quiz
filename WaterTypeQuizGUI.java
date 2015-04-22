@@ -456,6 +456,45 @@ public class WaterTypeQuizGUI extends JPanel
     question.addPokemonYes("Simipour");
     questions.add(question);
 
+    question = new Question("Are you in a relationship with someone that you " +
+      "tend to argue with, but have no plans of leaving said relationship?");
+    question.addPokemonYes("Binacle");
+    question.addPokemonYes("Barbaracle");
+    questions.add(question);
+
+    question = new Question("Are you able to recover from injuries or blows " +
+      "to the ego rather quickly, or do people look to you for inspiration?");
+    question.addPokemonYes("Staryu");
+    question.addPokemonYes("Starmie");
+    questions.add(question);
+
+    question = new Question("Are you so easy-going, that it sometimes feels " +
+      "like your life has no direction, or do you get into trouble for not " +
+      "taking responibility?");
+    question.addPokemonYes("Wooper");
+    question.addPokemonYes("Quagsire");
+    questions.add(question);
+
+    question = new Question("Are you a rather intelligent person who doesn't " +
+      "mind doing favors for people, even big favors that take a lot of " +
+      "energy out of you?");
+    question.addPokemonYes("Lapras");
+    questions.add(question);
+
+    question = new Question("Does it feel as if you produce your best work " +
+      "when you are either frustrated, or just by sheer accident?");
+    question.addPokemonYes("Psyduck");
+    question.addPokemonYes("Golduck");
+    questions.add(question);
+
+    question = new Question("Do you find that it takes you longer to learn " +
+      "than your peers, or that you are unable to understand some people's " +
+      "jokes or ideas?");
+    question.addPokemonYes("Slowpoke");
+    question.addPokemonYes("Slowbro");
+    question.addPokemonNo("Slowking");
+    questions.add(question);
+
     question = new Question("Are you still biologically a child (under the" +
         " age of 18)?");
     question.addPokemonYes("Squirtle");
@@ -573,9 +612,33 @@ public class WaterTypeQuizGUI extends JPanel
     question.addPokemonYes("Bibarel");
     questions.add(question);
 
+    question = new Question("Do you like giving off the impression that you " +
+      "are useless, incapable, or just not good at something in order to " +
+      "avoid doing that thing?");
+    question.addPokemonYes("Skrelp");
+    questions.add(question);
+
+    question = new Question("Do you feel as if you abnormally smarter or more" +
+      " gifted than other members of your family, or do you have to depend on" +
+      " a \"crutch\" to succeed?");
+    question.addPokemonYes("Slowking");
+    questions.add(question);
+
+    question = new Question("Do you feel as if people tend to ignore you " +
+      "or don't think too highly of you, because you are not popular or " +
+      "all that attractive?");
+    question.addPokemonYes("Feebas");
+    questions.add(question);
+
+    question = new Question("Are you known as someone who is extraordinarily " +
+      "attractive or just generally amazing, that started out as something " +
+      "less desirable?");
+    question.addPokemonYes("Milotic");
+    questions.add(question);
+
     question = new Question("Do you have dreams of eventually creating a " +
-      "beautiful work of art, or discovering a ground-breaking scientific " +
-      "principle?");
+      "famous, beautiful work of art, or discovering a ground-breaking " +
+      "scientific principle?");
     question.addPokemonYes("Clamperl");
     questions.add(question);
 
@@ -586,8 +649,7 @@ public class WaterTypeQuizGUI extends JPanel
     questions.add(question);
 
     question = new Question("Are you known as a rather physically attractive " +
-      "person, who is also a gold digger who is high maintenance or a bit " +
-      "condescending and rude?");
+      "gold digger who is high maintenance or a bit condescending and rude?");
     question.addPokemonYes("Gorebyss");
     questions.add(question);
 
