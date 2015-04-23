@@ -495,6 +495,36 @@ public class WaterTypeQuizGUI extends JPanel
     question.addPokemonNo("Slowking");
     questions.add(question);
 
+    question = new Question("Do you maintain healthy, life-extending habits, " +
+      "or does it seem like you have had lucky dodges of catastrophic events " +
+      "or negative consequences?");
+    question.addPokemonYes("Squirtle");
+    question.addPokemonYes("Wartortle");
+    question.addPokemonYes("Blastoise");
+    questions.add(question);
+
+    question = new Question("Are you an energetic, playful, or happy-go-lucky" +
+      " person, or do you have a certain quality or possession that draws " +
+      "people to you?");
+    question.addPokemonYes("Horsea");
+    question.addPokemonYes("Seadra");
+    question.addPokemonYes("Kingdra");
+    questions.add(question);
+
+    question = new Question("Do you not like showing people who you truly " +
+      "are, and if they pry, do you troll them or confuse the heck out of " +
+      "them?");
+    question.addPokemonYes("Shellder");
+    question.addPokemonYes("Cloyster");
+    questions.add(question);
+
+    question = new Question("Do you believe that freedom is the most " +
+      "important thing in the world, and that everyone is beautiful in their " +
+      "own way?");
+    question.addPokemonYes("Goldeen");
+    question.addPokemonYes("Seaking");
+    questions.add(question);
+
     question = new Question("Are you still biologically a child (under the" +
         " age of 18)?");
     question.addPokemonYes("Squirtle");
@@ -630,6 +660,12 @@ public class WaterTypeQuizGUI extends JPanel
     question.addPokemonYes("Feebas");
     questions.add(question);
 
+    question = new Question("Do you usually go the road less travelled, " +
+      "or do you tend to feel sleepy or a little bit out of it?");
+    question.addPokemonYes("Kingdra");
+    question.addPokemonNo("Seadra");
+    questions.add(question);
+
     question = new Question("Are you known as someone who is extraordinarily " +
       "attractive or just generally amazing, that started out as something " +
       "less desirable?");
@@ -651,6 +687,13 @@ public class WaterTypeQuizGUI extends JPanel
     question = new Question("Are you known as a rather physically attractive " +
       "gold digger who is high maintenance or a bit condescending and rude?");
     question.addPokemonYes("Gorebyss");
+    questions.add(question);
+
+    question = new Question("Have you had experience in the military, or are " +
+      "you a firefighter, or do you have a job that has a high potential " +
+      "chance of risking your life?");
+    question.addPokemonYes("Blastoise");
+    question.addPokemonNo("Wartortle");
     questions.add(question);
 
     question = new Question("Do you tend to party the hardest out of all " +
