@@ -207,6 +207,7 @@ public class GhostTypeQuizGUI extends JPanel
        for (int i = 0; i < ghostPokemon.size(); i++) {
            currentPokemon = ghostPokemon.get(i);
            currentColor = ghostColors.get(currentPokemon);
+           System.out.println(currentPokemon);
            red = currentColor.getRed();
            green = currentColor.getGreen();
            blue = currentColor.getBlue();
@@ -357,7 +358,7 @@ public class GhostTypeQuizGUI extends JPanel
                (100f/100f), (0f/100f), (100f/100f)));
        ghostColors.put("Spiritomb", new ColorName("Electric Green",
                (0f/100f), (100f/100f), (0f/100f)));
-       ghostColors.put("Duksnoir", new ColorName("Black",
+       ghostColors.put("Dusknoir", new ColorName("Black",
                (0f/100f), (0f/100f), (0f/100f)));
        ghostColors.put("Froslass", new ColorName("Steel Blue",
                (27f/100f), (51f/100f), (71f/100f)));

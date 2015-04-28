@@ -140,7 +140,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
         normal = normal + 2;
         fairy = fairy + 2;
       }
-      else if (key.equals("Smart/Nerdy") && traits.get(key)) {
+      else if (key.equals("Nerdy") && traits.get(key)) {
          dragon = dragon + 1;
          ghost = ghost + 2;
          dark = dark + 1;
@@ -155,7 +155,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
          normal = normal + 1;
          fairy = fairy + 1;
       }
-      else if (key.equals("Smart/Nerdy") && !traits.get(key)) {
+      else if (key.equals("Nerdy") && !traits.get(key)) {
         dragon = dragon + 2;
         dark = dark + 1;
         steel = steel + 1;
@@ -1280,7 +1280,7 @@ public class TypeDetermination extends JPanel implements ActionListener{
     traits.put("Calm", null);
     traits.put("Outgoing", null);
     traits.put("Kind", null);
-    traits.put("Smart/Nerdy", null);
+    traits.put("Nerdy", null);
     traits.put("Creative", null);
     traits.put("Decisive", null);
     traits.put("Sensitive", null);
